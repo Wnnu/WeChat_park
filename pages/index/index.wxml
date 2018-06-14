@@ -8,17 +8,42 @@
     </swiper-item>
   </block>
 </swiper>
-<!--信息展示 -->
+<!--信息展示-->
   <view class="park-info">
     <view class="info" wx:for="{{parkinfo}}">
       <text class="park-show">{{item.info}}</text>
       <text class="park-desc">{{item.desc}}</text>
     </view>
   </view>
-<!--查询  -->
+<!--查询和支付-->
   <view class="park-query">
-    <view class="park-search">
-      <image class='btn-detail' src='/images/search.png'></image>
-      <text class="park-search-desc">欢迎使用停车缴费系统</text>
+  <!--查询-->
+    <view class='park-search'>
+      <view class="search-title">
+        <image class='btn-detail' src='/images/search.png'></image>
+        <text class="search-desc">欢迎使用停车缴费系统</text>
+      </view>
+      <view class="search-input">
+        <view class="section">
+          <input type="text" placeholder="输入车牌号连续4位，立即支付" confirm-type="search"/>
+        </view>
+      </view>
+    </view>
+    <!--显示和支付-->
+     <view class='park-pay'>
+      <view class="pay-title">
+        <image class='btn-detail' src='/images/collection.png'></image>
+        <text class="pay-desc">常用车牌：点击后可立即付款</text>
+      </view>
+      <view class="pay-show">
+        <view class='no-info'>
+          <text>暂无车牌</text>
+        </view>
+      </view>
+    </view>
+    <!--收费明细  -->
+    <view class="pay-info">
+      <image class='btn-detail' src='/images/collection.png'></image>
+      <text class="pay-desc">收费细则</text>
     </view>
   </view>
