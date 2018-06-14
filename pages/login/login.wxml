@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="userinfo">
+   
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/images/logo.jpg" background-size="cover"></image>
+      <text class="userinfo-nickname">停车场测试</text>
+  </view>
+  <view class="login-button">
+    <button type="primary" open-type="getUserInfo">授权登录</button>
+  </view>
+</view>
+

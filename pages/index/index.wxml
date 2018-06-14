@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<!--轮播图  -->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!--信息展示 -->
+  <view class="park-info">
+    <view class="info" wx:for="{{parkinfo}}">
+      <text class="park-show">{{item.info}}</text>
+      <text class="park-desc">{{item.desc}}</text>
+    </view>
+  </view>
+<!--查询  -->
+  <view class="park-query">
+    <view class="park-search">
+      <image class='btn-detail' src='/images/search.png'></image>
+      <text class="park-search-desc">欢迎使用停车缴费系统</text>
+    </view>
+  </view>
