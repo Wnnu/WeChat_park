@@ -10,18 +10,17 @@
 </swiper>
 <!--信息展示-->
   <view class="park-info">
-  <block wx:if="{{member}}">
-    <view class="info" wx:for="{{parkinfo}}">
-      <text class="park-show">{{item.info}}</text>
-      <text class="park-desc">{{item.desc}}</text>
-    </view>
-  </block>
-  <block wx:else>
-      <view class="park-click"> 
-          <text class="click-text">会员享受优惠，快来点击！</text>
+    <block wx:if="{{member}}">
+      <view class="info" wx:for="{{parkinfo}}">
+        <text class="park-show">{{item.info}}</text>
+        <text class="park-desc">{{item.desc}}</text>
       </view>
-  </block>
-   
+    </block>
+    <block wx:else>
+        <view class="park-click"> 
+            <text class="click-text">会员享受优惠，快来点击！</text>
+        </view>
+    </block>
   </view>
 <!--查询和支付-->
   <view class="park-query">
@@ -43,7 +42,7 @@
         </view>
       </view>
       <!--提示  -->
-       <view class="search-prompt">
+       <view class="search-prompt" >
          <image class='prompt-img' src='/images/prompt.png'></image> 
          <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦</text>
       </view>
@@ -53,7 +52,7 @@
 
     <!--收费明细  -->
     <view class="pay-info">
-      <image class='pay-img' src='/images/doubt.png'></image>
-      <text class="pay-desc">缴费规则</text>
+      <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
+      <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
     </view>
   </view>

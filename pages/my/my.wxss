@@ -25,6 +25,13 @@
 
 .userinfo-nickname {
   color: #000;
+  background: #FFc452;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.userinfo-nickname::after{
+  border: 0;
 }
 .login-right{
   width: 58rpx;

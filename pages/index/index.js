@@ -121,5 +121,10 @@ Page({
       console.log('空白的你搜个蛋！')
     }  
    
-  }
+  },
+  tapRule: function (e) {
+    wx.navigateTo({
+      url: "/pages/rule/rule"
+    })
+  },
 })
