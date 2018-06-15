@@ -11,6 +11,8 @@ Page({
     interval: 3000,
     duration: 500,
     circular: true,
+    member:false,//是否是会员
+    inputValue: '',//搜索框内的值
     parkinfo:[{
         info:"2000",
         desc:"总车位",
@@ -57,5 +59,67 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  bindInput: function (e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  toSearch: function (e) {
+    let data;
+    let localStorageValue = [];
+    var self=this;
+    if (this.data.inputValue != '') {
+      //调用API从本地缓存中获取数据  
+      var searchData = wx.getStorageSync('searchData') || []
+      searchData.push(this.data.inputValue)
+      wx.setStorageSync('searchData', searchData)
+      wx.showLoading({
+        title: '正在搜索',
+        success: function (res) {
+          setTimeout(function () {
+            wx.showToast({
+              title: '未搜索到车辆',
+              image: '/images/tishi.png',
+              duration: 2000
+            })
+          }, 2000)
+          // wx.request({
+          //   url: 'aaa.php',//这里填写后台给你的搜索接口  
+          //   method: 'post',
+          //   data: { inputValue:self.data.inputValue},
+          //   header: {
+          //     'content-type': 'application/x-www-form-urlencoded'
+          //   },
+          //   success: function (res) {
+          //     if (res.data.length == 0) {
+          //       that.setData({
+          //         centent_Show: false,
+          //       });
+          //     }
+          //     that.setData({
+          //       nanshen_card: res.data,
+          //     });
+          //   },
+          //   fail: function (e) {
+          //     wx.showToast({
+          //       title: '网络异常！',
+          //       duration: 2000
+          //     });
+          //   },
+          // });  
+        },
+        fail: function (res) {
+          wx.showToast({
+            title: '搜索失败',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+      })
+    } else {
+      console.log('空白的你搜个蛋！')
+    }  
+   
   }
 })

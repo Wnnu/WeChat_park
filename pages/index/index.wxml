@@ -10,40 +10,50 @@
 </swiper>
 <!--信息展示-->
   <view class="park-info">
+  <block wx:if="{{member}}">
     <view class="info" wx:for="{{parkinfo}}">
       <text class="park-show">{{item.info}}</text>
       <text class="park-desc">{{item.desc}}</text>
     </view>
+  </block>
+  <block wx:else>
+      <view class="park-click"> 
+          <text class="click-text">会员享受优惠，快来点击！</text>
+      </view>
+  </block>
+   
   </view>
 <!--查询和支付-->
   <view class="park-query">
   <!--查询-->
     <view class='park-search'>
       <view class="search-title">
-        <image class='btn-detail' src='/images/search.png'></image>
+        
         <text class="search-desc">欢迎使用停车缴费系统</text>
       </view>
       <view class="search-input">
-        <view class="section">
-          <input type="text" placeholder="输入车牌号连续4位，立即支付" confirm-type="search"/>
+       <view class="section-img">
+           <image class='btn-detail' src='/images/search.png'></image> 
+        </view>
+        <view class="section-input">
+          <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}"/>
+        </view>
+         <view class="section-button">
+            <button bindtap='toSearch'>搜索</button>
         </view>
       </view>
-    </view>
-    <!--显示和支付-->
-     <view class='park-pay'>
-      <view class="pay-title">
-        <image class='btn-detail' src='/images/collection.png'></image>
-        <text class="pay-desc">常用车牌：点击后可立即付款</text>
-      </view>
-      <view class="pay-show">
-        <view class='no-info'>
-          <text>暂无车牌</text>
-        </view>
+      <!--提示  -->
+       <view class="search-prompt">
+         <image class='prompt-img' src='/images/prompt.png'></image> 
+         <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦</text>
       </view>
     </view>
+   <!--历史记录  -->
+
+
     <!--收费明细  -->
     <view class="pay-info">
-      <image class='btn-detail' src='/images/collection.png'></image>
-      <text class="pay-desc">收费细则</text>
+      <image class='pay-img' src='/images/doubt.png'></image>
+      <text class="pay-desc">缴费规则</text>
     </view>
   </view>

@@ -33,12 +33,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "登录",
-					"pathName": "pages/login/login",
+					"pathName": "pages/my/my",
 					"query": ""
 				}
 			]

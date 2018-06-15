@@ -1,0 +1,9 @@
+<!--pages/my/my.wxml-->
+<view class="top">
+    <image  class="userinfo-avatar" src="/images/touxiang.png" background-size="cover"></image>
+    <text class="userinfo-nickname" open-type="getUserInfo">登录</text>
+     <image  class="login-right" src="/images/right.png" background-size="cover"></image>
+</view>
+
+
+

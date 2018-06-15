@@ -2,13 +2,14 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/login/login"
+    "pages/my/my"
   ],
   "window":{
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1296db",
-    "navigationBarTitleText": "停车场测试",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#FFc452",
+    "navigationBarTitleText": "日照华润万象汇停车场",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFc452"
   },
   "tabBar": {
     "selectedColor": "#1296db",
@@ -20,7 +21,7 @@
         "selectedIconPath": "images/ico_home1.png"
       },
       {
-        "pagePath": "pages/login/login",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/my.png",
         "selectedIconPath": "images/my1.png"
