@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo:{},
     login:false, //是否已经授权，默认否
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -86,13 +87,48 @@ Page({
   onReachBottom: function () {
   
   },
-
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      login: true
-    })
+  getUserInfo(userinfo, callback) {
+    if (!wx.canIUse('button.open-type.getUserInfo')) { 
+       // 向用户提示需要升级微信
+      wx.showModal({
+        showCancel: false,
+        title: '微信版本过旧',
+        content: '使用旧版本微信，将无法登陆和使用其他功能，请您更新至最新版本。',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }else{
+      wx.login({})
+      if (userinfo.detail.errMsg == 'getUserInfo:ok') {
+        // wx.request({}) 
+        app.globalData.userInfo = userinfo.detail.userInfo
+        this.setData({
+          userInfo: userinfo.detail.userInfo,
+          login: true
+        })
+      }
+      else if (userinfo.detail.errMsg == 'getUserInfo:fail auth deny') {
+        wx.showModal({
+          showCancel: false,
+          title: '无法完成登录',
+          content: '小程序需要获取你的用户资料，用于登陆。请重新登陆,并确保允许小程序获取资料。',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        }) // 提示用户，需要授权才能登录
+        // callback('fail to modify scope', null)
+      }
+    }
+    
+    
   }
 })

@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-    "pages/rule/rule"
+    "pages/rule/rule",
+    "pages/bindmember/bindmember"
   ],
   "window":{
     "backgroundTextStyle": "light",

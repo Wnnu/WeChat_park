@@ -3,14 +3,14 @@
     <block wx:if="{{!login && canIUse}}">
       <view class="login-info">
         <image  class="userinfo-avatar" src="/images/touxiang.png" background-size="cover"></image>
-        <button class='get-userinfo' open-type="getUserInfo">登录</button> 
+        <button class='get-userinfo' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button> 
         <image  class="login-right" src="/images/right.png" background-size="cover"></image>
       </view>
     </block>
     <block wx:else>
       <view class="userinfo">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">绿叶葱花</text>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </view>
     </block>
 </view>
@@ -21,11 +21,11 @@
         <image class="item-image" src="/images/touxiang.png"></image>
         <text class="item-text">缴费记录</text>
       </view>
-      <view class="item2">
+      <view class="item2"> 
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
     </view>
-    <view class="person-line"></view>
+    <view class="person-line" wx:if="{{login}}"></view>
     <view class="list-item">
       <view class="item1">
         <image class="item-image" src="/images/touxiang.png"></image>
@@ -65,5 +65,5 @@
     </view>
   </view>
 
-
+  <!-- <button  open-type="openSetting" >登录</button>  -->
 

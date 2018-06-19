@@ -91,6 +91,6 @@ page{
 
 .person-line {
   width: 100%;
-  height: 2rpx;
+  height: 3rpx;
   background: lightgray;
 }

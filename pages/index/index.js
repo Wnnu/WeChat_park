@@ -10,11 +10,12 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 500,
-    circular: true,//从data开始的值到此是轮播属性
+    circular: true,//从data开始的值到此是轮播
     hasUserInfo: true,//是否已授权
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     member:false,//是否是会员
     inputValue: '',//搜索框内的值
+    length: 0,//搜索框内的值的长度
     parkinfo:[{
         info:"2000",
         desc:"总车位",
@@ -64,7 +65,8 @@ Page({
   },
   bindInput: function (e) {
     this.setData({
-      inputValue: e.detail.value
+      inputValue: e.detail.value,
+      length: e.detail.value.length,
     })
   },
   toSearch: function (e) {

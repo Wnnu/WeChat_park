@@ -26,9 +26,9 @@
   <view class="park-query">
   <!--查询-->
     <view class='park-search'>
-      <view class="search-title">
+      <!-- <view class="search-title">
         <text class="search-desc">欢迎使用停车缴费系统</text>
-      </view>
+      </view> -->
       <view class="search-input">
         <view class="section-img">
           <image class='btn-detail' src='/images/search.png'></image> 
@@ -37,7 +37,8 @@
           <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}"/>
         </view>
         <view class="section-button">
-          <button bindtap='toSearch'>搜索</button>
+          <button wx:if="{{length>=4}}" bindtap='toSearch' open-type="getUserInfo" >搜索</button>
+          <button wx:else bindtap='toSearch' open-type="getUserInfo" disabled="true">搜索</button>
         </view>
       </view>
       <!--提示  -->
