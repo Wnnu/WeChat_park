@@ -29,15 +29,6 @@ App({
               }
             }
           })
-        }else{
-          //未进行授权，提示授权
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-              // 用户已经同意小程序使用
-              wx.getUserInfo()
-            }
-          })
         }
       }
     })

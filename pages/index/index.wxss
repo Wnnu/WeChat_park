@@ -1,6 +1,7 @@
 /**index.wxss**/
 page{
   background: #f3f3f3;
+  height:100%;
 }
 
 /*swiper*/
@@ -53,16 +54,17 @@ swiper image{
   background: #ccc;
 } */
 
-/*搜索*/
+/*搜索查询和支付*/
 .park-query{
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 435rpx); 
   background-color: white;
   position: relative;
   box-sizing: border-box;
   padding: 20rpx  25rpx;
   border-radius: 8rpx;
+  
 }
 .park-search{
   overflow: hidden;
@@ -92,7 +94,7 @@ swiper image{
   display: inline-block;
   width: 10%;
   height: 80rpx;
-    float: left;
+  float: left;
 }
 .btn-detail{
   width: 60rpx;
@@ -145,45 +147,12 @@ swiper image{
   color:#ccc;
   font-size: 30rpx;
 }
-/*
-显示和支付  
-.park-pay{
-  overflow: hidden;
-  width: 100%;
-  padding-top:30rpx;
-}
-.pay-title{
-  overflow: hidden;
-  width: 100%;
-  margin-bottom: 20rpx;
-}
-.pay-desc{
-  padding-left: 20rpx;
-  font-size:32rpx;
-}
-.pay-show{
-  width: 100%;
-}
-.no-info{
-  height:170rpx;
-  box-sizing: border-box;
-  width: 100%;
-  border: 1rpx solid #000;
-  background: #f3f3f3;
-  position: relative;
-  text-align: center;
-}
-.no-info text{
-  font-size: 50rpx;
-  color: #666;
-  line-height: 170rpx;
-}
-  
 
-*/
 
 /* 收费细则 */
 .pay-info{
+  position: absolute;
+  bottom: 20rpx;
   width: 100%;
   text-align: center;
   overflow: hidden;

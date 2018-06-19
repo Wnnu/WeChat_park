@@ -27,18 +27,17 @@
   <!--查询-->
     <view class='park-search'>
       <view class="search-title">
-        
         <text class="search-desc">欢迎使用停车缴费系统</text>
       </view>
       <view class="search-input">
-       <view class="section-img">
-           <image class='btn-detail' src='/images/search.png'></image> 
+        <view class="section-img">
+          <image class='btn-detail' src='/images/search.png'></image> 
         </view>
         <view class="section-input">
           <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}"/>
         </view>
-         <view class="section-button">
-            <button bindtap='toSearch'>搜索</button>
+        <view class="section-button">
+          <button bindtap='toSearch'>搜索</button>
         </view>
       </view>
       <!--提示  -->
@@ -48,6 +47,7 @@
       </view>
     </view>
    <!--历史记录  -->
+
 
 
     <!--收费明细  -->

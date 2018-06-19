@@ -10,7 +10,9 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 500,
-    circular: true,
+    circular: true,//从data开始的值到此是轮播属性
+    hasUserInfo: true,//是否已授权
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     member:false,//是否是会员
     inputValue: '',//搜索框内的值
     parkinfo:[{

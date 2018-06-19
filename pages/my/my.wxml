@@ -1,15 +1,69 @@
 <!--pages/my/my.wxml-->
 <view class="top">
-    <block wx:if="{{login}}">
-      <image  class="userinfo-avatar" src="/images/touxiang.png" background-size="cover"></image>
-      <text>绿叶葱花</text>
+    <block wx:if="{{!login && canIUse}}">
+      <view class="login-info">
+        <image  class="userinfo-avatar" src="/images/touxiang.png" background-size="cover"></image>
+        <button class='get-userinfo' open-type="getUserInfo">登录</button> 
+        <image  class="login-right" src="/images/right.png" background-size="cover"></image>
+      </view>
     </block>
     <block wx:else>
-       <image  class="userinfo-avatar" src="/images/touxiang.png" background-size="cover"></image>
-  <button class="userinfo-nickname" open-type="getUserInfo">登录</button> 
-     <image  class="login-right" src="/images/right.png" background-size="cover"></image>
+      <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">绿叶葱花</text>
+      </view>
     </block>
 </view>
+<!--列表  -->
+  <view class="person-list">
+    <view class="list-item" wx:if="{{login}}"> 
+      <view class="item1">
+        <image class="item-image" src="/images/touxiang.png"></image>
+        <text class="item-text">缴费记录</text>
+      </view>
+      <view class="item2">
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <view class="item1">
+        <image class="item-image" src="/images/touxiang.png"></image>
+        <text class="item-text">我的二维码</text>
+      </view>
+      <view class="item2">
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>  
+    </view>
+    <view class="list-item member">
+      <view class="item1">
+        <image class="item-image" src="/images/touxiang.png"></image>
+        <text class="item-text">绑定会员</text>
+      </view>
+      <view class="item2">
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item1">
+        <image class="item-image" src="/images/touxiang.png"></image>
+        <text class="item-text">停车优惠券</text>
+      </view>
+      <view class="item2">
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <view class="item1">
+        <image class="item-image" src="/images/touxiang.png"></image>
+        <text class="item-text">商户优惠券</text>
+      </view>
+      <view class="item2">
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
 
 
 
