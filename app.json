@@ -14,19 +14,25 @@
     "backgroundColor": "#FFc452"
   },
   "tabBar": {
-    "selectedColor": "#1296db",
+  
+    "color": "#000",
+    "selectedColor": "#fff",
+    "borderStyle": "black",
+    "backgroundColor":"#D0CDC7",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/ico_home.png",
-        "selectedIconPath": "images/ico_home1.png"
+        "selectedIconPath": "images/ico_home1.png",
+        "selectedColor": "red"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/my.png",
-        "selectedIconPath": "images/my1.png"
+        "selectedIconPath": "images/my1.png",
+        "selectedColor": "red"
       }
     ]
   }

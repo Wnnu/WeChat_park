@@ -33,12 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "登录",
 					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "绑定会员",
+					"pathName": "pages/bindmember/bindmember",
 					"query": ""
 				}
 			]

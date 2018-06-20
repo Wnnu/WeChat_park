@@ -1,6 +1,6 @@
 /**index.wxss**/
 page{
-  background: #f3f3f3;
+  /* background: #f3f3f3; */
   height:100%;
 }
 
@@ -15,29 +15,51 @@ swiper image{
   height: 100%;
 }
 /*信息展示*/
+.zhuti{
+    height: calc(100% - 310rpx);
+    width: 100%;
+    position: relative;
+}
 .park-info{
   overflow: hidden;
   width: 100%;
   background-color: white;
   position: relative;
-  padding: 30rpx  0rpx;
-  margin-bottom: 20rpx;
+  padding: 25rpx  0rpx;
+  /* margin-bottom: 20rpx; */
 }
 .info{
   float: left;
-  width: 33%;
+  width: 25%;
+  box-sizing: border-box;
+  border:1px solid #ccc;
+  border-width:0 1px 0 0;
+  
+}
+.info:last-child{
+  border-width:0;
 }
 .info text{
   display: block;
   text-align: center;
+
 }
 .park-show{
-  color: orange;
-  font-size:34rpx;
+  color: #ff3226;
+  font-size:28rpx;
+}
+.park-sao{
+  width: 36rpx;
+  height: 36rpx;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
 .park-click{
    width: 100%;
    text-align: center;
+   color:#ff3226;
+   font-size: 38rpx;
 }
 .park-desc{
   color: #ccc;
@@ -53,12 +75,20 @@ swiper image{
   height: 40rpx;
   background: #ccc;
 } */
-
+.label-shouquan{
+  width: 100%;
+  height:100%;
+  display: inline-block;
+}
+.geduan{
+  width: 100%;
+  height: 20rpx;
+  background: #f3f3f3;
+}
 /*搜索查询和支付*/
 .park-query{
   overflow: hidden;
-  width: 100%;
-  height: calc(100% - 435rpx); 
+  width: 100%; 
   background-color: white;
   position: relative;
   box-sizing: border-box;
@@ -69,7 +99,7 @@ swiper image{
 .park-search{
   overflow: hidden;
   width: 100%;
-  padding-bottom:50rpx;
+  padding-bottom:20rpx;
   border-bottom: 1rpx dotted #000;
 }
 .search-title{
@@ -147,12 +177,40 @@ swiper image{
   color:#ccc;
   font-size: 30rpx;
 }
+/*快捷缴费  */
+.vehicle_info{
+  border: 1rpx solid #ccc;
+  width: 65%;
+  margin: 20rpx auto;
+  height:80rpx;
+  box-shadow: 10rpx 10rpx 5rpx #999;
+}
+.vehicle_info text{
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 34rpx;
+  text-align: left;
+  line-height: 80rpx;
+}
 
-
+/*快捷缴费  */
+.pay-quick{
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20rpx;
+  text-align: center;
+}
+.pay-quick-desc{
+  font-size:32rpx;
+}
 /* 收费细则 */
 .pay-info{
   position: absolute;
-  bottom: 20rpx;
+  bottom: 10rpx;
+  left: 0;
   width: 100%;
   text-align: center;
   overflow: hidden;

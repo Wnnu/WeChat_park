@@ -11,64 +11,70 @@ Page({
     interval: 3000,
     duration: 500,
     circular: true,//从data开始的值到此是轮播
-    hasUserInfo: true,//是否已授权
+    hasUserInfo: false,//是否已授权
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    member:false,//是否是会员
+    member:true,//是否是会员
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
     parkinfo:[{
-        info:"2000",
-        desc:"总车位",
+        info:"/images/sao.png",
+        desc:"卷码扫描",
     },{
-        info: "暂无",
-        desc: "卡级别",
+        info: "17862910320",
+        desc: "白银会员",
     },{
         info: "0",
-        desc: "卡积分",
+        desc: "车牌绑定数",
+    }, {
+      info: "暂未缴费",
+      desc: "缴费历史",
     }],
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+    this.authorize();
+  },
+  getUserInfo(userinfo, callback) {
+    var that=this;
+    if (!wx.canIUse('button.open-type.getUserInfo')) {
+      // 向用户提示需要升级微信
+      wx.showModal({
+        showCancel: false,
+        title: '微信版本过旧',
+        content: '使用旧版本微信，将无法登陆和使用其他功能，请您更新至最新版本。',
+        success: function (res) {
         }
       })
+    } else {
+      wx.login({})
+      if (userinfo.detail.errMsg == 'getUserInfo:ok') {
+        // wx.request({}) 
+        app.globalData.userInfo = userinfo.detail.userInfo
+        that.setData({
+          userInfo: userinfo.detail.userInfo,
+          hasUserInfo: true
+        })
+        that.toSearch();
+      }
+      else if (userinfo.detail.errMsg == 'getUserInfo:fail auth deny') {
+        wx.showModal({
+          showCancel: false,
+          title: '未获得授权',
+          content: '小程序需要获取您的授权，才可以进行相关操作。',
+          success: function (res) {
+          }
+        }) // 提示用户，需要授权才能登录
+        // callback('fail to modify scope', null)
+      }
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
+  // 输入框实时改变值和长度
   bindInput: function (e) {
     this.setData({
       inputValue: e.detail.value,
       length: e.detail.value.length,
     })
   },
+  // 搜索查询
   toSearch: function (e) {
     let data;
     let localStorageValue = [];
@@ -130,5 +136,46 @@ Page({
     wx.navigateTo({
       url: "/pages/rule/rule"
     })
+  },
+  tapBindmember: function (e) {
+    wx.navigateTo({
+      url: "/pages/bindmember/bindmember"
+    })
+  },
+ 
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  onShow: function () {
+    this.authorize();
+  },
+  // 判断是否已经授权
+  authorize: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        // userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          // userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            // userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
   },
 })

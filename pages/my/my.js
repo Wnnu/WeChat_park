@@ -18,32 +18,7 @@ Page({
    */
   onLoad: function () {
     // 获取用户信息
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        login: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          login: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            login: true
-          })
-        }
-      })
-    }
+    this.authorize();
   },
 
   /**
@@ -57,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.authorize();
   },
 
   /**
@@ -128,7 +103,86 @@ Page({
         // callback('fail to modify scope', null)
       }
     }
-    
-    
-  }
+  },
+  // 缴费记录
+  my_list1: function (e) {
+    if (app.globalData.userInfo) {首先判断用户是否授权了
+
+    }else{
+      this.login_authorize();// 提示用户，需要授权才能登录
+    }
+  },
+  // 我的二维码
+  my_list2: function (e) {
+    if (app.globalData.userInfo) {//判断用户是否授权了
+
+    } else {
+      this.login_authorize(); // 提示用户，需要授权才能登录
+    }
+  },
+  // 绑定会员
+  my_list3: function (e) {
+    if (app.globalData.userInfo) {// 判断用户是否授权了
+      wx.navigateTo({
+        url: "/pages/bindmember/bindmember"
+      })
+    } else {
+      this.login_authorize();// 提示用户，需要授权才能登录
+    }
+  },
+  // 停车优惠券
+  my_list4: function (e) {
+    if (app.globalData.userInfo) {// 判断用户是否授权了
+
+    } else {
+      this.login_authorize(); // 提示用户，需要授权才能登录
+    }
+  },
+  // 商户优惠券
+  my_list5: function (e) {
+    if (app.globalData.userInfo) { // 判断用户是否授权了
+
+    } else {
+      this.login_authorize();// 提示用户，需要授权才能登录
+    }
+  },
+  // 判断是否已经授权
+  authorize: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        login: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          login: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            login: true
+          })
+        }
+      })
+    }
+  },
+  // 提示用户，需要授权才能登录
+  login_authorize: function () {
+    wx.showModal({
+      // showCancel: false,
+      title: '当前无权限',
+      content: '您需要进行登录授权才可进行操作',
+      success: function (res) {
+      }
+    }) 
+  },
 })

@@ -16,9 +16,9 @@
 </view>
 <!--列表  -->
   <view class="person-list">
-    <view class="list-item" wx:if="{{login}}"> 
+    <view class="list-item" wx:if="{{login}}" bindtap='my_list1'> 
       <view class="item1">
-        <image class="item-image" src="/images/touxiang.png"></image>
+        <image class="item-image" src="/images/1.png"></image>
         <text class="item-text">缴费记录</text>
       </view>
       <view class="item2"> 
@@ -26,27 +26,27 @@
       </view>
     </view>
     <view class="person-line" wx:if="{{login}}"></view>
-    <view class="list-item">
+    <view class="list-item" bindtap='my_list2'>
       <view class="item1">
-        <image class="item-image" src="/images/touxiang.png"></image>
+        <image class="item-image" src="/images/2.png"></image>
         <text class="item-text">我的二维码</text>
       </view>
       <view class="item2">
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>  
     </view>
-    <view class="list-item member">
+    <view class="list-item member" bindtap='my_list3'>
       <view class="item1">
-        <image class="item-image" src="/images/touxiang.png"></image>
+        <image class="item-image" src="/images/3.png"></image>
         <text class="item-text">绑定会员</text>
       </view>
       <view class="item2">
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
     </view>
-    <view class="list-item">
+    <view class="list-item" bindtap='my_list4'>
       <view class="item1">
-        <image class="item-image" src="/images/touxiang.png"></image>
+        <image class="item-image" src="/images/4.png"></image>
         <text class="item-text">停车优惠券</text>
       </view>
       <view class="item2">
@@ -54,9 +54,9 @@
       </view>
     </view>
     <view class="person-line"></view>
-    <view class="list-item">
+    <view class="list-item" bindtap='my_list5'>
       <view class="item1">
-        <image class="item-image" src="/images/touxiang.png"></image>
+        <image class="item-image" src="/images/5.png"></image>
         <text class="item-text">商户优惠券</text>
       </view>
       <view class="item2">
@@ -65,5 +65,5 @@
     </view>
   </view>
 
-  <!-- <button  open-type="openSetting" >登录</button>  -->
+   <button  open-type="openSetting" >设置授权</button>  
 

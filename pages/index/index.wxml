@@ -9,19 +9,42 @@
   </block>
 </swiper>
 <!--信息展示-->
-  <view class="park-info">
-    <block wx:if="{{member}}">
+<view class='zhuti'>
+  <block wx:if="{{member}}">
+    <view class="park-info">
       <view class="info" wx:for="{{parkinfo}}">
-        <text class="park-show">{{item.info}}</text>
+        <block wx:if="{{index==0}}">
+          <image  class="park-sao" src="{{item.info}}"> </image>
+        </block>
+        <block wx:else>
+          <text  class="park-show">{{item.info}}</text>
+        </block>
         <text class="park-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{hasUserInfo}}">
+    <!--判断是否授权，然后再显示  -->
+      <view class="park-info" bindtap='tapBindmember'>
+        <view class="park-click">
+          <text class="click-text"  >绑定会员尽享停车优惠</text>
+        </view>
       </view>
     </block>
     <block wx:else>
-        <view class="park-click"> 
-            <text class="click-text">会员享受优惠，快来点击！</text>
-        </view>
-    </block>
-  </view>
+      <view class="park-info" >
+        <label for='shouquan' class="label-shouquan">
+          <view class="park-click">
+            <button hidden='true' open-type="getUserInfo" bindgetuserinfo="getUserInfo" id="shouquan">
+            </button> 
+            <text class="click-text" >绑定会员尽享停车优惠</text>
+          </view>
+        </label>
+      </view>
+    </block> 
+  </block>
+  <view class="geduan"></view>
 <!--查询和支付-->
   <view class="park-query">
   <!--查询-->
@@ -37,23 +60,32 @@
           <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}"/>
         </view>
         <view class="section-button">
-          <button wx:if="{{length>=4}}" bindtap='toSearch' open-type="getUserInfo" >搜索</button>
-          <button wx:else bindtap='toSearch' open-type="getUserInfo" disabled="true">搜索</button>
+          <button wx:if="{{length<4}}"  disabled="true">搜索</button>
+          <button wx:elif="{{length >= 4&&hasUserInfo}}" bindtap='toSearch'>搜索</button>
+          <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">搜索</button>
         </view>
       </view>
       <!--提示  -->
        <view class="search-prompt" >
          <image class='prompt-img' src='/images/prompt.png'></image> 
-         <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦</text>
+         <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦
+         </text>
       </view>
     </view>
-   <!--历史记录  -->
-
-
-
-    <!--收费明细  -->
-    <view class="pay-info">
-      <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
-      <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+   <!--历史记录&&快捷缴费  -->
+    <view class="pay-quick">
+      <text class="pay-quick-desc">快捷缴费</text>
+      <view class="vehicle_info">
+        <text>WJ宁55255</text>
+      </view>
+       <view class="vehicle_info">
+        <text>使880887</text>
+      </view>
     </view>
   </view>
+<!--收费明细  -->
+  <view class="pay-info">
+    <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
+    <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+  </view>
+</view>
