@@ -12,14 +12,13 @@
 <view class='zhuti'>
   <block wx:if="{{member}}">
     <view class="park-info">
-      <view class="info" wx:for="{{parkinfo}}">
-        <block wx:if="{{index==0}}">
-          <image  class="park-sao" src="{{item.info}}"> </image>
-        </block>
-        <block wx:else>
-          <text  class="park-show">{{item.info}}</text>
-        </block>
-        <text class="park-desc">{{item.desc}}</text>
+      <view class="info"  bindtap='scan'>
+        <image  class="park-sao" src="/images/sao.png"> </image>
+        <text class="park-desc">卷码扫描</text>
+      </view>
+      <view class="info" >
+        <text  class="park-show">17862910320</text>
+        <text class="park-desc">白银会员</text>
       </view>
     </view>
   </block>
@@ -66,22 +65,27 @@
         </view>
       </view>
       <!--提示  -->
-       <view class="search-prompt" >
-         <image class='prompt-img' src='/images/prompt.png'></image> 
-         <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦
-         </text>
-      </view>
+      <block wx:if="{{!history}}">
+        <view class="search-prompt" >
+          <image class='prompt-img' src='/images/prompt.png'></image> 
+          <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦
+          </text>
+        </view>
+      </block>
     </view>
    <!--历史记录&&快捷缴费  -->
-    <view class="pay-quick">
-      <text class="pay-quick-desc">快捷缴费</text>
-      <view class="vehicle_info">
-        <text>WJ宁55255</text>
+    <block wx:if="{{history}}">
+      <view class="pay-quick">
+        <text class="pay-quick-desc">快捷缴费</text>
+        <view class="vehicle_info">
+          <image class='bg-car' src='/images/car1.jpg'></image>
+           <text>苏E 05E68</text> 
+        </view>
+        <view class="vehicle_info">
+          <text>使880887</text>
+        </view>
       </view>
-       <view class="vehicle_info">
-        <text>使880887</text>
-      </view>
-    </view>
+    </block>
   </view>
 <!--收费明细  -->
   <view class="pay-info">

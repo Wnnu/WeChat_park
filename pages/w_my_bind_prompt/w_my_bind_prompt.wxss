@@ -1,0 +1,103 @@
+/* pages/bindprompt/bindprompt.wxss */
+/*顶部logo  */
+.logo{
+  width: 100%;
+  height:310rpx;
+}
+.logo image{
+  width: 100%;
+  height:100%;
+}
+/*温馨提示  */
+.bind-tishi{
+  width: 100%;
+  position: absolute;
+  bottom: 60rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.search-prompt{
+  width: 80%;
+  margin: 15rpx auto 0;
+  text-align:center;
+}
+.prompt-img{
+  float: left;
+  margin: 5rpx 5rpx 0 0;
+  width: 80rpx;
+  height:130rpx;
+}
+.prompt-img-info{
+  width: 50rpx;
+  height:50rpx;
+  margin-top: 15rpx;   
+}
+.prompt-desc{
+  color:#888;
+  font-size: 26rpx;
+  
+}
+/*绑定会员  */
+.bind-info{
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.bind-title {  
+    height: 60rpx;  
+    line-height: 60rpx;  
+    text-align: center;  
+}  
+.bind-title .line {  
+    display: inline-block;  
+    width: 30%;  
+    border-top: 1rpx dashed #ccc ;  
+}  
+.bind-title .bind-title-desc {  
+    color: #686868;  
+    margin: 0 7%;
+    vertical-align: -8rpx;  
+}  
+
+/*绑定结果提示  */
+.bind-prompt1{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 38rpx;
+  margin: 30rpx 0 20rpx;
+}
+.bind-prompt2{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 38rpx;
+  margin: 30rpx 0 20rpx;
+}
+.bind-prompt2 text{
+  font-weight: bold;
+  margin: 0 10rpx;
+}
+
+
+.btn-area button.btn-false{
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 50rpx auto 20rpx;
+  font-size: 30rpx;
+  background: #fff;
+  color: #000;
+  border: 1rpx solid #000;
+}
+
+.bind-back{
+  width: 100%;
+  text-align: center;
+}
+.bind-back text{
+  font-size: 30rpx;
+  color:#079bd3;
+  text-decoration:underline;
+}

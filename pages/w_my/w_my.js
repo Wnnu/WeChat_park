@@ -1,4 +1,4 @@
-// pages/my/my.js
+// pages/w_my/w_my.js
 //获取应用实例
 const app = getApp()
 
@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo:{},
-    login:false, //是否已经授权，默认否
+    member: false,//是否是会员
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -106,25 +106,30 @@ Page({
   },
   // 缴费记录
   my_list1: function (e) {
-    if (app.globalData.userInfo) {首先判断用户是否授权了
-
+    if (app.globalData.userInfo) {//首先判断用户是否授权了
+      wx.navigateTo({
+        url: "/pages/w_my_payment_record/w_my_payment_record"
+      })
     }else{
       this.login_authorize();// 提示用户，需要授权才能登录
     }
   },
-  // 我的二维码
+  // 我的爱车
   my_list2: function (e) {
-    if (app.globalData.userInfo) {//判断用户是否授权了
-
+    if (app.globalData.userInfo) {//首先判断用户是否授权了
+      wx.navigateTo({
+        url: "/pages/w_my_car/w_my_car"
+      })
     } else {
-      this.login_authorize(); // 提示用户，需要授权才能登录
+      this.login_authorize();// 提示用户，需要授权才能登录
     }
   },
+
   // 绑定会员
   my_list3: function (e) {
     if (app.globalData.userInfo) {// 判断用户是否授权了
       wx.navigateTo({
-        url: "/pages/bindmember/bindmember"
+        url: "/pages/w_my_bind_member/w_my_bind_member"
       })
     } else {
       this.login_authorize();// 提示用户，需要授权才能登录
@@ -133,7 +138,9 @@ Page({
   // 停车优惠券
   my_list4: function (e) {
     if (app.globalData.userInfo) {// 判断用户是否授权了
-
+        wx.navigateTo({
+          url: "/pages/w_my_park_coupon/w_my_park_coupon"
+        })
     } else {
       this.login_authorize(); // 提示用户，需要授权才能登录
     }
@@ -141,7 +148,9 @@ Page({
   // 商户优惠券
   my_list5: function (e) {
     if (app.globalData.userInfo) { // 判断用户是否授权了
-
+      wx.navigateTo({
+        url: "/pages/w_my_businessman_coupon/w_my_businessman_coupon"
+      })
     } else {
       this.login_authorize();// 提示用户，需要授权才能登录
     }

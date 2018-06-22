@@ -1,4 +1,4 @@
-/* pages/bindmember/bindmember.wxss */
+/* pages/bindplatenumber/bindplatenumber.wxss */
 /*顶部logo  */
 .logo{
   width: 100%;
@@ -11,24 +11,31 @@
 /*绑定提示  */
 .bind-tishi{
   width: 100%;
-  position: relative;
+  position: absolute;
+  bottom: 60rpx;
   box-sizing: border-box;
   padding: 0 30rpx;
 }
 .search-prompt{
   width: 80%;
   margin: 15rpx auto 0;
-  text-align: center;
+  text-align:center;
 }
 .prompt-img{
   float: left;
-  margin: 5rpx 10rpx 0 0;
-  width: 40rpx;
-  height:40rpx;
+  margin: 5rpx 5rpx 0 0;
+  width: 80rpx;
+  height:130rpx;
+}
+.prompt-img-info{
+  width: 50rpx;
+  height:50rpx;
+  margin-top: 15rpx;   
 }
 .prompt-desc{
-  color:#333;
-  font-size: 32rpx;
+  color:#888;
+  font-size: 26rpx;
+  
 }
 /*绑定会员  */
 .bind-info{
@@ -54,24 +61,42 @@
 }  
 
 /*表单  */
+.section{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
 form input{
   border: 1rpx solid #dcdad6; 
   background: white;
   padding: 10rpx 30rpx;
+  padding-right: 190rpx;
   box-sizing: border-box;
   font-size: 32rpx;
   border-radius: 8rpx;
-  width: 80%;
+  width: 100%;
   height: 90rpx;
   margin: 50rpx auto 0;
+  border-right-style: 1rpx solid red;
 }
-.btn-area button{
+
+.btn-area button.btn-false{
   width: 40%;
   height: 80rpx;
   line-height: 80rpx;
-  margin: 50rpx auto ;
+  margin: 50rpx auto 20rpx;
   font-size: 30rpx;
   background: #fff;
   color: #000;
   border: 1rpx solid #000;
+}
+
+.bind-back{
+  width: 100%;
+  text-align: center;
+}
+.bind-back text{
+  font-size: 30rpx;
+  color:#079bd3;
+  text-decoration:underline;
 }

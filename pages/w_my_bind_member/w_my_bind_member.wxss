@@ -1,0 +1,121 @@
+/* pages/bindmember/bindmember.wxss */
+/*顶部logo  */
+.logo{
+  width: 100%;
+  height:310rpx;
+}
+.logo image{
+  width: 100%;
+  height:100%;
+}
+/*绑定提示  */
+.bind-tishi{
+  width: 100%;
+  position: absolute;
+  bottom: 60rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.search-prompt{
+  width: 84%;
+  margin: 15rpx auto 0;
+  text-align:center;
+}
+.prompt-img{
+  float: left;
+  margin: 5rpx 15rpx 0 0;
+  width: 80rpx;
+  height:130rpx;
+}
+.prompt-img-info{
+  width: 70rpx;
+  height:70rpx;
+  margin-top: 35rpx;   
+}
+.prompt-desc{
+  color:#888;
+  font-size: 26rpx;
+  
+}
+/*绑定会员  */
+.bind-info{
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.bind-title {  
+    height: 60rpx;  
+    line-height: 60rpx;  
+    text-align: center;  
+}  
+.bind-title .line {  
+    display: inline-block;  
+    width: 30%;  
+    border-top: 1rpx dashed #ccc ;  
+}  
+.bind-title .bind-title-desc {  
+    color: #686868;  
+    margin: 0 7%;
+    vertical-align: -8rpx;  
+}  
+
+/*表单  */
+.section{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+form input{
+  border: 1rpx solid #dcdad6; 
+  background: white;
+  padding: 10rpx 30rpx;
+  padding-right: 190rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  width: 100%;
+  height: 90rpx;
+  margin: 50rpx auto 0;
+  border-right-style: 1rpx solid red;
+}
+.buttonget{  
+  position: absolute;
+  top: 0;
+  right: 0;
+  width:190rpx;
+  height:90rpx;
+  color: #079bd3;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border:  1rpx solid #dcdad6; 
+  border-radius: 0;
+}
+/*隐藏Button按钮本身的边框*/
+button[class="buttonget"]::after {
+  border: 0;
+} 
+
+.btn-area button.btn-false{
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 50rpx auto ;
+  font-size: 30rpx;
+  background: #fff;
+  color: #000;
+  border: 1rpx solid #000;
+}
+button[class="btn-true"]::after {
+  border: 0;
+} 
+.btn-area button.btn-true{
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 50rpx auto ;
+  font-size: 30rpx;
+  border: 1rpx solid #dcdad6;
+}

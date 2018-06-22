@@ -13,22 +13,12 @@ Page({
     circular: true,//从data开始的值到此是轮播
     hasUserInfo: false,//是否已授权
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    member:true,//是否是会员
+    member:false,//是否是会员
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
-    parkinfo:[{
-        info:"/images/sao.png",
-        desc:"卷码扫描",
-    },{
-        info: "17862910320",
-        desc: "白银会员",
-    },{
-        info: "0",
-        desc: "车牌绑定数",
-    }, {
-      info: "暂未缴费",
-      desc: "缴费历史",
-    }],
+    show:"",//卷码扫描值
+    history: "1",//历史记录值
+
   },
   onLoad: function () {
     this.authorize();
@@ -132,14 +122,16 @@ Page({
     }  
    
   },
+  // 缴费规则
   tapRule: function (e) {
     wx.navigateTo({
-      url: "/pages/rule/rule"
+      url: "/pages/w_index_rule/w_index_rule"
     })
   },
+  //绑定会员
   tapBindmember: function (e) {
     wx.navigateTo({
-      url: "/pages/bindmember/bindmember"
+      url: "/pages/w_my_bind_member/w_my_bind_member"
     })
   },
  
@@ -177,5 +169,33 @@ Page({
         }
       })
     }
+  },
+  //卷码扫描
+  scan: function () {
+    var that = this;
+    var show;
+    wx.scanCode({
+      success: (res) => {
+        this.show = "--result:" + res.result 
+        that.setData({
+          show: this.show
+        })
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+        //获取成功向后台保存获取的值
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '未获取成功',
+          image: '/images/tishi.png',
+          duration: 2000
+        })
+      },
+      complete: (res) => {
+      }  
+    })
   },
 })

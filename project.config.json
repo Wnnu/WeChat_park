@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.9",
+	"libVersion": "1.9.5",
 	"appid": "wx7dc591c0f91ad17f",
 	"projectname": "%E5%81%9C%E8%BD%A6%E5%9C%BA%E6%B5%8B%E8%AF%951",
 	"isGameTourist": false,
@@ -33,18 +33,36 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
-					"name": "登录",
-					"pathName": "pages/my/my",
+					"name": "我的",
+					"pathName": "pages/w_my/w_my",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "绑定会员",
-					"pathName": "pages/bindmember/bindmember",
+					"pathName": "pages/w_my_bind_member/w_my_bind_member",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "绑定车牌",
+					"pathName": "pages/w_my_bind_platenumber/w_my_bind_platenumber",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "绑定车牌结果",
+					"pathName": "pages/w_my_bind_prompt/w_my_bind_prompt",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付界面",
+					"pathName": "pages/w_payment/w_payment",
 					"query": ""
 				}
 			]

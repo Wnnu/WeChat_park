@@ -1,25 +1,26 @@
-<!--pages/bindmember/bindmember.wxml-->
+<!--pages/bindplatenumber/bindplatenumber.wxml-->
 <view class='logo'>
   <image class='img-logo' src='/images/logo.png'></image>
 </view>
 <view class='bind-info'>
   <view class="bind-title">  
         <text class="line"></text>  
-        <text class="bind-title-desc">会员绑定</text>  
+        <text class="bind-title-desc">车牌绑定</text>  
         <text class="line"></text>  
   </view>  
   <!--  表单  -->
   <form bindsubmit="formSubmit" bindreset="formReset">
 
     <view class="section">
-      <input name="tel" placeholder="请输入会员手机号" type="number" maxlength="11"/>
+      <input name="platenumber" placeholder="请输入车牌号"  bindinput="addPlatenumber"/>
     </view>
-    <view class="section">
-      <input name="identifying_code" placeholder="请输入验证码" type="number" maxlength="6"/>
-    </view>
+ 
     
     <view class="btn-area">
-      <button formType="submit" >确认绑定</button>
+      <button formType="submit"  class="btn-false">绑定车牌</button>
+    </view>
+    <view class="bind-back">
+      <text  bindtap='tapindex'>暂不绑定</text>
     </view>
   </form>
 </view>
@@ -30,8 +31,10 @@
         <text class="line"></text>  
   </view>  
   <view class="search-prompt" >
-      <image class='prompt-img' src='/images/prompt.png'></image> 
-      <text class="prompt-desc">只有会员用户的手机号才能获取到验证码短信哦,普通用户需要先加入会员才能进行会员绑定,享受会员优惠哦。
+      <view class='prompt-img'> 
+         <image class='prompt-img-info' src='/images/tishi1.png'></image> 
+      </view>
+      <text class="prompt-desc">请输入车牌号，将车牌绑定到会员号，即可享受到会员专属优惠。
       </text>
   </view>
 </view>
