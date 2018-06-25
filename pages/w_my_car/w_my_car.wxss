@@ -1,1 +1,30 @@
 /* pages/w_my_car/w_my_car.wxss */
+/*无车牌时样式*/
+.no-car-info{
+  text-align: center;
+  display: block;
+  margin-top: 240rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.add-car-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  flex-direction: column;
+  width: 200rpx;
+  margin: 0 auto;
+  margin-top: 100rpx;
+}
+.add-car-info image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.add-car-info text{
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #00aced;
+}
+/*有车牌时样式 */

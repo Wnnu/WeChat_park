@@ -7,17 +7,34 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
+    var that=this;
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
           if (res.code) {
-            //发起网络请求
-            // wx.request({
-            //   url: '',
-            //   data: {
-            //     code: res.code
-            //   }
-            // })
+            wx.request({
+              url: this.globalData.host + '/intapplet',
+              data: {
+                jscode: res.code
+              },
+              header: {
+                'content-type': 'application/json',
+                'Cookie': 'NEWWWAY-session-id=' + this.globalData.loginMess
+              },
+              success: function (res) {
+                // console.log(res)
+                if (res.data.code == 1001 || res.data.code == 1002) {
+                  that.globalData.loginMess = res.data.sessionid;
+                  wx.navigateTo({
+                    url: '/pages/index/index',
+                  })
+                } else {
+                  wx.showToast({
+                    title: ''+res.data.message,
+                  })
+                }
+              }
+            });
           } else {
             console.log('登录失败！' + res.errMsg)
           }
@@ -50,9 +67,9 @@ App({
     userInfo: null,           //用户信息，判断用户授没授权
     member: false,            //是否是会员
     loginMess: '',            //session，问刘哥
-    host: 'https://www.jnnewway.com/swsy/'
+    // host: 'https://www.jnnewway.com/swsy/'
     // host: 'http://192.168.0.116',
-    // host: 'http://192.168.0.108',
+    host: 'http://192.168.0.108:8080',
     // host: 'https://awakall.com',
     // host: 'http://192.168.0.110',
     // host: 'http://192.168.0.105:8080',

@@ -19,6 +19,7 @@ Page({
   onLoad: function () {
     // 获取用户信息
     this.authorize();
+    
   },
 
   /**

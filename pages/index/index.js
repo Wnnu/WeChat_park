@@ -17,7 +17,13 @@ Page({
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
     show:"",//卷码扫描值
-    history: "1",//历史记录值
+    history: "",//历史记录值
+    showModalStatus: false,//搜索面板显示，默认隐藏
+    search_result:[//搜索结果
+      "苏E 05E67",
+      "苏E 05E68",
+      "苏E 05E69",
+    ],
 
   },
   onLoad: function () {
@@ -77,13 +83,15 @@ Page({
       wx.showLoading({
         title: '正在搜索',
         success: function (res) {
-          setTimeout(function () {
-            wx.showToast({
-              title: '未搜索到车辆',
-              image: '/images/tishi.png',
-              duration: 2000
-            })
-          }, 2000)
+          // setTimeout(function () {
+          //   wx.showToast({
+          //     title: '未搜索到车辆',
+          //     image: '/images/tishi.png',
+          //     duration: 2000
+          //   })
+          // }, 2000)
+          wx.hideLoading()
+          self.showModal();
           // wx.request({
           //   url: 'aaa.php',//这里填写后台给你的搜索接口  
           //   method: 'post',
@@ -188,14 +196,71 @@ Page({
         //获取成功向后台保存获取的值
       },
       fail: (res) => {
-        wx.showToast({
-          title: '未获取成功',
-          image: '/images/tishi.png',
-          duration: 2000
+        wx.showModal({
+          title: "未获取成功",
+          content: "未成功扫描二维码",
+          confirmColor: "#4fafc9",
+          confirmText: "我知道了",
+          showCancel: false,
         })
+        // wx.showToast({
+        //   title: '未获取成功',
+        //   image: '/images/tishi.png',
+        //   duration: 2000
+        // })
       },
       complete: (res) => {
       }  
     })
   },
+  //显示对话框
+  showModal: function () {
+    // 显示遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+      showModalStatus: true
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 200)
+  },
+  //隐藏对话框
+  hideModal: function () {
+    // 隐藏遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export(),
+        showModalStatus: false
+      })
+    }.bind(this), 200)
+  },
+  //搜索结果跳支付
+  search_pay: function (e) {
+    console.log(e.currentTarget.dataset.text)
+    wx.navigateTo({
+      url: "/pages/w_payment/w_payment?title=" + e.currentTarget.dataset.text
+    })
+  },
+  
 })

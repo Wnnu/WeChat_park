@@ -1,2 +1,11 @@
 <!--pages/w_my_car/w_my_car.wxml-->
-<text>我的爱车页面，正在赶做中....</text>
+<view wx:if='{{cars_number==""}}'>
+  <text class="no-car-info">这里还没有车牌，点击立刻绑定</text>
+  <view class='add-car-info' bindtap='addPlatenumber'>
+    <image src='/images/add_car.png'></image>
+    <text>添加新车牌</text>
+  </view>
+</view>
+<view wx:else>
+34
+</view>

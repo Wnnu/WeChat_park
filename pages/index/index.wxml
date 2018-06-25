@@ -93,3 +93,12 @@
     <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
   </view>
 </view>
+
+<!-- 遮罩层搜索结果 -->
+<!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" >
+      <view wx:for="{{search_result}}" class='search_result' data-text="{{item}}" bindtap='search_pay'>{{item}}</view>
+  </view>
+ 

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      cars_number:[],//车牌号，默认无
   },
 
   /**
@@ -56,11 +56,9 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  addPlatenumber:function(){
+    wx.navigateTo({
+      url: "/pages/w_my_bind_platenumber/w_my_bind_platenumber"
+    })
   }
 })

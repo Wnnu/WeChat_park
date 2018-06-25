@@ -1,4 +1,5 @@
 <!--pages/payment/payment.wxml-->
 <view>
     <button type='primary' bindtap='payment'>支付测试</button>
+    <view style="text-align:center"> 车牌为{{title}} </view>  
 </view>

@@ -16,39 +16,53 @@
 </view>
 <!--列表  -->
   <view class="person-list">
+    <!--会员等级-->
+    <view class="list-item"  bindtap='my_list0' wx:if="{{member}}"> 
+      <view class="item1">
+        <image class="item-image" src="/images/0.png"></image>
+        <text class="item-text">白金会员</text>
+      </view>
+      <view class="item2"> 
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>
+    </view>
+    <!--缴费历史-->
     <view class="list-item"  bindtap='my_list1'> 
       <view class="item1">
         <image class="item-image" src="/images/1.png"></image>
-        <text class="item-text">缴费记录</text>
+        <text class="item-text">缴费历史</text>
       </view>
       <view class="item2"> 
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
     </view>
 
-    <block  wx:if="{{member}}">
-      <view class="person-line"></view>
-      <view class="list-item"  bindtap='my_list2'> 
-        <view class="item1">
-          <image class="item-image" src="/images/2.png"></image>
-          <text class="item-text">我的爱车</text>
-        </view>
-        <view class="item2"> 
-          <image  class="with_arrow" src="/images/right.png"></image>
-        </view>
+    <!--我的爱车-->
+    <!-- <view class="person-line"></view> 分割线-->
+    <view class="list-item"  bindtap='my_list2' wx:if="{{member}}"> 
+      <view class="item1">
+        <image class="item-image" src="/images/2.png"></image>
+        <text class="item-text">我的爱车</text>
       </view>
-    </block>
+      <view class="item2"> 
+        <text class='car-number'>2</text>
+        <image  class="with_arrow" src="/images/right.png"></image>
+      </view>
+    </view>
 
+    <!--会员绑定-->
     <view class="list-item member" wx:if="{{!member}}" bindtap='my_list3'>
       <view class="item1">
         <image class="item-image" src="/images/3.png"></image>
-        <text class="item-text">绑定会员</text>
+        <text class="item-text">会员绑定</text>
       </view>
       <view class="item2">
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
     </view>
-    <view class="list-item stopcar" bindtap='my_list4'>
+
+    <!--停车优惠券-->
+    <view class="list-item stopcar" bindtap='my_list4' wx:if="{{member}}">
       <view class="item1">
         <image class="item-image" src="/images/4.png"></image>
         <text class="item-text">停车优惠券</text>
@@ -57,7 +71,7 @@
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
     </view>
-    <view class="person-line"></view>
+    <!-- <view class="person-line"></view>
     <view class="list-item" bindtap='my_list5'>
       <view class="item1">
         <image class="item-image" src="/images/5.png"></image>
@@ -66,7 +80,7 @@
       <view class="item2">
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
-    </view>
+    </view> -->
   </view>
 
     <!-- <button  open-type="openSetting" >设置授权</button>    -->
