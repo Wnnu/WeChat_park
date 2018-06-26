@@ -23,27 +23,14 @@
     </view>
   </block>
   <block wx:else>
-    <block wx:if="{{hasUserInfo}}">
-    <!--判断是否授权，然后再显示  -->
-      <view class="park-info" bindtap='tapBindmember'>
-        <view class="park-click">
-          <text class="click-text"  >绑定会员尽享停车优惠</text>
-        </view>
+    <view class="park-info" bindtap='tapBindmember'>
+      <view class="park-click">
+        <text class="click-text1" >欢迎使用停车缴费系统</text>
+        <text class="click-text2" >绑定会员尽享停车优惠</text>
       </view>
-    </block>
-    <block wx:else>
-      <view class="park-info" >
-        <label for='shouquan' class="label-shouquan">
-          <view class="park-click">
-            <button hidden='true' open-type="getUserInfo" bindgetuserinfo="getUserInfo" id="shouquan">
-            </button> 
-            <text class="click-text" >绑定会员尽享停车优惠</text>
-          </view>
-        </label>
-      </view>
-    </block> 
+    </view>
   </block>
-  <view class="geduan"></view>
+  <!-- <view class="geduan"></view> -->
 <!--查询和支付-->
   <view class="park-query">
   <!--查询-->
@@ -52,26 +39,22 @@
         <text class="search-desc">欢迎使用停车缴费系统</text>
       </view> -->
       <view class="search-input">
-        <view class="section-img">
+        <!-- <view class="section-img">
           <image class='btn-detail' src='/images/search.png'></image> 
-        </view>
+        </view> -->
         <view class="section-input">
-          <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}"/>
+          <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}" placeholder-style="color:#999;font-size:32rpx;"/>
         </view>
         <view class="section-button">
-          <button wx:if="{{length<4}}"  disabled="true">搜索</button>
-          <button wx:elif="{{length >= 4&&hasUserInfo}}" bindtap='toSearch'>搜索</button>
-          <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">搜索</button>
+          <!-- <button wx:if="{{length<4}}"  disabled="true">查询</button>
+          <button wx:elif="{{length >= 4&&hasUserInfo}}" bindtap='toSearch'>查询</button>
+          <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">查询</button> -->
+           <button bindtap='toSearch'>查询</button>
         </view>
       </view>
-      <!--提示  -->
-      <block wx:if="{{!history}}">
-        <view class="search-prompt" >
-          <image class='prompt-img' src='/images/prompt.png'></image> 
-          <text class="prompt-desc">会员用户需要先绑定会员和车牌才能享受会员减免哦
-          </text>
-        </view>
-      </block>
+     
+      
+   
     </view>
    <!--历史记录&&快捷缴费  -->
     <block wx:if="{{history}}">
@@ -89,8 +72,15 @@
   </view>
 <!--收费明细  -->
   <view class="pay-info">
-    <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
-    <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+    <view class="search-prompt pay-tishi">
+      <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
+      <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+    </view>
+    <view class="search-prompt " >
+      <image class='prompt-img' src='/images/prompt.png'></image> 
+      <text class="prompt-desc">会员用户需绑定会员和车牌,才能享受会员减免哦
+      </text>
+    </view>
   </view>
 </view>
 

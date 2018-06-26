@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo:{},
-    member: false,//是否是会员
+    member: true,//是否是会员
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 

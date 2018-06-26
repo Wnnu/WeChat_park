@@ -7,5 +7,15 @@
   </view>
 </view>
 <view wx:else>
-34
+  <view class='list-car'>
+    <text class='list-car-number'>苏E 05E68</text>
+    <text class='list-car-time'>2018-06-26</text>
+    <view class='list-pay'>
+      <text>去支付</text>
+    </view>
+  </view>
+  <view class='add-car-info' bindtap='addPlatenumber' wx:if="{{cars_number.length<5}}">
+    <image src='/images/add_car.png'></image>
+    <text>添加新车牌</text>
+  </view>
 </view>

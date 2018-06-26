@@ -12,7 +12,7 @@
   <form bindsubmit="formSubmit" bindreset="formReset">
 
     <view class="section">
-      <input name="tel" placeholder="请输入会员手机号" type="number" maxlength="11" bindinput="inputPhoneNum"/>
+      <input name="tel" placeholder="请输入会员手机号" type="number" maxlength="11" bindinput="inputPhoneNum" disabled='{{phoneNum_true}}'/>
     </view>
     <view class="section">
       <input name="identifying_code" placeholder="请输入验证码" type="number" bindinput="addCode" maxlength="6" value="{{code}}"/>

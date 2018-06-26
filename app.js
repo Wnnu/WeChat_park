@@ -19,12 +19,12 @@ App({
               },
               header: {
                 'content-type': 'application/json',
-                'Cookie': 'NEWWWAY-session-id=' + this.globalData.loginMess
+                'Cookie': 'NWRZPARKINGID=' + this.globalData.loginMess
               },
               success: function (res) {
-                // console.log(res)
+                 console.log(res)
                 if (res.data.code == 1001 || res.data.code == 1002) {
-                  that.globalData.loginMess = res.data.sessionid;
+                  that.globalData.loginMess = res.data.data.sessionid;
                   wx.navigateTo({
                     url: '/pages/index/index',
                   })
@@ -38,7 +38,6 @@ App({
           } else {
             console.log('登录失败！' + res.errMsg)
           }
-
       }
     })
     // 获取用户信息

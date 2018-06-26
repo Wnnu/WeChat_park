@@ -15,26 +15,26 @@
   ],
   "window":{
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFc452",
+    "navigationBarBackgroundColor": "#3e3f42",
     "navigationBarTitleText": "日照华润万象汇停车场",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#FFc452"
+    "backgroundColor": "#ffffff"
   },
   "tabBar": {
-  
-    
-    "selectedColor": "#FFc452",
+    "color":"white",
+    "backgroundColor": "#3e3f42",
+    "selectedColor": "#ffb900",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "缴费停车",
+        "text": "订单缴费",
         "iconPath": "images/ico_home.png",
         "selectedIconPath": "images/ico_home1.png"
       },
       {
         "pagePath": "pages/w_my/w_my",
-        "text": "关于我的",
+        "text": "我的",
         "iconPath": "images/my.png",
         "selectedIconPath": "images/my1.png"
       }

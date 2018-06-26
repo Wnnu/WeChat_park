@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    imgUrls: [          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',  
+    imgUrls: [ '/images/tu1.png',  
     ],
     indicatorDots: false,
     autoplay: true,
@@ -13,7 +13,7 @@ Page({
     circular: true,//从data开始的值到此是轮播
     hasUserInfo: false,//是否已授权
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    member:false,//是否是会员
+    member:true,//是否是会员
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
     show:"",//卷码扫描值
