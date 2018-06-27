@@ -1,1 +1,149 @@
 /* pages/payment/payment.wxss */
+/*整体背景*/
+page{
+  background: #f2f4f6;
+}
+
+/*支付背景*/
+.pay-bg{
+  width: 670rpx;
+  box-sizing: border-box;
+  margin: 30rpx auto 0;
+  height: auto;
+  border-top: 6rpx solid #ffb900;
+  position: relative;
+}
+.car_info{
+  width: 100%;
+  height: 328rpx;
+  background: white;
+  border-bottom: 1rpx dashed #d2d2d2;
+}
+
+/* 左右半圆 */
+.circle-left{
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+  background: #f2f4f6;
+  position: absolute;
+  top: 316.5rpx;
+  left:-12.5rpx;
+}
+.circle-right{
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+  background: #f2f4f6;
+  position: absolute;
+  top: 316.5rpx;
+  right:-12.5rpx;
+}
+
+/* 停车初始费用 */
+.start-pay-info{
+  width: 100%;
+  background: white;
+  padding: 49rpx 0 52rpx 0;
+  border-bottom: 1rpx dashed #d2d2d2;
+  font-size: 32rpx;
+  color: #282828;
+  overflow: hidden;
+}
+.start-pay-info-desc{
+  float: left;
+  margin-left: 32rpx;
+}
+.start-pay-info-number{
+  float: right;
+  margin-right: 32rpx;
+}
+
+/* 会员减免 */
+.member-pay-info{
+  width: 100%;
+  background: white;
+  padding: 69rpx 0 32rpx 0;
+  border-bottom: 1rpx solid #e5e5e5;
+  font-size: 32rpx;
+  color: #282828;
+  overflow: hidden;
+}
+.member-pay-info-desc{
+  float: left;
+  margin-left: 32rpx;
+}
+.member-pay-info-number{
+  float: right;
+  margin-right: 32rpx;
+}
+
+/* 优惠券 */
+.coupon-pay-info{
+  width: 100%;
+  background: white;
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid #e5e5e5;
+  font-size: 32rpx;
+  color: #282828;
+  overflow: hidden;
+}
+.coupon-pay-info-desc{
+  float: left;
+  margin-left: 32rpx;
+}
+.coupon-pay-info-number{
+  float: right;
+  margin-right: 32rpx;
+  color: #bfbfbf;
+}
+
+/* 会员积分 */
+.memberjifen-pay-info{
+  width: 100%;
+  background: white;
+  padding: 32rpx 0;
+  font-size: 32rpx;
+  color: #282828;
+  overflow: hidden;
+}
+.memberjifen-pay-info-desc{
+  float: left;
+  margin-left: 32rpx;
+}
+.memberjifen-pay-info-number{
+  float: right;
+  margin-right: 32rpx;
+  color: #bfbfbf;
+}
+
+/* 进行付款 */
+.pay-info{
+  width: 100%;
+  height: 88rpx;
+  background: #e8eaec;
+  overflow: hidden;
+}
+.pay-info-desc{
+  font-size: 28rpx;
+  color: #282828;
+  line-height: 88rpx;
+  margin-left: 80rpx;
+}
+.pay-info-number{
+  color: #ff0000;
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
+.pay{
+  float: right;
+  width: 248rpx;
+  height: 88rpx;
+  background: #ffb900;
+  color: #282828;
+  font-size: 32rpx;
+  border-radius: 0;
+}
+.pay::after{
+  border: 0rpx;
+}

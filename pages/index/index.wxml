@@ -14,10 +14,10 @@
     <view class="park-info">
       <view class="info"  bindtap='scan'>
         <image  class="park-sao" src="/images/sao.png"> </image>
-        <text class="park-desc">卷码扫描</text>
+        <text class="park-desc">券码扫描</text>
       </view>
       <view class="info" >
-        <text  class="park-show">17862910320</text>
+        <text  class="park-show">178****0320</text>
         <text class="park-desc">白银会员</text>
       </view>
     </view>
@@ -26,7 +26,11 @@
     <view class="park-info" bindtap='tapBindmember'>
       <view class="park-click">
         <text class="click-text1" >欢迎使用停车缴费系统</text>
-        <text class="click-text2" >绑定会员尽享停车优惠</text>
+        <view class='click-bind'>
+          <text class="click-text2" >绑定会员尽享停车优惠</text>
+          <image class='bind-img' src='/images/tap_right.png' bindtap='tapRule'></image>
+        </view>
+       
       </view>
     </view>
   </block>
@@ -43,7 +47,7 @@
           <image class='btn-detail' src='/images/search.png'></image> 
         </view> -->
         <view class="section-input">
-          <input type="text" placeholder="输入车牌号连续4位，检索车牌支付" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}" placeholder-style="color:#999;font-size:32rpx;"/>
+          <input type="text" placeholder="请输入4位连续车牌号" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}" placeholder-style="color:#999;font-size:32rpx;"/>
         </view>
         <view class="section-button">
           <!-- <button wx:if="{{length<4}}"  disabled="true">查询</button>
@@ -52,35 +56,28 @@
            <button bindtap='toSearch'>查询</button>
         </view>
       </view>
-     
-      
-   
     </view>
    <!--历史记录&&快捷缴费  -->
-    <block wx:if="{{history}}">
+    <block wx:if="{{history.length>=1}}">
       <view class="pay-quick">
-        <text class="pay-quick-desc">快捷缴费</text>
-        <view class="vehicle_info">
-          <image class='bg-car' src='/images/car1.jpg'></image>
-           <text>苏E 05E68</text> 
-        </view>
-        <view class="vehicle_info">
-          <text>使880887</text>
+        <view class="vehicle_info" wx:for="{{history}}">
+          <image class='bg-car' src='/images/car1.png'></image>
+          <text>{{item}}</text> 
         </view>
       </view>
     </block>
   </view>
 <!--收费明细  -->
   <view class="pay-info">
-    <view class="search-prompt pay-tishi">
-      <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
+    <view class="search-prompt">
       <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+      <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
     </view>
-    <view class="search-prompt " >
+    <!-- <view class="search-prompt " >
       <image class='prompt-img' src='/images/prompt.png'></image> 
       <text class="prompt-desc">会员用户需绑定会员和车牌,才能享受会员减免哦
       </text>
-    </view>
+    </view> -->
   </view>
 </view>
 

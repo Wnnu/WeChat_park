@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo:{},
-    member: true,//是否是会员
+    member: false,//是否是会员
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -17,7 +17,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    // 获取用户信息
+    // 判断是否会员和获取用户信息
+    this.setData({
+      member: app.globalData.member
+    })
     this.authorize();
     
   },
@@ -33,6 +36,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+     // 判断是否会员和获取用户信息
+    this.setData({
+      member: app.globalData.member
+    })
     this.authorize();
   },
 

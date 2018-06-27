@@ -1,4 +1,6 @@
 // pages/bindplatenumber/bindplatenumber.js
+//获取应用实例
+const app = getApp()
 Page({
 
   /**
@@ -91,43 +93,34 @@ Page({
   // 表单提交
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    wx.navigateTo({
-      url: "/pages/w_my_bind_prompt/w_my_bind_prompt"
-    })
-    // wx.showToast({
-    //   title: '绑定成功',
-    //   icon: 'success',
-    // })
    
-    // wx.request({
-    //   url: `${config.api + '/addinfo'}`,
-    //   data: {
-    //     phoneNum: this.data.phoneNum,
-    //     code: this.data.code,
-    //     otherInfo: this.data.otherInfo
-    //   },
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   method: 'POST',
-    //   success: function (res) {
-    //     console.log(res)
-    //     if ((parseInt(res.statusCode) === 200) && res.data.message === 'pass') {
-    //       wx.showToast({
-    //         title: '验证成功',
-    //         icon: 'success'
-    //       })
-    //     } else {
-    //       wx.showToast({
-    //         title: res.data.message,
-    //         image: '../../images/fail.png'
-    //       })
-    //     }
-    //   },
-    //   fail: function (res) {
-    //     console.log(res)
-    //   }
-    // })
+    var that = this
+    wx.request({
+      url: app.globalData.host + '/wxinfo/bindCarnumber',
+      data: {
+        carnumber: e.detail.value.platenumber,
+      },
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+      },
+      success: function (res) {
+        console.log(res)
+        if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
+          wx.navigateTo({
+            url: "/pages/w_my_bind_prompt/w_my_bind_prompt"
+          })
+        } else {
+          wx.showToast({
+            title: '' + res.data.msg,
+            image: '/images/tishi.png'
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
   },
   formReset: function () {
     console.log('form发生了reset事件')

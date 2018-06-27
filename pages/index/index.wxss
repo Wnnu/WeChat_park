@@ -33,6 +33,8 @@ swiper image{
   height: 134rpx;
   /* padding: 25rpx  0rpx; */
   /* margin-bottom: 20rpx; */
+  box-sizing: border-box;
+  padding: 25rpx 0 0;
 }
 .info{
   float: left;
@@ -51,7 +53,7 @@ swiper image{
 
 }
 .park-show{
-  color: #ff3226;
+  color: #333;
   font-size:28rpx;
 }
 .park-sao{
@@ -64,23 +66,47 @@ swiper image{
 .park-click{
   width: 100%;
   text-align: center;
-  padding: 45rpx 0 0;
+  height: 100%;
+
+}
+.park-desc{
+  color: #777;
+  margin-top: 15rpx;
+  font-size:24rpx;
 }
 .click-text1{
   display: block;
   color:#333;
   font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+.click-bind{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
 }
 .click-text2{
-  display: block;
   color:#777;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
   font-size: 24rpx;
 }
-.park-desc{
-  color: #ccc;
-  margin-top: 10rpx;
-  font-size:25rpx;
+.bind-img{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
+  width: 32rpx;
+  height: 32rpx;
+  box-sizing: border-box;
+  margin-left: 16rpx;
 }
+
+
 /* .info::after{
   position: absolute;
   right: 20rpx;
@@ -112,8 +138,7 @@ swiper image{
 .park-search{
   overflow: hidden;
   width: 100%;
-  padding-bottom:20rpx;
-
+  /* padding-bottom:20rpx; */
 }
 .search-title{
   overflow: hidden;
@@ -132,6 +157,8 @@ swiper image{
   height: 80rpx;
   border-radius: 8rpx;
   border: 1rpx solid #ffb900;
+  background: white;
+  position: relative;
 }
 /* .section-img{
   display: inline-block;
@@ -161,12 +188,25 @@ swiper image{
   border-top-left-radius: 8rpx;
   border-bottom-left-radius: 8rpx;
 }
+.section-input input:focus {
+    border: 1px solid #3b99fc;
+    outline: 0;
+    box-shadow: 0 0 3px 0px #3b99fc;
+    -webkit-box-shadow: 0 0 3px 0px #3b99fc; 
+}
 .section-button{
   display: inline-block;
   width: 134rpx;
   height: 80rpx;
-  border-top-right-radius: 8rpx;
-  border-bottom-right-radius: 8rpx;
+  border: 0rpx;
+  border-top-left-radius: 0rpx;
+  border-bottom-left-radius: 0rpx; 
+  position: absolute;
+  right: 0;
+  top:0;
+}
+.section-button button::after{
+  border: 0rpx;
 }
 .section-button button{
   width: 100%;
@@ -174,18 +214,24 @@ swiper image{
   color: #282828;
   font-size: 32rpx;
   background: #ffb900;
-  border-top-right-radius: 8rpx;
-  border-bottom-right-radius: 8rpx;
+  border-top-right-radius: 0rpx;
+  border-bottom-right-radius: 0rpx;
+   border-top-left-radius: 0rpx;
+  border-bottom-left-radius: 0rpx;
 }
 
 /*快捷缴费  */
+.pay-quick{
+  overflow: hidden;
+  width: 100%;
+  margin-top: 52rpx;
+  text-align: center;
+}
 .vehicle_info{
-  /* border: 1rpx solid #ccc; */
-  width: 65%;
-  margin: 20rpx auto;
-  height:135rpx;
+  width: 395rpx;
+  margin: 0 auto 40rpx;
+  height:108rpx;
   position: relative;
-  /* box-shadow: 10rpx 10rpx 5rpx #999; */
 }
 .bg-car{
   width: 100%;
@@ -193,31 +239,25 @@ swiper image{
 }
 .vehicle_info text{
   position: absolute;
-  display: block;
   width: 100%;
   height: 100%;
-  top: 20rpx;
+  top: 0;
   left: 0;
+  right:0;
+  margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 30rpx;
-  font-size: 70rpx;
-  text-align: left;
-  line-height: 80rpx;
+  font-size: 48rpx;
+  letter-spacing:5rpx;
+  font-weight: 700;
+  text-align: center;
   color: white;
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
 }
 
-.pay-quick{
-  overflow: hidden;
-  width: 100%;
-  padding-top: 20rpx;
-  margin-top: 20rpx;
-  text-align: center;
-  border-top: 1rpx dotted #000;
-}
-.pay-quick-desc{
-  font-size:32rpx;
-}
+
 /* 收费细则和提醒 */
 .pay-info{
   position: absolute;
@@ -232,13 +272,22 @@ swiper image{
   align-items: center;
 }
 .pay-img{
-  width: 34rpx;
-  height: 34rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
+  width: 30rpx;
+  height: 30rpx;
   box-sizing: border-box;
+  margin-left: 8rpx;
 }
 .pay-desc{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
   color: #999;
-  font-size: 22rpx;
+  font-size: 24rpx;
 }
 /*提示  */
 .search-prompt{
@@ -250,17 +299,12 @@ swiper image{
   justify-content:center;
 }
 .prompt-img{
-  /* float: left; */
-  /* margin: 5rpx 10rpx 0 0; */
   width: 34rpx;
   height:34rpx;
 }
 .prompt-desc{
   color:#999;
-  font-size: 22rpx;
-}
-.pay-tishi{
-  margin-bottom: 28rpx;
+  font-size: 24rpx;
 }
 /*遮罩层搜索结果*/
   /*使屏幕变暗  */

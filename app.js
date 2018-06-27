@@ -11,33 +11,43 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          if (res.code) {
-            wx.request({
-              url: this.globalData.host + '/intapplet',
-              data: {
-                jscode: res.code
-              },
-              header: {
-                'content-type': 'application/json',
-                'Cookie': 'NWRZPARKINGID=' + this.globalData.loginMess
-              },
-              success: function (res) {
-                 console.log(res)
-                if (res.data.code == 1001 || res.data.code == 1002) {
-                  that.globalData.loginMess = res.data.data.sessionid;
-                  wx.navigateTo({
-                    url: '/pages/index/index',
-                  })
-                } else {
-                  wx.showToast({
-                    title: ''+res.data.message,
-                  })
-                }
-              }
-            });
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
+          // if (res.code) {
+          //   wx.request({
+          //     url: this.globalData.host + '/intapplet',
+          //     data: {
+          //       jscode: res.code
+          //     },
+          //     header: {
+          //       'content-type': 'application/json',
+          //       'Cookie': 'NWRZPARKINGID=' + this.globalData.loginMess
+          //     },
+          //     success: function (res) {
+          //        console.log(res)
+          //       if (res.data.code == 1001 || res.data.code == 1002) {
+          //         that.globalData.loginMess = res.data.data.sessionid;
+          //         //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
+          //         // 所以此处加入 callback 以防止这种情况
+          //         if (this.employIdCallback) {
+          //           this.employIdCallback(res);
+          //         }
+          //       } else if (res.data.code == 1004){
+          //         that.globalData.loginMess = res.data.data.sessionid;
+          //         that.globalData.member = true;
+          //         //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
+          //         // 所以此处加入 callback 以防止这种情况
+          //         if (this.employIdCallback) {
+          //           this.employIdCallback(res);
+          //         }
+          //       }else{
+          //         wx.showToast({
+          //           title: '' + res.data.message,
+          //         })
+          //       }
+          //     }
+          //   });
+          // } else {
+          //   console.log('登录失败！' + res.errMsg)
+          // }
       }
     })
     // 获取用户信息

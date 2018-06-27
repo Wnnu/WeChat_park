@@ -17,7 +17,10 @@ Page({
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
     show:"",//卷码扫描值
-    history: "",//历史记录值
+    history: [//历史记录值
+      "苏E·05E67",
+      "苏E·05E689",
+    ],
     showModalStatus: false,//搜索面板显示，默认隐藏
     search_result:[//搜索结果
       "苏E 05E67",
@@ -26,7 +29,36 @@ Page({
     ],
 
   },
-  onLoad: function () {
+  onLoad: function (options) {
+  // 此处判断是否是会员--https://www.jianshu.com/p/aaf65625fc9d
+    // app.employIdCallback = member => {
+    //   console.log(data)
+    //   if (data != '') {
+    //     this.setData({
+    //       member: app.globalData.member
+    //     })
+    //   }
+    // }
+   
+    this.authorize();
+    
+  },
+  /**
+  * 生命周期函数--监听页面初次渲染完成
+  */
+  onReady: function () {
+    // this.setData({
+    //   member: app.globalData.member
+    // })
+    this.authorize();
+  },
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  onShow: function () {
+    // this.setData({
+    //   member: app.globalData.member
+    // })
     this.authorize();
   },
   getUserInfo(userinfo, callback) {
@@ -126,7 +158,7 @@ Page({
         }
       })
     } else {
-      console.log('空白的你搜个蛋！')
+      console.log('空白')
     }  
    
   },
@@ -143,12 +175,6 @@ Page({
     })
   },
  
-  /**
-  * 生命周期函数--监听页面显示
-  */
-  onShow: function () {
-    this.authorize();
-  },
   // 判断是否已经授权
   authorize: function () {
     if (app.globalData.userInfo) {

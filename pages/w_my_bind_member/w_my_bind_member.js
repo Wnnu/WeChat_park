@@ -135,7 +135,7 @@ Page({
     var that = this
     
     wx.request({
-      url: app.globalData.host + '/sendBindSMSText',
+      url: app.globalData.host + '/wxinfo/sendBindSMSText',
       data: {
         phone: that.data.phoneNum
       },
@@ -146,8 +146,6 @@ Page({
       success: function (res) {
         console.log(res)
         if(res.data.code==1001){
-          
-       
           wx.showToast({
             title: "验证码已发送",
             icon: 'success',
@@ -162,7 +160,7 @@ Page({
           that.getCode();
         }else{
           wx.showToast({
-            title: res.data.msg,
+            title: ''+res.data.msg,
             icon: 'success',
             duration:1500
           })
@@ -185,10 +183,10 @@ Page({
   },
   // 表单提交
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this
     wx.request({
-      url: app.globalData.host + '/authBindSMSText',
+      url: app.globalData.host + '/wxinfo/authBindSMSText',
       data: {
         phone: e.detail.value.tel,
         verification: e.detail.value.identifying_code,
