@@ -13,13 +13,7 @@ page{
   border-top: 6rpx solid #ffb900;
   position: relative;
 }
-.car_info{
-  width: 100%;
-  height: 328rpx;
-  background: white;
-  border-bottom: 1rpx dashed #d2d2d2;
-}
-
+ 
 /* 左右半圆 */
 .circle-left{
   width: 25rpx;
@@ -39,7 +33,65 @@ page{
   top: 316.5rpx;
   right:-12.5rpx;
 }
-
+/* 车辆详情 */
+.car_info{
+  width: 100%;
+  height: 328rpx;
+  background: white;
+  border-bottom: 1rpx dashed #d2d2d2;
+}
+.car-info-area{
+  color: #282828;
+  font-size: 36rpx;
+  display: block;
+  padding-top: 50rpx;
+  text-align: center;
+  font-weight: 500;
+}
+.car-info-np{
+  width: 100%;
+  text-align: center;
+  height: 44rpx;
+  padding-top: 39rpx;
+}
+.car-info-number{
+  font-size: 32rpx;
+  color: #282828;
+  margin-right: 32rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+}
+.car-info-photos{
+  width: 138rpx;
+  height: 44rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #3d85e9;
+  font-size: 24rpx;
+  line-height: 42rpx;
+  display: inline-block;
+  border-radius: 50rpx;
+  color: #3d85e9;
+}
+.car-info-rs{
+  width: 100%;
+  margin-top: 38rpx;
+  box-sizing: border-box;
+  padding-left: 25rpx;
+  color: #767779;
+  font-size: 27rpx;
+}
+.car-info-ruchangtime{
+  display: block;
+  padding-right: 46rpx;
+}
+.car-info-ruchangdate{
+  padding-right: 20rpx;
+}
+.car-info-stoptime{
+  display: block;
+  padding-right: 46rpx;
+   padding-top: 15rpx;
+}
 /* 停车初始费用 */
 .start-pay-info{
   width: 100%;
@@ -94,10 +146,18 @@ page{
 }
 .coupon-pay-info-number{
   float: right;
-  margin-right: 32rpx;
   color: #bfbfbf;
 }
-
+.item2{
+  float: right;
+  margin-right: 32rpx;
+}
+.with_arrow {  
+  width: 16px;  
+  height: 16px;  
+  margin-left: 32rpx;
+  margin-top: 6rpx;
+}
 /* 会员积分 */
 .memberjifen-pay-info{
   width: 100%;
@@ -105,6 +165,11 @@ page{
   padding: 32rpx 0;
   font-size: 32rpx;
   color: #282828;
+  overflow: hidden;
+  position: relative;
+}
+.memberjifen-pay-info-jian{
+  width: 100%;
   overflow: hidden;
 }
 .memberjifen-pay-info-desc{
@@ -114,9 +179,72 @@ page{
 .memberjifen-pay-info-number{
   float: right;
   margin-right: 32rpx;
-  color: #bfbfbf;
+  color: #282828;  
 }
-
+.memberjifen-pay-info-fen{
+  margin-top: 22rpx;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 50rpx;
+}
+.memberjifen-pay-info-fen-desc{
+  float: left;
+  margin-left: 32rpx;
+  font-size: 28rpx;
+  color: #777777;  
+}
+.memberjifen-pay-info-fen-saun{
+  display: inline-block;
+  float: right;
+  overflow: hidden;
+  margin-right: 32rpx;
+}
+.memberjifen-pay-info-fen-saun button{
+  float: right;
+  height: 40rpx;
+  width: 40rpx;
+  color: #e8eaec;
+  padding: 0;
+  margin: 0;
+  font-size: 50rpx;
+}
+.memberjifen-pay-number{
+  float: right;
+  width: 72rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+/* 缴费提示 */
+.search-prompt{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
+  position: absolute;
+  bottom: 24rpx;
+  left: 0;
+}
+.pay-img{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
+  width: 30rpx;
+  height: 30rpx;
+  box-sizing: border-box;
+  margin-left: 8rpx;
+}
+.pay-desc{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content:center;
+  color: #999;
+  font-size: 24rpx;
+}
 /* 进行付款 */
 .pay-info{
   width: 100%;
@@ -130,9 +258,15 @@ page{
   line-height: 88rpx;
   margin-left: 80rpx;
 }
+.pay-info-number-biao{
+  color: #ff0000;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  margin-right: 10rpx;
+}
 .pay-info-number{
   color: #ff0000;
-  font-size: 32rpx;
+  font-size: 38rpx;
   line-height: 88rpx;
 }
 .pay{
@@ -146,4 +280,30 @@ page{
 }
 .pay::after{
   border: 0rpx;
+}
+
+/* 支付提示 */
+.pay-tishi{
+  width: 100%;
+  position: absolute;
+  bottom: 32rpx;
+  box-sizing: border-box;
+}
+.pay-prompt{
+  width: 670rpx;
+  margin: 0 auto ;
+  text-align:center;
+}
+.pay-prompt-desc{
+  color:#a0a0a0;
+  font-size: 22rpx;
+  text-align: center;
+  display: block;
+}
+.pay-prompt-desc1{
+  padding-bottom: 14rpx;
+}
+.pay-prompt-desc2{
+  padding-bottom: 10rpx;
+  text-align: center;
 }

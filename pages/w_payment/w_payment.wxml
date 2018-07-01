@@ -8,6 +8,23 @@
 
       <!-- 车辆详情 -->
       <view class='car_info'>
+        <!-- 停车区域 -->
+        <text class='car-info-area'>日照停车场A2区域</text>
+        <!-- 车牌号和照片 -->
+        <view class='car-info-np'>
+          <text class='car-info-number'>鲁L·TH382</text>
+          <text class='car-info-photos'>查看照片</text>
+        </view>
+        <!-- 入场时间和停车时长 -->
+        <view class='car-info-rs'>
+          <view class='car-info-ruchangtime'>入场时间：
+            <text class='car-info-ruchangdate'>2018-07-01</text>
+            <text>09:10:18</text>
+          </view>
+          <view class='car-info-stoptime'>停车时长：
+            <text >0天2小时25分钟</text>
+          </view>
+        </view>
       </view>
 
       <!-- 左右半圆 -->
@@ -29,19 +46,50 @@
       <!-- 优惠券 -->
       <view class='coupon-pay-info'>
         <text class='coupon-pay-info-desc'>优惠券</text>
-        <text class='coupon-pay-info-number'>要啥优惠券</text>
+       
+        <view class="item2"> 
+          <image  class="with_arrow" src="/images/right.png"></image>
+        </view>
+        <text class='coupon-pay-info-number'>无可用优惠券</text>
       </view>
 
-       <!-- 会员积分 -->
+      <!-- 会员积分 -->
       <view class='memberjifen-pay-info'>
-        <text class='memberjifen-pay-info-desc'>会员积分</text>
-        <text class='memberjifen-pay-info-number'>么有</text>
+        <view class='memberjifen-pay-info-jian'>
+          <text class='memberjifen-pay-info-desc'>会员积分</text>
+          <text class='memberjifen-pay-info-number'>-¥0.35</text>
+        </view>
+        <view class='memberjifen-pay-info-fen'>
+          <text class='memberjifen-pay-info-fen-desc'>1825分</text>
+          <view class='memberjifen-pay-info-fen-saun'>
+          <button class='memberjifen-pay-number-jian'>-</button>
+          <text class='memberjifen-pay-number'>35</text>
+          <button class='memberjifen-pay-number-jia'>+1</button>
+          </view>
+        </view>
+        <view class="search-prompt">
+          <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+          <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
+        </view>
       </view>
 
-       <!-- 进行付款 -->
+      <!-- 进行付款 -->
       <view class='pay-info'>
-        <text class='pay-info-desc'>合计：<text class='pay-info-number'>¥4.00</text></text>
-        <button class='pay'>立即支付</button>
+        <view class='pay-info-desc'>合计：
+          <text class='pay-info-number-biao'>¥</text>
+          <text class='pay-info-number'>4.00</text>
+          <button class='pay'>立即支付</button>
+        </view >
+     
       </view>
     </view>
+    <!-- 温馨提示 -->
+    <view class='pay-tishi'>
+      <view class="pay-prompt" >
+        <text class="pay-prompt-desc pay-prompt-desc1">温馨提示</text>  
+        <text class="pay-prompt-desc pay-prompt-desc2">每次停车仅首次支付可享受支付优惠，再次支付时将无法再使用哦。
+        </text>
+      </view>
+    </view> 
 </view>
+
