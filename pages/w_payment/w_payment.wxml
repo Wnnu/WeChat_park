@@ -12,7 +12,7 @@
         <text class='car-info-area'>日照停车场A2区域</text>
         <!-- 车牌号和照片 -->
         <view class='car-info-np'>
-          <text class='car-info-number'>鲁L·TH382</text>
+          <text class='car-info-number'>{{title}}</text>
           <text class='car-info-photos'>查看照片</text>
         </view>
         <!-- 入场时间和停车时长 -->
@@ -57,14 +57,14 @@
       <view class='memberjifen-pay-info'>
         <view class='memberjifen-pay-info-jian'>
           <text class='memberjifen-pay-info-desc'>会员积分</text>
-          <text class='memberjifen-pay-info-number'>-¥0.35</text>
+          <text class='memberjifen-pay-info-number'>-¥{{pay_memberjifen_money}}</text>
         </view>
         <view class='memberjifen-pay-info-fen'>
           <text class='memberjifen-pay-info-fen-desc'>1825分</text>
           <view class='memberjifen-pay-info-fen-saun'>
-          <button class='memberjifen-pay-number-jian'>-</button>
-          <text class='memberjifen-pay-number'>35</text>
-          <button class='memberjifen-pay-number-jia'>+1</button>
+            <text class='memberjifen-pay-number-jia' bindtap='bindPlus'>+</text>
+            <text class='memberjifen-pay-number'>{{pay_memberjifen}}</text>
+            <text class='memberjifen-pay-number-jian {{minusStatus}}' bindtap='bindMinus'>-</text>
           </view>
         </view>
         <view class="search-prompt">

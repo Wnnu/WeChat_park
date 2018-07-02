@@ -17,25 +17,18 @@
   padding: 0 30rpx;
 }
 .search-prompt{
-  width: 80%;
-  margin: 15rpx auto 0;
+  width: 670rpx;
+  margin: 0 auto ;
   text-align:center;
 }
-.prompt-img{
-  float: left;
-  margin: 5rpx 5rpx 0 0;
-  width: 80rpx;
-  height:130rpx;
-}
-.prompt-img-info{
-  width: 50rpx;
-  height:50rpx;
-  margin-top: 15rpx;   
-}
 .prompt-desc{
-  color:#888;
-  font-size: 26rpx;
-  
+  color:#a0a0a0;
+  font-size: 24rpx;
+  text-align: center;
+  display: block;
+}
+.prompt-desc1{
+  padding-bottom: 20rpx;
 }
 /*绑定会员  */
 .bind-info{

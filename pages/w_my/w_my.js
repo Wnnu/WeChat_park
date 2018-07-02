@@ -10,6 +10,7 @@ Page({
   data: {
     userInfo:{},
     member: false,//是否是会员
+    memberjifen:0,//会员时积分数量
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 

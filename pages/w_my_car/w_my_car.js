@@ -7,12 +7,12 @@ Page({
   data: {
       cars_number:[
         {
-          number:"苏E 05E68",
+          number:"苏E·05E68",
           time:"2018-06-26",
         },
         {
-          number: "苏E 05E68",
-          time: "2018-06-26",
+          number: "苏E·05E69",
+          time: "2018-07-01",
         }],//车牌号，默认无
   },
 

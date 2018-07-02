@@ -24,16 +24,14 @@
   </form>
 </view>
 <view class='bind-tishi'>
-  <view class="bind-title">  
+  <!-- <view class="bind-title">  
         <text class="line"></text>  
         <text class="bind-title-desc">温馨提示</text>  
         <text class="line"></text>  
-  </view>  
+  </view>   -->
   <view class="search-prompt" >
-      <view class='prompt-img'> 
-         <image class='prompt-img-info' src='/images/tishi1.png'></image> 
-      </view>
-      <text class="prompt-desc">请输入车牌号，将车牌绑定到会员号，即可享受到会员专属优惠。
+      <text class="prompt-desc prompt-desc1">温馨提示</text>  
+      <text class="prompt-desc">请输入车牌号将车牌绑定到会员号，即可享受会员专属优惠。
       </text>
   </view>
 </view>

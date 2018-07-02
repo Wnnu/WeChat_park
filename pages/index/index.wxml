@@ -60,7 +60,7 @@
    <!--历史记录&&快捷缴费  -->
     <block wx:if="{{history.length>=1}}">
       <view class="pay-quick">
-        <view class="vehicle_info" wx:for="{{history}}">
+        <view class="vehicle_info" wx:for="{{history}}" bindtap='search_pay' data-text="{{item}}" >
           <image class='bg-car' src='/images/car1.png'></image>
           <text>{{item}}</text> 
         </view>

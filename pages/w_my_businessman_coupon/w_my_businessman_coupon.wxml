@@ -1,2 +1,15 @@
 <!--pages/businessman_coupon/businessman_coupon.wxml-->
-<text>此处为商户优惠券页面，正在赶做中....</text>
+<view wx:if="{{!coupon}}" class='no-coupon'>
+  <text>竟然一点优惠券都没有</text>
+  <text>"你有没有考虑过优惠券的感受"</text>
+</view>
+<view wx:else>
+  <view class='top-info'>
+    <text class='no-use active' bindtap='tar1' wx:if="{{tar==1}}">未使用(10)</text>
+    <text class='no-use ' bindtap='tar1' wx:else>未使用(10)</text>
+    <text class='use-record active' bindtap='tar2' wx:if="{{tar==2}}">使用记录(10)</text>
+     <text class='use-record' bindtap='tar2' wx:else>使用记录(10)</text>
+    <text class='overdue active' bindtap='tar3' wx:if="{{tar==3}}">已过期(10)</text>
+    <text class='overdue' bindtap='tar3' wx:else>已过期(10)</text>
+  </view>
+</view>

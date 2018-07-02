@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title:''//车牌
+    title:'',//车牌
+    pay_memberjifen: 35,//付款时的支付的会员积分
+    pay_memberjifen_money: 0.35,//付款时会员积分所减的金额
   },
 
   /**
@@ -154,6 +156,33 @@ Page({
           else { }
         }
       }
+    })
+  },
+  //事件处理函数
+  /*点击减号*/
+  bindMinus: function () {
+    var pay_memberjifen = this.data.pay_memberjifen;
+    if (pay_memberjifen > 0) {
+      pay_memberjifen--;
+    }
+    var pay_memberjifen_money = pay_memberjifen/100;
+    var minusStatus = pay_memberjifen > 0 ? 'normal' : 'disable';
+    this.setData({
+      pay_memberjifen: pay_memberjifen,
+      pay_memberjifen_money: pay_memberjifen_money,
+      minusStatus: minusStatus
+    })
+  },
+  /*点击加号*/
+  bindPlus: function () {
+    var pay_memberjifen = this.data.pay_memberjifen;
+    pay_memberjifen++;
+    var pay_memberjifen_money = pay_memberjifen / 100;
+    var minusStatus = pay_memberjifen > 0 ? 'normal' : 'disable';
+    this.setData({
+      pay_memberjifen: pay_memberjifen,
+      pay_memberjifen_money: pay_memberjifen_money,
+      minusStatus: minusStatus
     })
   },
 })

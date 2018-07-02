@@ -13,7 +13,7 @@ Page({
     circular: true,//从data开始的值到此是轮播
     hasUserInfo: false,//是否已授权
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    member:true,//是否是会员
+    member:false,//是否是会员
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
     show:"",//卷码扫描值
@@ -23,9 +23,9 @@ Page({
     ],
     showModalStatus: false,//搜索面板显示，默认隐藏
     search_result:[//搜索结果
-      "苏E 05E67",
-      "苏E 05E68",
-      "苏E 05E69",
+      "苏E·05E67",
+      "苏E·05E68",
+      "苏E·05E69",
     ],
 
   },

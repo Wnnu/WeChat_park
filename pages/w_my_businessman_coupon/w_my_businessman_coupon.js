@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      coupon:true,//是否有优惠券，默认无
+      coupon_info: "",//优惠券信息，默认无
+      tar:"1",//顶部tar的标识
   },
 
   /**
@@ -56,11 +58,20 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+  // 顶部tar切换
+  tar1: function () {
+    this.setData({
+      tar: "1",
+    })
+  },
+  tar2: function () {
+    this.setData({
+      tar: "2",
+    })
+  },
+  tar3: function () {
+    this.setData({
+      tar: "3",
+    })
+  },
 })

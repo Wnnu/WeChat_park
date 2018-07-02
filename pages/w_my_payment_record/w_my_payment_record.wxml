@@ -1,2 +1,39 @@
 <!--pages/w_my_payment_record/w_my_payment_record.wxml-->
-<text>此处为交费记录页面，正在赶做中....</text>
+<view class='date'>
+  <!-- 日期 -->
+  <view class="section">
+    <picker mode="date" value="{{date}}"  bindchange="bindDateChange" fields="month">
+      <view class="picker">
+        {{date}}
+        <image class="bottom-image" src="/images/bottom.png"></image>
+      </view>
+    </picker>
+  </view>
+  <!-- 统计 -->
+  <view class='count'>
+    <text class='count-cishu'>停车缴费21次</text>
+    <text class='count-money'>共计¥62.00</text>
+  </view>
+</view>
+<!-- 缴费信息  -->
+<block wx:if="{{payment==''}}">
+  <view class='no-payment'>
+    <text class='no-0payment-desc'>暂无缴费记录</text>
+  </view>
+</block>
+<block wx:else>
+  <view class='payment' wx:for="{{payment}}">
+    <view class='payment-car'>
+      <text class='payment-car-number'>{{item.car_number}}</text>
+      <text class='payment-car-money'>¥{{item.car_money}}</text>
+    </view>
+    <view class='payment-area'>
+      <text class='payment-area-info'>{{item.payment_area}}</text>
+    </view>
+    <view class='payment-date'>
+      <text class='payment-date-pay-time'>{{item.pay_time}}</text>
+      <text class='payment-date-stop-time'>{{item.stop_time}}</text>
+    </view>
+  </view>
+</block>
+

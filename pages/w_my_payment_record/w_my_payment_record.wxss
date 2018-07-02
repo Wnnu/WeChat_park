@@ -1,1 +1,79 @@
 /* pages/w_my_payment_record/w_my_payment_record.wxss */
+/* 日期和统计 */
+  /* 日期 */
+.date{
+  width: 100%;
+  height: 145rpx;
+  box-sizing: border-box;
+  padding: 20rpx 0 0 32rpx;
+  background: #efeff4;
+}
+.bottom-image{
+  width: 46rpx;
+  height: 46rpx;
+  margin-top: 6rpx;
+}
+.picker{
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  color: #282828;
+}
+.picker image{
+  margin-left: 19rpx;
+}
+  /* 统计 */
+.count{
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #909090;
+}
+.count-cishu{
+  margin-right: 33rpx;
+}
+/* 缴费信息 */
+.payment{
+  width: 100%;
+  height: 184rpx;
+  border-bottom: 1rpx solid #999;
+  box-sizing: border-box;
+  padding: 24rpx 32rpx;
+}
+.payment-car{
+  color: #282828;
+  overflow: hidden;
+}
+.payment-car-number{
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.payment-car-money{
+  font-size: 36rpx;
+  font-weight: 700;
+  float: right;
+}
+.payment-area{
+  display: flex;
+  align-items: center;
+  margin-top: 6rpx;
+}
+.payment-area-info{
+  font-size: 26rpx;
+  color: #909090;
+}
+.payment-date{
+  color: #909090;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+}
+.payment-date-stop-time{
+  float: right;
+}
+/* 无记录时 */
+.no-payment{
+  width: 100%;
+  text-align: center;
+  font-size: 34rpx;
+  margin-top: 160rpx;
+  color: #777;
+}

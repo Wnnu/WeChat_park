@@ -1,21 +1,27 @@
 <!--pages/w_my_car/w_my_car.wxml-->
 <view wx:if='{{cars_number==""}}'>
-  <text class="no-car-info">这里还没有车牌，点击立刻绑定</text>
-  <view class='add-car-info' bindtap='addPlatenumber'>
-    <image src='/images/add_car.png'></image>
-    <text>添加新车牌</text>
-  </view>
+  <!-- 无车牌显示 -->
+  <text class="no-car-info">这里还没有车辆，点击立刻添加</text>
 </view>
 <view wx:else>
-  <view class='list-car'>
-    <text class='list-car-number'>苏E 05E68</text>
-    <text class='list-car-time'>2018-06-26</text>
+  <!-- 有车牌显示 -->
+  <view class='list-car' wx:for="{{cars_number}}">
+    <view class='list-car-info'>
+      <text class='list-car-number'>{{item.number}}</text>
+    </view>
     <view class='list-pay'>
-      <text>去支付</text>
+      <text class='list-car-time'>绑定时间：{{item.time}}</text>
+      <image  class="with_arrow" src="/images/right3.png"></image>
     </view>
   </view>
-  <view class='add-car-info' bindtap='addPlatenumber' wx:if="{{cars_number.length<5}}">
-    <image src='/images/add_car.png'></image>
-    <text>添加新车牌</text>
-  </view>
+</view>
+<!-- 绑定车牌 -->
+<!-- 之前样式 -->
+ <!-- <view class='add-car-info' bindtap='addPlatenumber' wx:if="{{cars_number.length<5}}">
+  <image src='/images/add_car.png'></image>
+  <text>添加新车牌</text>
+</view> -->
+<!-- 修改后样子 -->
+ <view class='add-carinfo' bindtap='addPlatenumber' wx:if="{{cars_number.length<5}}">
+  <text>添加车辆</text>
 </view>
