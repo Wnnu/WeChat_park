@@ -45,6 +45,12 @@ page{
   font-size: 30rpx;
   margin-top: 35rpx;
 }
+.userinfo-member1{
+  color: #000;
+  font-size: 30rpx;
+  margin-top: 35rpx;
+  text-align: center;
+}
 .userinfo-jifen{
   color: #000;
   font-size: 30rpx;

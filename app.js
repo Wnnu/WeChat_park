@@ -74,7 +74,7 @@ App({
   },
   globalData: {
     userInfo: null,           //用户信息，判断用户授没授权
-    member: true,            //是否是会员
+    member: false,            //是否是会员
     loginMess: '',            //session，问刘哥
     // host: 'https://www.jnnewway.com/swsy/'
     // host: 'http://192.168.0.116',

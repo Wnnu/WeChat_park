@@ -131,7 +131,9 @@ page{
   float: right;
   margin-right: 32rpx;
 }
-
+.no-member{
+  color: #bfbfbf;
+}
 /* 优惠券 */
 .coupon-pay-info{
   width: 100%;

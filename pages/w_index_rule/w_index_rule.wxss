@@ -1,1 +1,5 @@
 /* pages/rule/rule.wxss */
+.rule {
+    display: block;
+    width: 100%;
+}

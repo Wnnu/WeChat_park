@@ -38,10 +38,19 @@
       </view>
 
       <!-- 会员减免 -->
-      <view class='member-pay-info'>
-        <text class='member-pay-info-desc'>白银会员</text>
-        <text class='member-pay-info-number'>-¥2.00</text>
-      </view>
+      <block wx:if="{{member}}">
+        <view class='member-pay-info'>
+          <text class='member-pay-info-desc'>白银会员</text>
+          <text class='member-pay-info-number'>-¥2.00</text>
+        </view>
+      </block>
+      <block  wx:else>
+        <view class='member-pay-info'>
+          <text class='member-pay-info-desc'>普通用户</text>
+          <text class='member-pay-info-number no-member'>暂无优惠</text>
+        </view>
+      </block>
+    
 
       <!-- 优惠券 -->
       <view class='coupon-pay-info'>
@@ -54,25 +63,28 @@
       </view>
 
       <!-- 会员积分 -->
-      <view class='memberjifen-pay-info'>
-        <view class='memberjifen-pay-info-jian'>
-          <text class='memberjifen-pay-info-desc'>会员积分</text>
-          <text class='memberjifen-pay-info-number'>-¥{{pay_memberjifen_money}}</text>
-        </view>
-        <view class='memberjifen-pay-info-fen'>
-          <text class='memberjifen-pay-info-fen-desc'>1825分</text>
-          <view class='memberjifen-pay-info-fen-saun'>
-            <text class='memberjifen-pay-number-jia' bindtap='bindPlus'>+</text>
-            <text class='memberjifen-pay-number'>{{pay_memberjifen}}</text>
-            <text class='memberjifen-pay-number-jian {{minusStatus}}' bindtap='bindMinus'>-</text>
+      <block wx:if="{{member}}">
+        <view class='memberjifen-pay-info'>
+          <view class='memberjifen-pay-info-jian'>
+            <text class='memberjifen-pay-info-desc'>会员积分</text>
+            <text class='memberjifen-pay-info-number'>-¥{{pay_memberjifen_money}}</text>
+          </view>
+          <view class='memberjifen-pay-info-fen'>
+            <text class='memberjifen-pay-info-fen-desc'>1825分</text>
+            <view class='memberjifen-pay-info-fen-saun'>
+              <text class='memberjifen-pay-number-jia' bindtap='bindPlus'>+</text>
+              <text class='memberjifen-pay-number'>{{pay_memberjifen}}</text>
+              <text class='memberjifen-pay-number-jian {{minusStatus}}' bindtap='bindMinus'>-</text>
+            </view>
+          </view>
+          <view class="search-prompt">
+            <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
+            <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
           </view>
         </view>
-        <view class="search-prompt">
-          <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
-          <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
-        </view>
-      </view>
-
+      </block>
+     
+     
       <!-- 进行付款 -->
       <view class='pay-info'>
         <view class='pay-info-desc'>合计：

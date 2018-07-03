@@ -47,18 +47,18 @@ Page({
   * 生命周期函数--监听页面初次渲染完成
   */
   onReady: function () {
-    // this.setData({
-    //   member: app.globalData.member
-    // })
+    this.setData({
+      member: app.globalData.member
+    })
     this.authorize();
   },
   /**
   * 生命周期函数--监听页面显示
   */
   onShow: function () {
-    // this.setData({
-    //   member: app.globalData.member
-    // })
+    this.setData({
+      member: app.globalData.member
+    })
     this.authorize();
   },
   getUserInfo(userinfo, callback) {
@@ -107,7 +107,7 @@ Page({
     let data;
     let localStorageValue = [];
     var self=this;
-    if (this.data.inputValue != '') {
+    if (this.data.inputValue != '' && this.data.inputValue.length>=4) {
       //调用API从本地缓存中获取数据  
       var searchData = wx.getStorageSync('searchData') || []
       searchData.push(this.data.inputValue)
@@ -159,6 +159,13 @@ Page({
       })
     } else {
       console.log('空白')
+      wx.showModal({
+        title: "无法查询",
+        content: "查询值不能为空或长度低于4位",
+        confirmColor: "#4fafc9",
+        confirmText: "我知道了",
+        showCancel: false,
+      })
     }  
    
   },

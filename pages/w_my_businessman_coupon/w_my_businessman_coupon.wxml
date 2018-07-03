@@ -4,12 +4,90 @@
   <text>"你有没有考虑过优惠券的感受"</text>
 </view>
 <view wx:else>
+  <!-- 顶部tar切换 -->
   <view class='top-info'>
-    <text class='no-use active' bindtap='tar1' wx:if="{{tar==1}}">未使用(10)</text>
-    <text class='no-use ' bindtap='tar1' wx:else>未使用(10)</text>
-    <text class='use-record active' bindtap='tar2' wx:if="{{tar==2}}">使用记录(10)</text>
-     <text class='use-record' bindtap='tar2' wx:else>使用记录(10)</text>
-    <text class='overdue active' bindtap='tar3' wx:if="{{tar==3}}">已过期(10)</text>
-    <text class='overdue' bindtap='tar3' wx:else>已过期(10)</text>
+    <text class='no-use active' bindtap='tar1' wx:if="{{tar==1}}">未使用(5)</text>
+    <text class='no-use ' bindtap='tar1' wx:else>未使用(5)</text>
+    <text class='use-record active' bindtap='tar2' wx:if="{{tar==2}}">使用记录(0)</text>
+     <text class='use-record' bindtap='tar2' wx:else>使用记录(0)</text>
+    <text class='overdue active' bindtap='tar3' wx:if="{{tar==3}}">已过期(0)</text>
+    <text class='overdue' bindtap='tar3' wx:else>已过期(0)</text>
   </view>
+
+  <!-- 优惠券 -->
+    <!-- 未使用 -->
+  <block wx:if="{{tar==1}}">
+    <block wx:if="{{ok_coupon==''}}">
+      <view class='no-coupon'>
+        <text>您还没有可使用的优惠券</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='coupon-info' wx:for="{{ok_coupon}}">
+        <view class='coupon-info-name'>
+          <text>{{item.name}}</text>
+          <text>{{item.time}}</text>
+        </view>
+        <view class='coupon-info-date'>
+          <text>有效期至{{item.date}}</text>
+        </view>
+        <view class='coupon-info-area'>
+          <text>仅限日照万象汇停车场使用</text>
+        </view>
+        <!--左右半圆  -->
+        <view class='coupon-left'></view>
+        <view class='coupon-right'></view>
+      </view>
+    </block>
+  </block>
+    <!-- 已使用 -->
+  <block wx:if="{{tar==2}}">
+    <block wx:if="{{use_coupon==''}}">
+      <view class='no-coupon'>
+        <text>您还没有可使用的优惠券</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='coupon-info' wx:for="{{use_coupon}}">
+        <view class='coupon-info-name'>
+          <text>{{item.name}}</text>
+          <text>{{item.time}}</text>
+        </view>
+        <view class='coupon-info-date'>
+          <text>有效期至{{item.date}}</text>
+        </view>
+        <view class='coupon-info-area'>
+          <text>仅限日照万象汇停车场使用</text>
+        </view>
+        <!--左右半圆  -->
+        <view class='coupon-left'></view>
+        <view class='coupon-right'></view>
+      </view>
+    </block>
+  </block>
+   <!-- 已过期 -->
+  <block wx:if="{{tar==3}}">
+    <block wx:if="{{overdue_coupon==''}}">
+      <view class='no-coupon'>
+        <text>您还没有可使用的优惠券</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='coupon-info' wx:for="{{overdue_coupon}}">
+        <view class='coupon-info-name'>
+          <text>{{item.name}}</text>
+          <text>{{item.time}}</text>
+        </view>
+        <view class='coupon-info-date'>
+          <text>有效期至{{item.date}}</text>
+        </view>
+        <view class='coupon-info-area'>
+          <text>仅限日照万象汇停车场使用</text>
+        </view>
+        <!--左右半圆  -->
+        <view class='coupon-left'></view>
+        <view class='coupon-right'></view>
+      </view>
+    </block>
+  </block>
 </view>

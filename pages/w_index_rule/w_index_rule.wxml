@@ -1,2 +1,4 @@
 <!--pages/rule/rule.wxml-->
-<text>本页面为缴费规则，正在赶做中....</text>
+<view>
+    <image class="rule" mode="widthFix" src="/images/rule.png"></image>
+</view>

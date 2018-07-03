@@ -12,8 +12,13 @@
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="userinfo-info">
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-          <text class="userinfo-member">白金会员</text>
-          <text class="userinfo-jifen">积分：1800</text>
+          <block wx:if="{{member}}">
+            <text class="userinfo-member">白金会员</text>
+            <text class="userinfo-jifen">积分：1800</text>
+          </block>
+          <block wx:else>
+            <text class="userinfo-member1">普通用户</text>
+          </block>
         </view>
       </view>
     </block>

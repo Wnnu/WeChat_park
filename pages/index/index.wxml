@@ -30,7 +30,6 @@
           <text class="click-text2" >绑定会员尽享停车优惠</text>
           <image class='bind-img' src='/images/tap_right.png' bindtap='tapRule'></image>
         </view>
-       
       </view>
     </view>
   </block>
@@ -50,10 +49,10 @@
           <input type="text" placeholder="请输入4位连续车牌号" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}" placeholder-style="color:#999;font-size:32rpx;"/>
         </view>
         <view class="section-button">
-          <!-- <button wx:if="{{length<4}}"  disabled="true">查询</button>
-          <button wx:elif="{{length >= 4&&hasUserInfo}}" bindtap='toSearch'>查询</button>
-          <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">查询</button> -->
-           <button bindtap='toSearch'>查询</button>
+           <!-- <button wx:if="{{length<4}}"  disabled="true">查询</button> -->
+          <button wx:if="{{hasUserInfo}}" bindtap='toSearch'>查询</button>
+          <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap='toSearch'>查询</button> 
+           <!-- <button bindtap='toSearch'>查询</button> -->
         </view>
       </view>
     </view>

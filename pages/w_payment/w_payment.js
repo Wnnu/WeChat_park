@@ -1,6 +1,8 @@
 // pages/payment/payment.js
-Page({
+//获取应用实例
+const app = getApp()
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -8,14 +10,17 @@ Page({
     title:'',//车牌
     pay_memberjifen: 35,//付款时的支付的会员积分
     pay_memberjifen_money: 0.35,//付款时会员积分所减的金额
+    member: false,//是否是会员
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 判断是否会员和获取车牌信息
     this.setData({
-      title: options.title
+      title: options.title,
+      member: app.globalData.member
     }) 
   },
 
@@ -23,14 +28,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    // 判断是否会员
+    this.setData({
+      member: app.globalData.member
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    // 判断是否会员
+    this.setData({
+      member: app.globalData.member
+    }) 
   },
 
   /**

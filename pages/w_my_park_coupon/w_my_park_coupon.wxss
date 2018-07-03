@@ -1,1 +1,98 @@
 /* pages/parkcoupon/parkcoupon.wxss */
+page{
+  background: #efeff4;
+}
+/* 无优惠券显示 */
+.no-coupon{
+  font-size: 34rpx;
+  text-align: center;
+  color: #333;
+  margin-top: 450rpx;
+}
+.no-coupon text{
+  display: block;
+}
+.no-coupon text:last-child{
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 15rpx;
+}
+/* 有优惠券时 */
+.top-info{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1rpx solid #909090;
+  background: white;
+}
+.top-info text{
+  width: 33%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  text-align: center;
+  font-size: 32rpx;
+  color: #909090;
+}
+.top-info .active{
+  color: orange;
+}
+/* 优惠券样式 */
+.coupon-info{
+  width: 690rpx;
+  margin: 30rpx auto 0;
+  box-sizing: border-box;
+  padding: 20rpx 15rpx 10rpx;
+  background: white;
+  position: relative;
+}
+.coupon-info-name{
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  font-size: 38rpx;
+  overflow: hidden;
+}
+.coupon-info-name text:first-child{
+  float: left;
+  color: #282828;
+}
+.coupon-info-name text:last-child{
+  float: right;
+  color: #d68231;
+}
+.coupon-info-date{
+  margin-top: 12rpx; 
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  margin-bottom: 25rpx;
+}
+.coupon-info-area{
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  border-top: 1rpx dashed #909090;
+  font-size: 26rpx;
+  color: #909090;
+}
+.coupon-info-area text{
+  display: block;
+  padding: 13rpx 0;
+}
+/* 左右半圆 */
+.coupon-left{
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+  background: #f2f4f6;
+  position: absolute;
+  top: 85rpx;
+  left:-15rpx;
+}
+.coupon-right{
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+  background: #f2f4f6;
+  position: absolute;
+   top: 85rpx;
+  right:-15rpx;
+}
