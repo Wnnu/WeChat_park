@@ -1,0 +1,91 @@
+<view catchtap="show" class="custom_input_box flex_center">
+    <image class="energy_icon" src="/images/keyboard/energy.png" wx:if="{{showEnergyIcon&&!showPlaceholder}}"></image>
+    <view class="custom_placeholder flex_full" wx:if="{{showPlaceholder}}">{{placeholderText}}</view>
+    <view class="custom_lpn flex_full {{showCursor?'cursor':''}}" data-content="{{content}}" wx:if="{{!showPlaceholder}}">{{content}}</view>
+    <image catchtap="clearInput" class="clear-img" src="/images/clear.png" wx:if="{{!showPlaceholder&&content&&showKeyboard}}"></image>
+</view>
+<view class="keyboard_box" wx:if="{{showKeyboard}}">
+    <view class="bar">
+        <button catchtap="hide" class="k_close" plain="true">关闭</button>
+    </view>
+    <view class="keyboard suffix" wx:if="{{showSuffixKeyboard}}">
+        <view class="click" style="left:{{hoverImg.left}};top:{{hoverImg.top}};width: {{hoverImg.width}};height: {{hoverImg.height}};z-index: {{hoverImg.zIndex}};visibility: {{hoverImg.visibility}}">
+            <view class="cover"></view>
+            <view class="float_num" style="line-height: {{hoverImg.lineHeight}}">{{hoverImg.text}}</view>
+            <image src="/images/keyboard/hover.png"></image>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full n_key" wx:for="{{suffixListLine1}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="ks_1_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_half empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full {{index+1==suffixListLine2.length?'m_r_none':''}}" wx:for="{{suffixListLine2}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="ks_2_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_half empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full" wx:for="{{suffixListLine3}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="ks_3_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_full empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_half_2 empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full empty_3">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full" wx:for="{{suffixListLine4}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="ks_4_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_twice del m_r_none">
+                <view catchtap="_deleteHandler" data-key-type="del">
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full empty_3">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_half_2 empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

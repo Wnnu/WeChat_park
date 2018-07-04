@@ -10,6 +10,9 @@ page{
   box-sizing: border-box;
   padding: 80rpx 20rpx 0;
   background: linear-gradient(to bottom right, #ffd054  , #f4b715); /*渐变*/
+  position: relative; 
+  overflow: hidden;  
+  z-index: 3;
 }
 .userinfo {
   display: flex;
@@ -17,6 +20,7 @@ page{
   align-items: top;
   justify-content: left;   
   margin-left: 100rpx;
+  z-index: 10;
 }
 .login-info{
   display: flex;
@@ -24,37 +28,45 @@ page{
   align-items: center;
   justify-content: left;    
   height: 100%;
+  z-index: 10;
 }
 .userinfo-avatar {
   width: 180rpx;
   height: 180rpx;
   border-radius: 50%;
+  z-index: 10;
 }
 .userinfo-info{
   margin-left: 48rpx;
    display: flex;
   flex-direction: column;
+  padding-top: 20rpx;
+  box-sizing: border-box;
 }
 .userinfo-nickname {
   color: #000;
   font-size: 36rpx;
   font-weight: 700;
+  z-index: 10;
 }
 .userinfo-member{
   color: #000;
   font-size: 30rpx;
   margin-top: 35rpx;
+  z-index: 10;
 }
 .userinfo-member1{
   color: #000;
   font-size: 30rpx;
   margin-top: 35rpx;
   text-align: center;
+  z-index: 10;
 }
 .userinfo-jifen{
   color: #000;
   font-size: 30rpx;
   margin-top: 10rpx;
+  z-index: 10;
 }
 .get-userinfo{
   color: #000;
@@ -78,7 +90,14 @@ page{
   flex-direction: column;
   align-items: left;
   width: 100%;
+  box-sizing: border-box;
   padding-top:30rpx; 
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+  margin-top: -10rpx;
+  background: white;
+  z-index: 20;
+  position: relative; 
 }
 .list-item {
   display: flex;
@@ -135,4 +154,60 @@ page{
   align-items: center;
   font-size: 32rpx;
   color: blue;
+}
+
+/* 顶部透明背景 */
+.bg1{
+  height: 70rpx;
+  width: 200rpx;
+  position: absolute;
+  bottom: 0;
+  left:-40rpx;
+  transform: rotate(-46deg);
+  background: #fed362;
+  border-radius: 40rpx;
+  z-index: 5;
+}
+.bg2{
+  height: 110rpx;
+  width: 230rpx;
+  position: absolute;
+  top: 30rpx;
+  right:-50rpx;
+  transform: rotate(-46deg);
+  background: #fbcb4d;
+  border-radius: 50rpx;
+  z-index: 5;
+}
+.bg3{
+  height: 24rpx;
+  width: 230rpx;
+  position: absolute;
+  top: 220rpx;
+  right:-40rpx;
+  transform: rotate(-46deg);
+  background: #fbcb4d;
+  border-radius: 40rpx;
+  z-index: 5;
+}
+.bg4{
+  height: 32rpx;
+  width: 210rpx;
+  position: absolute;
+  top: -10rpx;
+  left:80rpx;
+  transform: rotate(-46deg);
+  background: #fed362;
+  border-radius: 40rpx;
+  z-index: 5;
+}
+.bg5{
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 100rpx;
+  left:65rpx;
+  background: #fed362;
+  z-index: 5;
 }

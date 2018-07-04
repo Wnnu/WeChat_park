@@ -1,0 +1,30 @@
+.img-tip-container {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.img-tip-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000000;
+    opacity: 0.6;
+    z-index: 1000;
+}
+
+.tip-img {
+    width: 530rpx;
+    height: 356rpx;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1001;
+}

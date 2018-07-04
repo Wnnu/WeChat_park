@@ -203,15 +203,21 @@ Page({
             icon: 'success',
             success:function(res){
               app.globalData.member=true;
-              wx.navigateTo({
-                url: "/pages/w_my_bind_platenumber/w_my_bind_platenumber",
-              })
+              setTimeout(function () { 
+                wx.navigateTo({
+                  url: "/pages/w_my_bind_platenumber/w_my_bind_platenumber",
+                })
+              },1500) 
+             
             }
           })
         } else {
-          wx.showToast({
-            title: ''+res.data.msg,
-            image: '/images/tishi.png'
+          wx.showModal({
+            title: "绑定失败",
+            content: ""+res.data.msg,
+            confirmColor: "#4fafc9",
+            confirmText: "我知道了",
+            showCancel: false,
           })
         }
       },

@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "绑定车牌"
+  "navigationBarTitleText": "绑定车牌",
+  "backgroundColor": "#f0eff7",
+  "usingComponents": {
+    "keyboard": "/components/keyboard_component/keyboard_component"
+  }
 }

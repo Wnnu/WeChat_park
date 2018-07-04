@@ -1,0 +1,4 @@
+<cover-view bindtap="hideTip" class="img-tip-container">
+    <cover-view class="img-tip-cover"></cover-view>
+    <cover-image class="tip-img" src="{{imgSrc}}"></cover-image>
+</cover-view>

@@ -1,5 +1,6 @@
 // pages/w_my_payment_record/w_my_payment_record.js
-
+//获取应用实例
+const app = getApp()
 Page({
 
   /**

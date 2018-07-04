@@ -1,0 +1,219 @@
+.flex_center {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex_full {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.flex_half {
+    -webkit-box-flex: 0.5;
+    flex: 0.5;
+}
+
+.flex_half_2 {
+    -webkit-box-flex: 0.25;
+    flex: 0.25;
+}
+
+.flex_half_3 {
+    -webkit-box-flex: 0.75;
+    flex: 0.75;
+}
+
+.flex_twice {
+    -webkit-box-flex: 1.5;
+    flex: 1.5;
+}
+
+.container {
+    height: 100%;
+}
+
+.custom_input_box {
+    position: relative;
+    /* margin: 10rpx 0; */
+    line-height: 70rpx;
+    font-size: 30rpx;
+}
+
+.custom_input_box .energy_icon {
+    margin-right: 20rpx;
+    width: 56rpx;
+    height: 32rpx;
+}
+
+.custom_input_box .custom_placeholder {
+    color: #888;
+}
+
+.custom_input_box .custom_lpn {
+    color: #2c4358;
+    letter-spacing: 4rpx;
+    /* height: 100rpx; */
+}
+
+.cursor:after {
+    content: "";
+    width: 4rpx;
+    height: 30rpx;
+    background: url(data:image/gif;base64,R0lGODlhAgAaAIABADeX/v///yH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNBNkQxNjZDMDc4RTExRTdBN0I4QzM2QjIzMDQwNzBFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNBNkQxNjZEMDc4RTExRTdBN0I4QzM2QjIzMDQwNzBFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0E2RDE2NkEwNzhFMTFFN0E3QjhDMzZCMjMwNDA3MEUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0E2RDE2NkIwNzhFMTFFN0E3QjhDMzZCMjMwNDA3MEUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZGBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAAh+QQJKAABACwAAAAAAgAaAAACBoSPqcu9BQAh+QQFKAABACwAAAAAAgAaAAACBoyPqcu9BQA7) center left no-repeat;
+    background-size: 4rpx 28rpx;
+    padding-left: 30rpx;
+}
+
+.keyboard_box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #e1e3e7;
+    text-align: center;
+    box-shadow: 0 -6rpx 22rpx #e9e9e9;
+    z-index: 100;
+    line-height: 1!important;
+}
+
+.keyboard_box .bar {
+    height: 66rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.keyboard_box .bar .k_close {
+    color: #259cf5;
+    font-size: 32rpx;
+    text-align: right;
+    float: right;
+    border: none;
+    height: 100%;
+    line-height: 66rpx;
+}
+
+.keyboard {
+    text-align: center;
+    padding: 13rpx 8rpx;
+    max-width: 1000rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.keyboard .key_box {
+    margin-bottom: 10rpx;
+}
+
+.keyboard .key_box:last-child {
+    margin-bottom: 0;
+}
+
+.keyboard .key_box .key view {
+    padding-bottom: 154%;
+    background-color: #fff;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    border-radius: 10rpx;
+    font-size: 40rpx;
+    position: relative;
+    box-shadow: 0 4rpx 4rpx #d7d7d7;
+    z-index: 50;
+}
+
+.keyboard .key_box .key view text {
+    position: absolute;
+    top: 50%;
+    height: 5.2rpx;
+    line-height: 5.2rpx;
+    width: 100%;
+    left: 0;
+    margin-top: -2rpx;
+    font-style: normal;
+    color: #212121;
+}
+
+.keyboard .key_box .key {
+    margin-right: 10rpx;
+    font-size: 0;
+}
+
+.keyboard .key_box .key:last-child {
+    margin-right: 0;
+}
+
+.keyboard .key_box .key.empty {
+    margin-right: 6rpx;
+}
+
+.keyboard .key_box .key.m_r_none {
+    margin-right: 0;
+}
+
+.keyboard .key_box .key.empty view,.keyboard .key_box .key.empty_2 view,.keyboard .key_box .key.empty_3 view {
+    margin: 0;
+    background-color: rgba(0,0,0,0);
+    box-shadow: none;
+}
+
+.keyboard .key_box .key.del view {
+    padding-bottom: 104%;
+    background: #c4c8cf url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAjCAMAAAAzO6PlAAAAeFBMVEUAAAAfHx8AAAAhISEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhISEAAAAAAAAhISEAAAAAAAAAAAAhISEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhISEAAAAAAAAAAAAAAAAAAAAhISFqaXi8AAAAJnRSTlMADt7p4vrqEakG81Yw0cqdcmkp19OtpJuLe0QgGha8WjjVt0lHNjgEeYMAAAEUSURBVDjLlZTZkoIwEEVvlATZFBEXNsfZrv//h1O+TBMiUH2eUqlzU1k6jQkPzuGuOQIq2s0MltxhQmdthzni3TQwpKywwIW5t4DjL5aIeYVgIrZYxqYyTk7MsEJE0fc8QuHf2UDhn3mT6bIwo2MVZegfeIBQP7fmX98+68C/8YwX4mxNMBS/4R0IA74u/pH7BG8Cont+xpPoXkD0kf/DSOb8gOji93Qx8D4guvgZW2j8gc5AsR98c5NAcd7XdQKK+0TDL2jeS6pnvR6kOkcUfr0VgQ//s5Sf43quS99f/4yhD+P40PiIU1YaH71lp/FR0fYrvnUYkTMdFP0NaOliRf8EMkZG0Z+BD6Yr/T8IzOEuOYA/UT8eew4Z9jsAAAAASUVORK5CYII=") no-repeat center center;
+    background-size: 50%;
+}
+
+.keyboard .key_box .key.disable view {
+    background-color: #e9edf1;
+}
+
+.keyboard .key_box .key view.float {
+    z-index: 300;
+}
+
+.keyboard .click {
+    position: absolute;
+    top: -47rpx;
+    left: 32rpx;
+    z-index: -200;
+    width: 60rpx;
+    font-size: 0;
+}
+
+.keyboard .click .float_num {
+    width: 100%;
+    text-align: center;
+    color: #212121;
+    font-size: 56rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.keyboard .click image {
+    width: 100%;
+    height: 100%;
+}
+
+.keyboard .click .cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.clear-img {
+    width: 40rpx;
+    height: 40rpx;
+    /* position: absolute;
+    right: 20rpx;
+    top: 30rpx; */
+}

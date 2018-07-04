@@ -11,43 +11,45 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          // if (res.code) {
-          //   wx.request({
-          //     url: this.globalData.host + '/intapplet',
-          //     data: {
-          //       jscode: res.code
-          //     },
-          //     header: {
-          //       'content-type': 'application/json',
-          //       'Cookie': 'NWRZPARKINGID=' + this.globalData.loginMess
-          //     },
-          //     success: function (res) {
-          //        console.log(res)
-          //       if (res.data.code == 1001 || res.data.code == 1002) {
-          //         that.globalData.loginMess = res.data.data.sessionid;
-          //         //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
-          //         // 所以此处加入 callback 以防止这种情况
-          //         if (this.employIdCallback) {
-          //           this.employIdCallback(res);
-          //         }
-          //       } else if (res.data.code == 1004){
-          //         that.globalData.loginMess = res.data.data.sessionid;
-          //         that.globalData.member = true;
-          //         //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
-          //         // 所以此处加入 callback 以防止这种情况
-          //         if (this.employIdCallback) {
-          //           this.employIdCallback(res);
-          //         }
-          //       }else{
-          //         wx.showToast({
-          //           title: '' + res.data.message,
-          //         })
-          //       }
-          //     }
-          //   });
-          // } else {
-          //   console.log('登录失败！' + res.errMsg)
-          // }
+          if (res.code) {
+            wx.request({
+              url: this.globalData.host + '/intapplet',
+              data: {
+                jscode: res.code
+              },
+              header: {
+                'content-type': 'application/json',
+                'Cookie': 'NWRZPARKINGID=' + this.globalData.loginMess
+              },
+              success: function (res) {
+                 console.log(res)
+                if (res.data.code == 1001 || res.data.code == 1002) {
+                  that.globalData.loginMess = res.data.data.sessionid;
+                  //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
+                  // 所以此处加入 callback 以防止这种情况
+                  if (that.employIdCallback) {
+                    that.employIdCallback(res);
+                  }
+                } else if (res.data.code == 1004){
+                  that.globalData.loginMess = res.data.data.sessionid;
+                  that.globalData.member = true;
+                  that.globalData.member_tel = res.data.data.vip.vipaccount;
+                  that.globalData.member_dengji = res.data.data.vip.levelname;
+                  //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
+                  // 所以此处加入 callback 以防止这种情况
+                  if (that.employIdCallback) {
+                    that.employIdCallback(res);
+                  }
+                }else{
+                  wx.showToast({
+                    title: '' + res.data.msg,
+                  })
+                }
+              }
+            });
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
       }
     })
     // 获取用户信息
@@ -75,10 +77,12 @@ App({
   globalData: {
     userInfo: null,           //用户信息，判断用户授没授权
     member: false,            //是否是会员
+    member_tel: "",           //会员手机号,默认无
+    member_dengji: "",        //会员等级，默认无
     loginMess: '',            //session，问刘哥
     // host: 'https://www.jnnewway.com/swsy/'
     // host: 'http://192.168.0.116',
-    host: 'http://192.168.0.108:8080',
+    host: 'http://192.168.0.108:8083',
     // host: 'https://awakall.com',
     // host: 'http://192.168.0.110',
     // host: 'http://192.168.0.105:8080',

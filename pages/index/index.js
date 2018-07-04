@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    imgUrls: [ '/images/tu1.png',  
+    imgUrls: [ 
+      '/images/tu1.png',  
     ],
     indicatorDots: false,
     autoplay: true,
@@ -12,8 +13,10 @@ Page({
     duration: 500,
     circular: true,//从data开始的值到此是轮播
     hasUserInfo: false,//是否已授权
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),//判断是否可用
     member:false,//是否是会员
+    member_tel: "",//会员手机号,默认无
+    member_dengji: "",//会员等级，默认无
     inputValue: '',//搜索框内的值
     length: 0,//搜索框内的值的长度
     show:"",//卷码扫描值
@@ -48,7 +51,9 @@ Page({
   */
   onReady: function () {
     this.setData({
-      member: app.globalData.member
+      member: app.globalData.member,
+      member_tel: app.globalData.member_tel,
+      member_dengji: app.globalData.member_dengji
     })
     this.authorize();
   },
@@ -57,7 +62,9 @@ Page({
   */
   onShow: function () {
     this.setData({
-      member: app.globalData.member
+      member: app.globalData.member,
+      member_tel: app.globalData.member_tel,
+      member_dengji: app.globalData.member_dengji
     })
     this.authorize();
   },

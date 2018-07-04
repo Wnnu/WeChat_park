@@ -98,12 +98,35 @@ page{
 .start-pay-info{
   width: 100%;
   background: white;
-  padding: 49rpx 0 52rpx 0;
+  /* padding: 49rpx 0 52rpx 0; */
   border-bottom: 1rpx dotted #d2d2d2;
   font-size: 32rpx;
   color: #282828;
-  overflow: hidden;
+  /* overflow: hidden; */
+  position: relative;
+  height: 120rpx;
+  line-height: 120rpx;
 }
+.start-pay-info:before, .start-pay-info:after{
+ /*直线上倒三角*/
+  width:0px;
+  height:0px;
+  border: solid transparent;
+  position:absolute;
+  top:100%;
+  content:"";
+}
+.start-pay-info:before{
+  border-width:15rpx;
+  border-top-color: #d2d2d2;
+  left:60rpx;
+}
+.start-pay-info:after{
+  border-width:13rpx;
+  border-top-color: #fff;
+  left:62rpx;
+}
+
 .start-pay-info-desc{
   float: left;
   margin-left: 32rpx;

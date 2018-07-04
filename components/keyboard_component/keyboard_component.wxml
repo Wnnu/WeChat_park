@@ -1,0 +1,146 @@
+<view catchtap="show" class="custom_input_box flex_center">
+    <image class="energy_icon" src="/images/keyboard/energy.png" wx:if="{{showEnergyIcon&&!showPlaceholder}}"></image>
+    <view class="custom_placeholder flex_full" wx:if="{{showPlaceholder}}">请输入车牌号码</view>
+    <view class="custom_lpn flex_full {{showCursor?'cursor':''}}" data-lpn="{{lpn}}" wx:if="{{!showPlaceholder}}">{{lpn}}</view>
+    <image catchtap="clearInput" class="clear-img" src="/images/clear.png" wx:if="{{!showPlaceholder&&lpn&&showKeyboard}}"></image>
+</view>
+<view class="keyboard_box" wx:if="{{showKeyboard}}">
+    <view class="bar">
+        <button catchtap="hide" class="k_close" plain="true">关闭</button>
+    </view>
+    <view class="keyboard chs" wx:if="{{showPrefixKeyboard}}">
+        <view class="click" style="left:{{hoverImg.left}};top:{{hoverImg.top}};width: {{hoverImg.width}};height: {{hoverImg.height}};z-index: {{hoverImg.zIndex}};visibility: {{hoverImg.visibility}}">
+            <view class="cover"></view>
+            <view class="float_num" style="line-height: {{hoverImg.lineHeight}}">{{hoverImg.text}}</view>
+            <image src="/images/keyboard/hover.png"></image>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full" wx:for="{{prefixListLine1}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="kp_1_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_half empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full {{index+1==prefixListLine2.length?'m_r_none':''}}" wx:for="{{prefixListLine2}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="kp_2_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_half empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full" wx:for="{{prefixListLine3}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="kp_3_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_full empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_half_3 empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full" wx:for="{{prefixListLine4}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="kp_4_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_twice del">
+                <view catchtap="_deleteHandler" data-key-type="del">
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_half_3 empty_2">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="keyboard suffix" wx:if="{{showSuffixKeyboard}}">
+        <view class="click" style="left:{{hoverImg.left}};top:{{hoverImg.top}};width: {{hoverImg.width}};height: {{hoverImg.height}};z-index: {{hoverImg.zIndex}};visibility: {{hoverImg.visibility}}">
+            <view class="cover"></view>
+            <view class="float_num" style="line-height: {{hoverImg.lineHeight}}">{{hoverImg.text}}</view>
+            <image src="/images/keyboard/hover.png"></image>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full n_key {{!enableNumKey?'disable':''}}" wx:for="{{suffixListLine1}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-key-enable="{{enableNumKey}}" data-name="{{item}}" id="ks_1_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full {{item=='O'?'o_key '+(!enableOKey?'disable':''):''}}" wx:for="{{suffixListLine2}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-key-enable="{{item=='O'?enableOKey:true}}" data-name="{{item}}" id="ks_2_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_full" wx:for="{{suffixListLine3}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="ks_3_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="key_box flex_center">
+            <view class="key flex_half_2 empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_full" wx:for="{{suffixListLine4}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-name="{{item}}" id="ks_4_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_full last {{!enableLastKey?'disable':''}}" wx:for="{{lastListLine}}" wx:key="*this">
+                <view catchtouchend="_keyUpHandler" catchtouchstart="_keyPressHandler" data-key-enable="{{enableLastKey}}" data-name="{{item}}" id="ks_l_{{index+1}}">
+                    <text>{{item}}</text>
+                </view>
+            </view>
+            <view class="key flex_twice del m_r_none">
+                <view catchtap="_deleteHandler" data-key-type="del">
+                    <text></text>
+                </view>
+            </view>
+            <view class="key flex_half_2 empty">
+                <view>
+                    <text></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -11,6 +11,7 @@ Page({
     userInfo:{},
     member: false,//是否是会员
     memberjifen:0,//会员时积分数量
+    memberdengji: "",//会员等级，默认无
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -23,6 +24,54 @@ Page({
       member: app.globalData.member
     })
     this.authorize();
+
+    wx.showLoading({
+      title: '加载中',
+      mask:true,
+    })
+    if(this.data.member==true){
+      var that = this;
+      wx.request({
+        url: app.globalData.host + '/wxinfo/getVIPInfo',
+        header: {
+          'content-type': 'application/json',
+          'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+        },
+        success: function (res) {
+          if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
+            console.log(res)
+            that.setData({
+              memberjifen: res.data.data.vippoint,
+              memberdengji: res.data.data.levelname,
+            })
+            wx.hideLoading()
+          } else {
+            wx.showModal({
+              title: "获取信息出错",
+              content: "" + res.data.msg,
+              confirmColor: "#4fafc9",
+              confirmText: "我知道了",
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  wx.navigateBack({
+                    delta: -1
+                  });
+                }
+              }
+            })
+          }
+        },
+        fail: function (res) {
+          console.log(res)
+
+        }
+      })
+    }
+    
+
+
+
     
   },
 

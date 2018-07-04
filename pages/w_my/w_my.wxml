@@ -13,8 +13,8 @@
         <view class="userinfo-info">
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
           <block wx:if="{{member}}">
-            <text class="userinfo-member">白金会员</text>
-            <text class="userinfo-jifen">积分：1800</text>
+            <text class="userinfo-member">{{memberdengji}}</text>
+            <text class="userinfo-jifen">积分：{{memberjifen}}</text>
           </block>
           <block wx:else>
             <text class="userinfo-member1">普通用户</text>
@@ -22,6 +22,13 @@
         </view>
       </view>
     </block>
+
+    <!-- 斜背景 -->
+    <view class='bg1'></view>
+    <view class='bg2'></view>
+    <view class='bg3'></view>
+    <view class='bg4'></view>
+    <view class='bg5'></view>
 </view>
 <!--列表  -->
   <view class="person-list">

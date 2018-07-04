@@ -232,12 +232,16 @@ swiper image{
   margin: 0 auto 40rpx;
   height:108rpx;
   position: relative;
+  border-radius: 15rpx;
+  box-sizing: border-box;
+  padding: 8rpx 10rpx;
+  background: linear-gradient(#739dfb ,#346ef3); /*渐变*/
 }
 .bg-car{
   width: 100%;
   height: 100%;
 }
-.vehicle_info text{
+.vehicle_info text:last-child{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -255,6 +259,8 @@ swiper image{
   flex-direction: row;
   align-items: center;
   justify-content:center;
+  background: linear-gradient(#7099fb,#3871f4); /*渐变*/
+  border-radius: 15rpx;
 }
 
 
@@ -369,4 +375,35 @@ swiper image{
   line-height: 80rpx;
   font-size: 36rpx;
   text-align: center;
+}
+
+/* 模拟车牌 */
+.moni2{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 15rpx;
+  box-sizing: border-box;
+  border: 2rpx solid white;
+  background: linear-gradient(#7099fb,#3871f4); /*渐变*/
+}
+.moni3{
+  background: white;
+  width: 27rpx;
+  height: 8.5rpx;
+  position: absolute;
+  top: -3rpx;
+  left: 75rpx;
+  border-radius: 5rpx;
+  z-index: 10;
+}
+.moni4{
+  background: white;
+  width: 27rpx;
+  height: 8.5rpx;
+  position: absolute;
+  top: -3rpx;
+  right: 75rpx;
+  border-radius: 5rpx;
+  z-index: 10;
 }
