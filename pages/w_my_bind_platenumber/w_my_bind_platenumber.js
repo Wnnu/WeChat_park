@@ -14,7 +14,6 @@ Page({
     currentTime: 60,
   
     // 虚拟键盘属性
-    keyboardShow1: !1,
     keyboard: null,
   },
 
@@ -80,38 +79,52 @@ Page({
         confirmText: "我知道了",
         showCancel: false,
       })
-    }
-    console.log(t)
-  
-    wx.request({
-      url: app.globalData.host + '/wxinfo/bindCarnumber',
-      data: {
-        carnumber: t,
-      },
-      header: {
-        'content-type': 'application/json',
-        'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
-      },
-      success: function (res) {
-        console.log(res)
-        if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
-          wx.navigateTo({
-            url: "/pages/w_my_bind_prompt/w_my_bind_prompt"
-          })
-        } else {
+    }else{
+      wx.showLoading({
+        title: '正在绑定中',
+        mask: true,
+      })
+      //向服务器发出绑定请求
+      wx.request({
+        url: app.globalData.host + '/wxinfo/bindCarnumber',
+        data: {
+          carnumber: t,
+        },
+        header: {
+          'content-type': 'application/json',
+          'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+        },
+        success: function (res) {
+          wx.hideLoading()
+          console.log(res)
+          if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
+            wx.navigateTo({
+              url: "/pages/w_my_bind_prompt/w_my_bind_prompt"
+            })
+          } else {
+            wx.hideLoading()
+            wx.showModal({
+              title: "绑定失败",
+              content: "" + res.data.msg,
+              confirmColor: "#4fafc9",
+              confirmText: "我知道了",
+              showCancel: false,
+            })
+          }
+        },
+        fail: function (res) {
+          wx.hideLoading()
+          console.log(res)
           wx.showModal({
             title: "绑定失败",
-            content: "" + res.data.msg,
+            content: "请求超时或出现了其它未知错误，请您重新尝试",
             confirmColor: "#4fafc9",
             confirmText: "我知道了",
             showCancel: false,
           })
         }
-      },
-      fail: function (res) {
-        console.log(res)
-      }
-    })
+      })
+    }
   },
   formReset: function () {
     console.log('form发生了reset事件')
@@ -125,9 +138,6 @@ Page({
   // 虚拟键盘
   keyboard1StatusHandler: function (e) {
     this.data.keyboard.getLpn();
-    this.setData({
-      keyboardShow1: e.detail.keyboardShow
-    })
   },
 
 })

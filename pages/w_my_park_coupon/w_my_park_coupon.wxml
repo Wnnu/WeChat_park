@@ -6,12 +6,24 @@
 <view wx:else>
   <!-- 顶部tar切换 -->
   <view class='top-info'>
-    <text class='no-use active' bindtap='tar1' wx:if="{{tar==1}}">未使用(5)</text>
-    <text class='no-use ' bindtap='tar1' wx:else>未使用(5)</text>
-    <text class='use-record active' bindtap='tar2' wx:if="{{tar==2}}">使用记录(0)</text>
-     <text class='use-record' bindtap='tar2' wx:else>使用记录(0)</text>
-    <text class='overdue active' bindtap='tar3' wx:if="{{tar==3}}">已过期(0)</text>
-    <text class='overdue' bindtap='tar3' wx:else>已过期(0)</text>
+    <!-- 未使用 -->
+    <view>
+      <text class='no-use active' bindtap='tar1' wx:if="{{tar==1}}">未使用(4)
+      </text>
+      <text class='no-use ' bindtap='tar1' wx:else>未使用(4)</text>
+    </view>
+    <!-- 使用记录 -->
+    <view>
+      <text class='use-record active' bindtap='tar2' wx:if="{{tar==2}}">使用记录(0)
+      </text>
+      <text class='use-record' bindtap='tar2' wx:else>使用记录(0)</text>
+    </view>
+    <!-- 已过期 -->
+    <view>
+      <text class='overdue active' bindtap='tar3' wx:if="{{tar==3}}">已过期(0)
+      </text>
+      <text class='overdue' bindtap='tar3' wx:else>已过期(0)</text>
+    </view>
   </view>
 
   <!-- 优惠券 -->
@@ -24,17 +36,16 @@
     </block>
     <block wx:else>
       <view class='coupon-info' wx:for="{{ok_coupon}}">
-        <view class='coupon-info-name'>
-          <text>{{item.name}}</text>
-          <text>{{item.time}}</text>
+        <view class='coupon-info-desc'>
+          <text class='coupon-info-desc-name'>{{item.name}}</text>
+          <text class='coupon-info-desc-info'>{{item.desc}}</text>
+          <text class='coupon-info-desc-date'>{{item.date}}</text>
         </view>
-        <view class='coupon-info-date'>
-          <text>有效期至{{item.date}}</text>
+        <view class='coupon-info-money'>
+          <view>¥<text>2</text>元</view>
         </view>
-        <view class='coupon-info-area'>
-          <text>仅限日照万象汇停车场使用</text>
-        </view>
-        <!--左右半圆  -->
+
+        <!--上下半圆  -->
         <view class='coupon-left'></view>
         <view class='coupon-right'></view>
       </view>

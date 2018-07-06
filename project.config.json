@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.1",
+	"libVersion": "1.9.4",
 	"appid": "wx7dc591c0f91ad17f",
 	"projectname": "%E5%81%9C%E8%BD%A6%E5%9C%BA%E6%B5%8B%E8%AF%951",
 	"svr": "",
@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -82,9 +82,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "优惠券",
-					"pathName": "pages/w_my_businessman_coupon/w_my_businessman_coupon",
+					"pathName": "pages/w_my_park_coupon/w_my_park_coupon",
 					"query": ""
 				}
 			]

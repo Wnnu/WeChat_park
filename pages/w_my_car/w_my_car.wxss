@@ -14,47 +14,56 @@ page{
 
 /* 有车牌时样式 */
 .list-car{
-  width: 670rpx;
-  margin: 0 auto;
-  margin-top: 34rpx;
-  padding: 30rpx 0;
+  width: 100%;
+  height: 192rpx;
+  box-sizing: border-box;
+  border-bottom: 4rpx solid #eaeaea;
+  padding: 38rpx 54rpx;
   background: white;
-  border-radius: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
 }
 .list-car:first-child{
-  margin-top: 54rpx;
+  margin-top: 32rpx;
+}
+.list-car:last-child{
+  border-bottom: 0;
+}
+.list-car-in{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
 }
 .list-car-info{
   overflow: hidden;
 }
 .list-car-number{
   float: left;
-  margin-left: 50rpx;
-  color:#333;
+  color:#282828;
   font-weight: 700;
   font-size: 38rpx;
+  letter-spacing:5rpx;
 }
 .list-car-time{
   float: left;
-  margin-left: 50rpx;
   color:#333;
   font-size: 32rpx;
 }
 .list-pay{
   text-align: center;
-  margin-top: 20rpx;
+  margin-top: 35rpx;
   height: 40rpx;
   line-height: 40rpx;
 }
 .list-pay text{
   font-size: 28rpx;
-  color: #777;
+  color: #909090;
 }
 .with_arrow {  
-  float: right;
-  width: 20px;  
-  height: 20px;  
-  margin:0 30rpx;
+  width: 60rpx;  
+  height: 60rpx;  
 }
 /* 添加车牌 */
 /* .add-car-info{

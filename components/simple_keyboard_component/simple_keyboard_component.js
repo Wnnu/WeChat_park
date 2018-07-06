@@ -10,8 +10,8 @@ Component({
     },
     data: {
         suffixListLine1: [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ],
-        suffixListLine2: [ "W", "E", "R", "T", "Y", "U", "P", "A", "S" ],
-        suffixListLine3: [ "D", "F", "G", "H", "J", "K", "L", "Z" ],
+        suffixListLine2: [ "Q", "W", "E", "R", "T", "Y", "U", "O", "P", "A" ],
+        suffixListLine3: [ "S", "D", "F", "G", "H", "J", "K", "L", "Z" ],
         suffixListLine4: [ "X", "C", "V", "B", "N", "M" ],
         content: "",
         hoverImg: {
@@ -90,6 +90,11 @@ Component({
             }), this._stopKeyEvent(t.currentTarget.dataset);
         },
         _stopKeyEvent: function(t) {
+          // 此处限制输入长度
+          if (this.data.content.length>3){
+            // 关闭动画
+            return this._hideHoverImg()
+          }
             return !!this._enableTap(t) && (this._hideHoverImg(), this._inputContentHandler(t && t.name ? t.name : ""), 
             console.log(this.data), !0);
         },

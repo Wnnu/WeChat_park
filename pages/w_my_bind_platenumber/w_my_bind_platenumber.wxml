@@ -3,17 +3,13 @@
   <image class='img-logo' src='/images/logo.png'></image>
 </view>
 <view class='bind-info'>
-  <view class="bind-title">  
+  <!-- <view class="bind-title">  
         <text class="line"></text>  
         <text class="bind-title-desc">车牌绑定</text>  
         <text class="line"></text>  
-  </view>  
+  </view>   -->
   <!--  表单  -->
   <form bindsubmit="formSubmit" bindreset="formReset">
-
-    <!-- <view class="section">
-      <input name="platenumber" placeholder="请输入车牌号" bindfocus="bindFocus" bindinput="addPlatenumber" bindblur="bindBlur" value="{{platenumber}}"/>
-    </view> -->
 
       <view class="input-list">
         <view class="input-item">
@@ -21,10 +17,8 @@
         </view>
       </view>
 
-
-
     <view class="btn-area">
-      <button formType="submit"  class="btn-false">绑定车牌</button>
+      <button formType="submit"  class="btn-false">确认绑定</button>
     </view>
     <view class="bind-back">
       <text  bindtap='tapindex'>暂不绑定</text>

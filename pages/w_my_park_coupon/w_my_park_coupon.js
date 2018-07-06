@@ -12,21 +12,21 @@ Page({
     tar: "1",//顶部tar的标识
     ok_coupon: [
       {
-        name: "日照万象汇",
-        time: "免费停车2小时",
-        date: "2018.09.30",
+        name: "停车券",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
       }, {
         name: "日照万象汇",
-        time: "免费停车3小时",
-        date: "2018.07.30",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
       }, {
         name: "日照万象汇",
-        time: "免费停车4小时",
-        date: "2018.08.30",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
       }, {
         name: "日照万象汇",
-        time: "免费停车5小时",
-        date: "2019.07.30",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
       },],//未使用优惠券信息
     use_coupon: [],//已使用优惠券信息
     overdue_coupon: [],//已使用优惠券信息
@@ -82,16 +82,69 @@ Page({
   },
   // 顶部tar切换
   tar1: function () {
+    // 切换未使用，查询数据
     this.setData({
       tar: "1",
     })
+
+    wx.showLoading({
+      title: '正在加载中',
+      mask: true,
+    })
+    wx.request({
+      url: app.globalData.host + '/wxinfo/listBindCar',
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+      },
+      success: function (res) {
+        console.log(res)
+        if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
+          that.setData({
+            ok_coupon: res.data.data.list
+          })
+          wx.hideLoading()
+        } else {
+          wx.hideLoading()
+          wx.showModal({
+            title: "获取信息出错",
+            content: "" + res.data.msg,
+            confirmColor: "#4fafc9",
+            confirmText: "我知道了",
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                wx.navigateBack();
+              }
+            }
+          })
+        }
+      },
+      fail: function (res) {
+        wx.hideLoading()
+        console.log(res)
+        wx.showModal({
+          title: "获取信息出错",
+          content: "请求超时或出现了其它未知错误，请您重新尝试",
+          confirmColor: "#4fafc9",
+          confirmText: "我知道了",
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+            }
+          }
+        })
+      }
+    })
   },
   tar2: function () {
+    // 切换使用记录，查询数据
     this.setData({
       tar: "2",
     })
   },
   tar3: function () {
+     // 切换已过期，查询数据
     this.setData({
       tar: "3",
     })

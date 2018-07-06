@@ -35,6 +35,8 @@ page{
   height: 180rpx;
   border-radius: 50%;
   z-index: 10;
+  overflow:hidden;
+
 }
 .userinfo-info{
   margin-left: 48rpx;
@@ -105,9 +107,14 @@ page{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* height: 90rpx; */
+   height: 130rpx; 
   /* background: white; */
-  margin: 60rpx 0 0;
+  /* margin: 60rpx 0 0; */
+  border-top: 1rpx solid #d4d4d4;
+}
+.list-item:first-child {
+  border-top: 0;
+  margin-top: 25rpx;
 }
 /* .member{
   margin: 20rpx 0 0;
@@ -124,10 +131,11 @@ page{
   width: 40rpx;
   height: 40rpx;
   margin: 20rpx;
+  margin-left: 30rpx;
 }
 .item-text {
   font-size: 32rpx;
-  margin-left: 30rpx; 
+  /* margin-left: 30rpx;  */
 }
 .with_arrow {  
     width: 15px;  

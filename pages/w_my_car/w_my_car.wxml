@@ -6,13 +6,15 @@
 <view wx:else>
   <!-- 有车牌显示 -->
   <view class='list-car' wx:for="{{cars_number}}" bindlongtap="delate" data-vcid="{{item.vcid}}">
-    <view class='list-car-info' >
-      <text class='list-car-number'>{{item.carnumber}}</text>
+    <view class='list-car-in'>
+      <view class='list-car-info' >
+        <text class='list-car-number'>{{item.carnumber}}</text>
+      </view>
+      <view class='list-pay'>
+        <text class='list-car-time'>绑定时间：{{item.opdate}}</text>
+      </view>
     </view>
-    <view class='list-pay'>
-      <text class='list-car-time'>绑定时间：{{item.opdate}}</text>
-      <image  class="with_arrow" src="/images/right3.png"></image>
-    </view>
+    <image  class="with_arrow" src="/images/right2.png"></image>
   </view>
 </view>
 <!-- 绑定车牌 -->

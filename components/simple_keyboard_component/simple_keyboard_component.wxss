@@ -39,11 +39,11 @@
 
 .custom_input_box {
     position: relative;
-    margin: 10rpx 0;
-    line-height: 100rpx;
+    /* margin: 10rpx 0; */
+    line-height: 98rpx;
     border-radius: 10rpx;
     padding: 0;
-    font-size: 30rpx;
+    font-size: 32rpx;
 }
 
 .custom_input_box .energy_icon {
@@ -219,6 +219,6 @@
     width: 40rpx;
     height: 40rpx;
     position: absolute;
-    right: -20rpx;
+    right:10rpx;
     top: 30rpx;
 }

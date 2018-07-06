@@ -46,12 +46,13 @@
           <image class='btn-detail' src='/images/search.png'></image> 
         </view> -->
         <view class="section-input">
-          <input type="text" placeholder="请输入4位连续车牌号" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}" placeholder-style="color:#999;font-size:32rpx;"/>
+          <!-- <input type="text" placeholder="请输入4位连续车牌号" confirm-type="search" maxlength="4" bindinput="bindInput" value="{{inputValue}}" placeholder-style="color:#999;font-size:32rpx;"/> -->
+
+                 <simpleKeyboard bind:keyboardStatus="keyboardStatusHandler" id="simpleKeyboard" placeholderText="请输入4位连续车牌号" ></simpleKeyboard>
         </view>
         <view class="section-button">
            <!-- <button wx:if="{{length<4}}"  disabled="true">查询</button> -->
-          <button wx:if="{{hasUserInfo}}" bindtap='toSearch'>查询</button>
-          <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap='toSearch'>查询</button> 
+          <text bindtap='toSearch'>查询</text>
            <!-- <button bindtap='toSearch'>查询</button> -->
         </view>
       </view>

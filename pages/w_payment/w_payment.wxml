@@ -24,6 +24,10 @@
           <view class='car-info-stoptime'>停车时长：
             <text >0天2小时25分钟</text>
           </view>
+          <view class='car-info-firsttime' wx:if="{{!first_pay}}">首次缴费：
+            <text class='car-info-ruchangdate'>2018-07-01</text>
+            <text>09:10:18</text>
+          </view>
         </view>
       </view>
 
@@ -37,34 +41,42 @@
         <text class='start-pay-info-number'>¥6.00</text>
       </view>
 
-      <!-- 会员减免 -->
-      <block wx:if="{{member}}">
-        <view class='member-pay-info'>
-          <text class='member-pay-info-desc'>白银会员</text>
-          <text class='member-pay-info-number'>-¥2.00</text>
-        </view>
-      </block>
-      <block  wx:else>
-        <view class='member-pay-info'>
-          <text class='member-pay-info-desc'>普通用户</text>
-          <text class='member-pay-info-number no-member'>暂无优惠</text>
-        </view>
-      </block>
-    
+      <block wx:if="{{first_pay}}">
+        <!-- 会员减免 -->
+        <block wx:if="{{member}}">
+          <view class='m-p-i'>
+            <view class='member-pay-info'>
+              <text class='member-pay-info-desc'>白银会员</text>
+              <text class='member-pay-info-number'>-¥2.00</text>
+            </view>
+          </view>
+        </block>
+        <block  wx:else>
+        <view class='m-p-i'>
+            <view class='member-pay-info'>
+              <text class='member-pay-info-desc'>普通用户</text>
+              <text class='member-pay-info-number no-member'>暂无优惠</text>
+            </view>
+            </view>
+        </block>
+      
 
-      <!-- 优惠券 -->
-      <view class='coupon-pay-info'>
-        <text class='coupon-pay-info-desc'>优惠券</text>
-       
-        <view class="item2"> 
-          <image  class="with_arrow" src="/images/right.png"></image>
+        <!-- 优惠券 -->
+        <view class='m-p-i'>
+          <view class='coupon-pay-info'>
+            <text class='coupon-pay-info-desc'>优惠券</text>
+            <view class="item2"> 
+              <text class='coupon-pay-info-number'>无可用优惠券</text>
+              <image  class="with_arrow" src="/images/right.png"></image>
+            </view>
+          </view>
         </view>
-        <text class='coupon-pay-info-number'>无可用优惠券</text>
-      </view>
+      </block>
 
       <!-- 会员积分 -->
-      <block wx:if="{{member}}">
-        <view class='memberjifen-pay-info'>
+      
+        <view class="memberjifen-pay-info {{showHeight?'m-height':''}}">
+        <block block wx:if="{{member}}">
           <view class='memberjifen-pay-info-jian'>
             <text class='memberjifen-pay-info-desc'>会员积分</text>
             <text class='memberjifen-pay-info-number'>-¥{{pay_memberjifen_money}}</text>
@@ -77,12 +89,13 @@
               <text class='memberjifen-pay-number-jian {{minusStatus}}' bindtap='bindMinus'>-</text>
             </view>
           </view>
+        </block>
           <view class="search-prompt">
             <text class="pay-desc" bindtap='tapRule'>缴费规则</text>
             <image class='pay-img' src='/images/doubt.png' bindtap='tapRule'></image>
           </view>
         </view>
-      </block>
+      
      
      
       <!-- 进行付款 -->

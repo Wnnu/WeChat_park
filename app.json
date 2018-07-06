@@ -39,5 +39,8 @@
         "selectedIconPath": "images/my1.png"
       }
     ]
+  },
+  "networkTimeout":{
+    "request":15000
   }
 }

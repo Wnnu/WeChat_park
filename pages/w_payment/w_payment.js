@@ -10,16 +10,30 @@ Page({
     title:'',//车牌
     pay_memberjifen: 35,//付款时的支付的会员积分
     pay_memberjifen_money: 0.35,//付款时会员积分所减的金额
-    member: false,//是否是会员
+    member: false,//是否是会员,默认false
+    first_pay: true,//是否是首次登录,默认true
+    showHeight: !1,//会员积分模块高度判断
+    pay_stop: 0,//停车费，默认0
+    pay_member: 0,//会员减免，默认0
+    pay_coupon: 0,//优惠券减免，默认0
+    pay_jifen: 0,//会员积分减免，默认0
+
+    pay_result:0,//实际支付价格，默认0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 判断是否会员和获取车牌信息
+    // 判断是否会员和获取车牌信息\
+    var str2="";
+    console.log(options.title)
+    if (options.title && options.title!=""){
+      var str = options.title
+      str2 = str.substr(0, 2) + "·" + str.substr(3);
+    }
     this.setData({
-      title: options.title,
+      title: str2,
       member: app.globalData.member
     }) 
   },

@@ -15,11 +15,13 @@
 }
 /*绑定提示  */
 .bind-tishi{
-  width: 100%;
+  width: 670rpx;
+  margin: 0 auto;
   position: absolute;
+  left: 0;
+  right: 0;
   bottom: 60rpx;
   box-sizing: border-box;
-  padding: 0 30rpx;
 }
 .search-prompt{
   width: 670rpx;
@@ -37,25 +39,25 @@
 }
 /*绑定会员  */
 .bind-info{
-  width: 100%;
+  width: 670rpx;
   position: relative;
   box-sizing: border-box;
-  padding: 0 30rpx;
+  margin: 0 auto;
 }
 .bind-title {  
-    height: 60rpx;  
-    line-height: 60rpx;  
-    text-align: center;  
+  height: 60rpx;  
+  line-height: 60rpx;  
+  text-align: center;  
 }  
 .bind-title .line {  
-    display: inline-block;  
-    width: 30%;  
-    border-top: 1rpx dashed #ccc ;  
+  display: inline-block;  
+  width: 30%;  
+  border-top: 1rpx dashed #ccc ;  
 }  
 .bind-title .bind-title-desc {  
-    color: #686868;  
-    margin: 0 7%;
-    vertical-align: -8rpx;  
+  color: #686868;  
+  margin: 0 7%;
+  vertical-align: -8rpx;  
 }  
 
 /*表单  */
@@ -64,29 +66,17 @@
   margin: 0 auto;
   position: relative;
 }
-form input{
-  border: 1rpx solid #dcdad6; 
-  background: white;
-  padding: 10rpx 30rpx;
-  padding-right: 190rpx;
-  box-sizing: border-box;
-  font-size: 32rpx;
-  border-radius: 8rpx;
-  width: 100%;
-  height: 90rpx;
-  margin: 50rpx auto 0;
-  border-right-style: 1rpx solid red;
-}
+
 
 .btn-area button.btn-false{
-  width: 40%;
-  height: 80rpx;
-  line-height: 80rpx;
-  margin: 50rpx auto 20rpx;
-  font-size: 30rpx;
-  background: #fff;
-  color: #000;
-  border: 1rpx solid #000;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 160rpx auto 50rpx;
+  font-size: 32rpx;
+  background: #ffb900;
+  color: #282828;
+  border-radius: 50rpx;
 }
 
 .bind-back{
@@ -94,15 +84,17 @@ form input{
   text-align: center;
 }
 .bind-back text{
-  font-size: 30rpx;
-  color:#079bd3;
-  text-decoration:underline;
+  font-size: 28rpx;
+  color:#555;
 }
+button[class="btn-true"]::after {
+  border: 0;
+} 
 
 /* 输入车牌 */
 .input-list {
-  /* width: 690rpx; */
-  width: 80%;
+   width: 670rpx; 
+  /* width: 80%; */
   position: relative;
   margin: 50rpx auto 0;
 }
@@ -111,7 +103,7 @@ form input{
   height: 100%;
   background: white;
   box-sizing: border-box;
-  padding: 10rpx 30rpx;
+  padding: 0rpx 30rpx;
   font-size: 32rpx;
 }
 .input-item {

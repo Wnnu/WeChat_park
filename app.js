@@ -27,18 +27,20 @@ App({
                   that.globalData.loginMess = res.data.data.sessionid;
                   //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
-                  if (that.employIdCallback) {
-                    that.employIdCallback(res);
+                  if (that.memberReadyCallback) {
+                    that.memberReadyCallback(res);
                   }
                 } else if (res.data.code == 1004){
                   that.globalData.loginMess = res.data.data.sessionid;
                   that.globalData.member = true;
                   that.globalData.member_tel = res.data.data.vip.vipaccount;
                   that.globalData.member_dengji = res.data.data.vip.levelname;
+                  that.globalData.member_jifen = res.data.data.vip.vippoint;
+                  
                   //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
-                  if (that.employIdCallback) {
-                    that.employIdCallback(res);
+                  if (that.memberReadyCallback) {
+                    that.memberReadyCallback(res);
                   }
                 }else{
                   wx.showToast({
@@ -76,9 +78,10 @@ App({
   },
   globalData: {
     userInfo: null,           //用户信息，判断用户授没授权
-    member: false,            //是否是会员
+    member: null,            //是否是会员
     member_tel: "",           //会员手机号,默认无
     member_dengji: "",        //会员等级，默认无
+    member_jifen: 0,        //会员积分，默认0
     loginMess: '',            //session，问刘哥
     // host: 'https://www.jnnewway.com/swsy/'
     // host: 'http://192.168.0.116',

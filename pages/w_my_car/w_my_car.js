@@ -9,16 +9,26 @@ Page({
    */
   data: {
       cars_number:[],//车牌号，默认无
+  //     {
+  //   carnumber: "鲁A·123456",
+  //   opdate: "2018-07-07 14:45:55"
+  // }, {
+  //   carnumber: "鲁B·123456",
+  //   opdate: "2018-07-07 15:02:31"
+  // },
+      first_jin: true,//是否是首次进入
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    
     wx.showLoading({
-      title: '加载中',
+      title: '正在玩命加载中',
+      mask: true,
     })
-    var that=this;
     wx.request({
       url: app.globalData.host + '/wxinfo/listBindCar',
       header: {
@@ -26,12 +36,19 @@ Page({
         'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
       },
       success: function (res) {
+        console.log(res)
         if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
+          for (var i = 0; i < res.data.data.list.length;i++){
+            var str = res.data.data.list[i].carnumber;
+            var str2 = str.substr(0, 2) + "·" + str.substr(3);
+            res.data.data.list[i].carnumber=str2;
+          }
           that.setData({
             cars_number: res.data.data.list
           })
           wx.hideLoading()
         } else {
+          wx.hideLoading()
           wx.showModal({
             title: "获取信息出错",
             content: "" + res.data.msg,
@@ -40,33 +57,51 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                wx.navigateBack({
-                  delta: -1
-                });
+                wx.navigateBack();
               } 
             }
           })
         }
       },
       fail: function (res) {
+        wx.hideLoading()
         console.log(res)
-        
+        wx.showModal({
+          title: "获取信息出错",
+          content: "请求超时或出现了其它未知错误，请您重新尝试",
+          confirmColor: "#4fafc9",
+          confirmText: "我知道了",
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: "/pages/index/index"
+              })
+            }
+          }
+        })
       }
     })
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.data.first_jin = false;
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    // 判断是否是首次进入
+    if (this.data.first_jin) {
+
+    } else {
+      this.onLoad();
+    }
   },
 
   /**
@@ -80,7 +115,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
   },
 
   /**
@@ -145,7 +179,18 @@ Page({
             },
             fail: function (res) {
               console.log(res)
-
+              wx.showModal({
+                title: "删除出错",
+                content: "请求超时或出现了其它未知错误，请您重新尝试",
+                confirmColor: "#4fafc9",
+                confirmText: "我知道了",
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    that.onLoad()
+                  }
+                }
+              })
             }
           })
         } else if (res.cancel) {
@@ -154,5 +199,4 @@ Page({
       }
     })
   },
-
 })

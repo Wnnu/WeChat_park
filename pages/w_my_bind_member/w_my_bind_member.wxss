@@ -17,7 +17,7 @@
 .bind-tishi{
   width: 100%;
   position: absolute;
-  bottom: 62rpx;
+  bottom: 55rpx;
   box-sizing: border-box;
 }
 .search-prompt{
@@ -76,7 +76,7 @@ form input{
   border-bottom: 1rpx solid #ffb900; 
   background: white;
   padding: 20rpx 20rpx;
-  padding-right: 190rpx;
+  padding-right: 170rpx;
   box-sizing: border-box;
   font-size: 32rpx;
   width: 100%;
@@ -84,7 +84,7 @@ form input{
 }
 form input[name="tel"]{
   padding: 20rpx 20rpx;
-  margin: 50rpx auto 0;
+  /* margin: 50rpx auto 0; */
 }
 .buttonget{  
   position: absolute;
@@ -107,7 +107,7 @@ form input[name="tel"]{
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-  margin: 91rpx auto ;
+  margin: 160rpx auto ;
   font-size: 32rpx;
   background: #fff;
   color: #ccc;
@@ -119,7 +119,7 @@ button[class="btn-true"]::after {
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-  margin: 91rpx auto ;
+  margin: 160rpx auto ;
   font-size: 32rpx;
   background: #ffb900;
   color: #282828;

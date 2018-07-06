@@ -1,0 +1,6 @@
+{
+  "backgroundColor": "#f0eff7",
+  "usingComponents": {
+    "simpleKeyboard": "/components/simple_keyboard_component/simple_keyboard_component"
+  }
+}

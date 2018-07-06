@@ -1,17 +1,10 @@
 <!--pages/w_my/w_my.wxml-->
 <view class="top">
-    <block wx:if="{{!login && canIUse}}">
-      <view class="login-info">
-        <image  class="userinfo-avatar" src="/images/touxiang.png" background-size="cover"></image>
-        <button class='get-userinfo' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button> 
-        <image  class="login-right" src="/images/right.png" background-size="cover"></image>
-      </view>
-    </block>
-    <block wx:else>
       <view class="userinfo">
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+         <open-data type="userAvatarUrl"  bindtap="bindViewTap" class="userinfo-avatar" mode="cover"></open-data>
+        <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
         <view class="userinfo-info">
-          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <open-data type="userNickName"  class="userinfo-nickname" lang="zh_CN"></open-data>
           <block wx:if="{{member}}">
             <text class="userinfo-member">{{memberdengji}}</text>
             <text class="userinfo-jifen">积分：{{memberjifen}}</text>
@@ -21,8 +14,6 @@
           </block>
         </view>
       </view>
-    </block>
-
     <!-- 斜背景 -->
     <view class='bg1'></view>
     <view class='bg2'></view>
@@ -36,7 +27,7 @@
     <!--缴费历史-->
     <view class="list-item"  bindtap='my_list1'> 
       <view class="item1">
-        <!-- <image class="item-image" src="/images/1.png"></image> -->
+         <image class="item-image" src="/images/1.png"></image> 
         <text class="item-text">缴费历史</text>
       </view>
       <view class="item2"> 
@@ -46,9 +37,9 @@
 
     <!--我的爱车-->
     <!-- <view class="person-line"></view> 分割线-->
-    <view class="list-item"  bindtap='my_list2' wx:if="{{member}}"> 
+    <view class="list-item"  bindtap='my_list2'> 
       <view class="item1">
-        <!-- <image class="item-image" src="/images/2.png"></image> -->
+         <image class="item-image" src="/images/2.png"></image> 
         <text class="item-text">我的爱车</text>
       </view>
       <view class="item2"> 
@@ -58,20 +49,20 @@
     </view>
 
     <!--会员绑定-->
-    <view class="list-item member" wx:if="{{!member}}" bindtap='my_list3'>
+    <!-- <view class="list-item member" wx:if="{{!member}}" bindtap='my_list3'>
       <view class="item1">
-        <!-- <image class="item-image" src="/images/3.png"></image> -->
+       
         <text class="item-text">会员绑定</text>
       </view>
       <view class="item2">
         <image  class="with_arrow" src="/images/right.png"></image>
       </view>
-    </view>
+    </view> -->
 
     <!--停车优惠券-->
-    <view class="list-item stopcar" bindtap='my_list4' wx:if="{{member}}">
+    <view class="list-item stopcar" bindtap='my_list4'>
       <view class="item1">
-        <!-- <image class="item-image" src="/images/4.png"></image> -->
+         <image class="item-image" src="/images/4.png"></image> 
         <text class="item-text">停车优惠券</text>
       </view>
       <view class="item2">

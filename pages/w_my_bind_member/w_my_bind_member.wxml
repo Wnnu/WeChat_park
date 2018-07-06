@@ -3,11 +3,11 @@
   <image class='img-logo' src='/images/logo.png'></image>
 </view>
 <view class='bind-info'>
-  <view class="bind-title">  
+  <!-- <view class="bind-title">  
         <text class="line line1"></text>  
         <text class="bind-title-desc">会员绑定</text>  
         <text class="line line2"></text>  
-  </view>  
+  </view>   -->
   <!--  表单  -->
   <form bindsubmit="formSubmit" bindreset="formReset">
 
@@ -26,8 +26,8 @@
     </view>
     
     <view class="btn-area">
-       <button formType="submit" wx:if="{{!disabled2}}" disabled='{{disabled2}}' class="btn-true">确认绑定</button>
-      <button formType="submit" wx:else disabled='{{disabled2}}' class="btn-false">确认绑定</button>   
+       <button formType="submit" wx:if="{{!disabled2}}" disabled='{{disabled2}}' class="btn-true">下一步</button>
+      <button formType="submit" wx:else disabled='{{disabled2}}' class="btn-false">下一步</button>   
     </view>
   </form>
 </view>

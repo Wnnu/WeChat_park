@@ -16,7 +16,7 @@ swiper image{
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 10rpx; 
+  border-radius: 18rpx; 
 }
 /*信息展示*/
 .zhuti{
@@ -154,7 +154,7 @@ swiper image{
   overflow: hidden;
   width: 686rpx;
   margin: 0 auto;
-  height: 80rpx;
+  height: 98rpx;
   border-radius: 8rpx;
   border: 1rpx solid #ffb900;
   background: white;
@@ -174,8 +174,10 @@ swiper image{
 } */
 .section-input{
   display: inline-block;
-  width: 552rpx;
-  height: 80rpx;
+  width: 511rpx;
+  height: 98rpx;
+  box-sizing: border-box;
+  padding-left:30rpx;
 }
 .section-input input{
   /* border: 1rpx solid #000; */
@@ -184,7 +186,7 @@ swiper image{
   box-sizing: border-box;
   font-size: 32rpx;
   width: 100%;
-  height: 80rpx;
+  height: 98rpx;
   border-top-left-radius: 8rpx;
   border-bottom-left-radius: 8rpx;
 }
@@ -194,13 +196,20 @@ swiper image{
     box-shadow: 0 0 3px 0px #3b99fc;
     -webkit-box-shadow: 0 0 3px 0px #3b99fc; 
 }
+
+#simpleKeyboard{
+  width: 100%;
+  height: 100%;
+  background: white;
+  font-size: 32rpx;
+}
+
+
+
 .section-button{
   display: inline-block;
-  width: 134rpx;
-  height: 80rpx;
-  border: 0rpx;
-  border-top-left-radius: 0rpx;
-  border-bottom-left-radius: 0rpx; 
+  width: 175rpx;
+  height: 98rpx;
   position: absolute;
   right: 0;
   top:0;
@@ -208,16 +217,18 @@ swiper image{
 .section-button button::after{
   border: 0rpx;
 }
-.section-button button{
+.section-button text{
   width: 100%;
   height: 100%;
   color: #282828;
-  font-size: 32rpx;
+  font-size: 36rpx;
   background: #ffb900;
-  border-top-right-radius: 0rpx;
-  border-bottom-right-radius: 0rpx;
-   border-top-left-radius: 0rpx;
-  border-bottom-left-radius: 0rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing:18rpx;
+  text-indent: 18rpx;
 }
 
 /*快捷缴费  */
@@ -370,11 +381,13 @@ swiper image{
 .search_result{
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid #999;
-  height: 80rpx;
-  line-height: 80rpx;
+  border-bottom: 1px solid #b2b2b2;
+  height: 90rpx;
+  line-height: 90rpx;
   font-size: 36rpx;
   text-align: center;
+  letter-spacing:5rpx;
+  color: #282828;
 }
 
 /* 模拟车牌 */

@@ -21,8 +21,9 @@ page{
   border-radius: 50%;
   background: #f2f4f6;
   position: absolute;
-  top: 316.5rpx;
+  top: 342.5rpx;
   left:-12.5rpx;
+  z-index: 12;
 }
 .circle-right{
   width: 25rpx;
@@ -30,13 +31,14 @@ page{
   border-radius: 50%;
   background: #f2f4f6;
   position: absolute;
-  top: 316.5rpx;
+  top: 342.5rpx;
   right:-12.5rpx;
+  z-index: 12;
 }
 /* 车辆详情 */
 .car_info{
   width: 100%;
-  height: 328rpx;
+  height: 356rpx;
   background: white;
    border-bottom: 1rpx dashed #d2d2d2; 
    /* border-bottom: 1rpx dotted #d2d2d2;  */
@@ -92,20 +94,29 @@ page{
 .car-info-stoptime{
   display: block;
   padding-right: 46rpx;
-   padding-top: 15rpx;
+  padding-top: 15rpx;
+}
+.car-info-firsttime{
+  display: block;
+  padding-right: 46rpx;
+  padding-top: 15rpx;
 }
 /* 停车初始费用 */
 .start-pay-info{
   width: 100%;
+  height: 120rpx;
   background: white;
-  /* padding: 49rpx 0 52rpx 0; */
-  border-bottom: 1rpx dotted #d2d2d2;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #d2d2d2;
   font-size: 32rpx;
   color: #282828;
-  /* overflow: hidden; */
   position: relative;
-  height: 120rpx;
-  line-height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
 }
 .start-pay-info:before, .start-pay-info:after{
  /*直线上倒三角*/
@@ -120,39 +131,34 @@ page{
   border-width:15rpx;
   border-top-color: #d2d2d2;
   left:60rpx;
+  z-index: 12;
 }
 .start-pay-info:after{
   border-width:13rpx;
   border-top-color: #fff;
   left:62rpx;
-}
-
-.start-pay-info-desc{
-  float: left;
-  margin-left: 32rpx;
-}
-.start-pay-info-number{
-  float: right;
-  margin-right: 32rpx;
+  z-index: 12;
 }
 
 /* 会员减免 */
-.member-pay-info{
+.m-p-i{
   width: 100%;
   background: white;
-  padding: 69rpx 0 32rpx 0;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+}
+.member-pay-info{
+  width: 100%;
+  height: 106rpx;
+  background: white;
+  box-sizing: border-box;
   border-bottom: 1rpx solid #e5e5e5;
   font-size: 32rpx;
   color: #282828;
-  overflow: hidden;
-}
-.member-pay-info-desc{
-  float: left;
-  margin-left: 32rpx;
-}
-.member-pay-info-number{
-  float: right;
-  margin-right: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .no-member{
   color: #bfbfbf;
@@ -160,40 +166,44 @@ page{
 /* 优惠券 */
 .coupon-pay-info{
   width: 100%;
+  height: 106rpx;
   background: white;
-  padding: 32rpx 0;
-  border-bottom: 1rpx solid #e5e5e5;
+  box-sizing: border-box;
   font-size: 32rpx;
+  border-bottom: 1rpx solid #e5e5e5;
   color: #282828;
-  overflow: hidden;
-}
-.coupon-pay-info-desc{
-  float: left;
-  margin-left: 32rpx;
-}
-.coupon-pay-info-number{
-  float: right;
-  color: #bfbfbf;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .item2{
-  float: right;
-  margin-right: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.coupon-pay-info-number{
+  color: #bfbfbf;
 }
 .with_arrow {  
   width: 16px;  
   height: 16px;  
   margin-left: 32rpx;
-  margin-top: 6rpx;
 }
 /* 会员积分 */
 .memberjifen-pay-info{
   width: 100%;
-  background: white;
-  padding: 32rpx 0;
+  height:250rpx;
+  box-sizing: border-box;
+  padding: 32rpx 32rpx;
   font-size: 32rpx;
+  background: white;
   color: #282828;
   overflow: hidden;
   position: relative;
+}
+.m-height{
+   height:450rpx;
 }
 .memberjifen-pay-info-jian{
   width: 100%;
@@ -201,11 +211,9 @@ page{
 }
 .memberjifen-pay-info-desc{
   float: left;
-  margin-left: 32rpx;
 }
 .memberjifen-pay-info-number{
   float: right;
-  margin-right: 32rpx;
   color: #282828;  
 }
 .memberjifen-pay-info-fen{
@@ -216,7 +224,6 @@ page{
 }
 .memberjifen-pay-info-fen-desc{
   float: left;
-  margin-left: 32rpx;
   font-size: 28rpx;
   color: #777777;  
 }
@@ -224,7 +231,6 @@ page{
   display: inline-block;
   float: right;
   overflow: hidden;
-  margin-right: 32rpx;
 }
 .memberjifen-pay-number-jian{
   float: right;

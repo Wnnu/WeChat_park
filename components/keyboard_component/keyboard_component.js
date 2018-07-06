@@ -92,8 +92,9 @@ Component({
             }), this._stopKeyEvent(e.currentTarget.dataset);
         },
         _stopKeyEvent: function(e) {
+            this._hideHoverImg()
             if (!this._enableTap(e)) return !1;
-            this._hideHoverImg(), this._inputLpnHandler(e && e.name ? e.name : "");
+            this._inputLpnHandler(e && e.name ? e.name : "");
             var t = this.data.lpn;
             return this.setData({
                 showPrefixKeyboard: t.length < 1,
