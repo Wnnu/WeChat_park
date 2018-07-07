@@ -1,12 +1,14 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index_fail/index_fail",
     "pages/logs/logs",
     "pages/w_my/w_my",
     "pages/w_index_rule/w_index_rule",
     "pages/w_my_bind_platenumber/w_my_bind_platenumber",
     "pages/w_my_bind_prompt/w_my_bind_prompt",
     "pages/w_payment/w_payment",
+    "pages/w_payment_prompt/w_payment_prompt",
     "pages/w_my_payment_record/w_my_payment_record",
     "pages/w_my_car/w_my_car",
     "pages/w_my_park_coupon/w_my_park_coupon",

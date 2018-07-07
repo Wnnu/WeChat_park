@@ -18,16 +18,9 @@ Page({
     member_tel: "",//会员手机号,默认无
     member_dengji: "",//会员等级，默认无
     show:"",//卷码扫描值
-    history: [//历史记录值
-      "苏E·05E67",
-      "苏E·05E689",
-    ],
+    history: null,//历史记录值
     showModalStatus: false,//搜索面板显示，默认隐藏
-    search_result:[//搜索结果
-      "苏E·05E67",
-      "苏E·05E68",
-      "苏E·05E69",
-    ],
+    search_result: null,//搜索结果
 
     keyboardShow:null,//搜索车牌的值
   },
@@ -39,15 +32,13 @@ Page({
   // 此处判断是否是会员--https://www.jianshu.com/p/aaf65625fc9d
     if (app.globalData.member) {
       this.setData({
-        member: app.globalData.member
+        member: app.globalData.member,
+        history: app.globalData.history,
       })
     } else{
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.memberReadyCallback = res => {
-        that.setData({
-          member: app.globalData.member
-        })
         that.shuju();
       }
     } 
@@ -75,54 +66,66 @@ Page({
     var that=this;
     if (o != '' && o.length>=4) {
       //调用API从本地缓存中获取数据  
-      var searchData = wx.getStorageSync('searchData') || []
-      searchData.push(this.data.inputValue)
-      wx.setStorageSync('searchData', searchData)
-      wx.showLoading({
-        title: '正在搜索',
-        success: function (res) {
-          // setTimeout(function () {
-          //   wx.showToast({
-          //     title: '未搜索到车辆',
-          //     image: '/images/tishi.png',
-          //     duration: 2000
-          //   })
-          // }, 2000)
-          wx.hideLoading()
-          that.showModal();
-          // wx.request({
-          //   url: 'aaa.php',//这里填写后台给你的搜索接口  
-          //   method: 'post',
-          //   data: { inputValue:o},
-          //   header: {
-          //     'content-type': 'application/x-www-form-urlencoded'
-          //   },
-          //   success: function (res) {
-          //     if (res.data.length == 0) {
-          //       that.setData({
-          //         centent_Show: false,
-          //       });
-          //     }
-          //     that.setData({
-          //       nanshen_card: res.data,
-          //     });
-          //   },
-          //   fail: function (e) {
-          //     wx.showToast({
-          //       title: '网络异常！',
-          //       duration: 2000
-          //     });
-          //   },
-          // });  
+      // var searchData = wx.getStorageSync('searchData') || []
+      // searchData.push(this.data.inputValue)
+      // wx.setStorageSync('searchData', searchData)
+
+
+      wx.request({
+        url: app.globalData.host + '/wxpay/getparkingbykeyword',//这里填写后台给你的搜索接口  
+        data: { keyword:o},
+        header: {
+          'content-type': 'application/json',
+          'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
         },
-        fail: function (res) {
+        success: function (res) {
+          console.log(res)
+          if (res.data.code === 1200) {
+            wx.showModal({
+              title: "提示",
+              content: "" + res.data.msg,
+              confirmColor: "#4fafc9",
+              confirmText: "我知道了",
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                }
+              }
+            })
+          }else{
+            if (res.data.code === 1001) {
+              for (var i = 0; i < res.data.data.data.length; i++) {
+                var str = res.data.data.data[i].carnumber;
+                var str2 = str.substring(0, 2) + "·" + str.substring(2);
+                res.data.data.data[i].carnumber = str2;
+              }
+              that.setData({
+                search_result: res.data.data.data,
+                showModalStatus: true,
+              });
+              console.log(that.data.search_result)
+            } else {
+              wx.showModal({
+                title: "搜索提示",
+                content: "" + res.data.msg,
+                confirmColor: "#4fafc9",
+                confirmText: "我知道了",
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                  }
+                }
+              })
+            }
+          }
+        },
+        fail: function (e) {
           wx.showToast({
-            title: '搜索失败',
-            icon: 'loading',
+            title: '网络异常！',
             duration: 2000
-          })
-        }
-      })
+          });
+        },
+      });  
     } else {
       wx.showModal({
         title: "无法查询",
@@ -227,10 +230,56 @@ Page({
   },
   //搜索结果跳支付
   search_pay: function (e) {
-    console.log(e.currentTarget.dataset.text)
-    wx.navigateTo({
-      url: "/pages/w_payment/w_payment?title=" + e.currentTarget.dataset.text
-    })
+    var str = e.currentTarget.dataset.text.replace("·", "")
+    wx.request({
+      url: app.globalData.host + '/wxpay/getparkinginfo',//这里填写后台给你的搜索接口  
+      data: { carnumber: str },
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.code === 1200){
+          wx.showModal({
+            title: "提示",
+            content: "" + res.data.msg,
+            confirmColor: "#4fafc9",
+            confirmText: "我知道了",
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+              }
+            }
+          })
+        }else{
+          if (res.data.code === 1001) {
+            wx.showModal({
+              title: "提示",
+              content: "" + res.data.msg,
+              confirmColor: "#4fafc9",
+              confirmText: "我知道了",
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                }
+              }
+            })
+          } else {
+            wx.navigateTo({
+              url: "/pages/w_payment/w_payment?title=" + str
+            })
+          }
+        }
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      },
+    });
+   
   },
   //每次进入时数据渲染
   shuju:function(){
@@ -242,7 +291,8 @@ Page({
     this.setData({
       member: app.globalData.member,
       member_tel: str2,
-      member_dengji: app.globalData.member_dengji
+      member_dengji: app.globalData.member_dengji,
+      history: app.globalData.history,
     })
   },
 })

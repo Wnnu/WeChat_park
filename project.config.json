@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -85,6 +85,12 @@
 					"id": 7,
 					"name": "优惠券",
 					"pathName": "pages/w_my_park_coupon/w_my_park_coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "缴费提示",
+					"pathName": "pages/w_payment_prompt/w_payment_prompt",
 					"query": ""
 				}
 			]

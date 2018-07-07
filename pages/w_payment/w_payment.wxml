@@ -13,7 +13,7 @@
         <!-- 车牌号和照片 -->
         <view class='car-info-np'>
           <text class='car-info-number'>{{title}}</text>
-          <text class='car-info-photos'>查看照片</text>
+          <text class='car-info-photos' bindtap='photo'>查看照片</text>
         </view>
         <!-- 入场时间和停车时长 -->
         <view class='car-info-rs'>

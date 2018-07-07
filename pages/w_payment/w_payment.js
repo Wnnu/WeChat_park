@@ -27,10 +27,9 @@ Page({
   onLoad: function (options) {
     // 判断是否会员和获取车牌信息\
     var str2="";
-    console.log(options.title)
-    if (options.title && options.title!=""){
+    if (options.title && options.title != "" && options.title.indexOf("·") == -1){
       var str = options.title
-      str2 = str.substr(0, 2) + "·" + str.substr(3);
+      str2 = str.substring(0, 2) + "·" + str.substring(2);
     }
     this.setData({
       title: str2,
@@ -210,4 +209,8 @@ Page({
       minusStatus: minusStatus
     })
   },
+  //查看照片
+  photo:function(){
+    
+  }
 })

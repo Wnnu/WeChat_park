@@ -5,7 +5,7 @@
 </view>
 <view wx:else>
   <!-- 有车牌显示 -->
-  <view class='list-car' wx:for="{{cars_number}}" bindlongtap="delate" data-vcid="{{item.vcid}}">
+  <view class='list-car' wx:for="{{cars_number}}" bindlongtap="delate" data-vcid="{{item.vcid}}" bindtap='pay_judge' data-name="{{item.carnumber}}">
     <view class='list-car-in'>
       <view class='list-car-info' >
         <text class='list-car-number'>{{item.carnumber}}</text>

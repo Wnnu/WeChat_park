@@ -1,0 +1,47 @@
+/* pages/w_payment_prompt/w_payment_prompt.wxss */
+
+/*绑定结果提示  */
+.bind-prompt{
+  display: block;
+  width: 670rpx;
+  font-size: 48rpx;
+  font-weight: 600;
+  margin: 150rpx 0 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bind-prompt-img{
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 40rpx;
+}
+
+
+/*温馨提示  */
+.bind-tishi{
+  width: 670rpx;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 60rpx;
+  box-sizing: border-box;
+}
+.search-prompt{
+  width: 670rpx;
+  margin: 0 auto ;
+  text-align:center;
+}
+.prompt-desc{
+  color:#a0a0a0;
+  font-size: 24rpx;
+  text-align: center;
+  display: block;
+}
+.prompt-desc1{
+  padding-bottom: 20rpx;
+}
+.prompt-desc2{
+  line-height: 42rpx;
+}

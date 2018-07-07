@@ -9,7 +9,7 @@ Page({
    */
   data: {
       cars_number:[],//车牌号，默认无
-  //     {
+  //      {
   //   carnumber: "鲁A·123456",
   //   opdate: "2018-07-07 14:45:55"
   // }, {
@@ -40,11 +40,12 @@ Page({
         if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
           for (var i = 0; i < res.data.data.list.length;i++){
             var str = res.data.data.list[i].carnumber;
-            var str2 = str.substr(0, 2) + "·" + str.substr(3);
+            var str2 = str.substring(0, 2) + "·" + str.substring(2);
             res.data.data.list[i].carnumber=str2;
           }
           that.setData({
-            cars_number: res.data.data.list
+            cars_number: res.data.data.list,
+            first_jin: false,
           })
           wx.hideLoading()
         } else {
@@ -57,7 +58,6 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                wx.navigateBack();
               } 
             }
           })
@@ -82,14 +82,13 @@ Page({
         })
       }
     })
-    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.data.first_jin = false;
+  
   },
 
   /**
@@ -100,7 +99,7 @@ Page({
     if (this.data.first_jin) {
 
     } else {
-      this.onLoad();
+      // this.onLoad();
     }
   },
 
@@ -199,4 +198,64 @@ Page({
       }
     })
   },
+  //点击判断，看是否需要支付，不支付提示
+  pay_judge:function(e){
+    var str = e.currentTarget.dataset.name.replace("·","")
+    wx.showLoading({
+      title: '正在加载中',
+      mask: true,
+    })
+    wx.request({
+      url: app.globalData.host + '/wxpay/getparkinginfo',//这里填写后台给你的搜索接口  
+      data: { carnumber: str },
+      header: {
+        'content-type': 'application/json',
+        'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.code === 1200) {
+          wx.hideLoading()
+          wx.showModal({
+            title: "提示",
+            content: "" + res.data.msg,
+            confirmColor: "#4fafc9",
+            confirmText: "我知道了",
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+              }
+            }
+          })
+        } else {
+          if (res.data.code === 1001) {
+            wx.hideLoading()
+            wx.showModal({
+              title: "提示",
+              content: "" + res.data.msg,
+              confirmColor: "#4fafc9",
+              confirmText: "我知道了",
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                }
+              }
+            })
+          } else {
+            wx.hideLoading()
+            wx.navigateTo({
+              url: "/pages/w_payment/w_payment?title=" + str
+            })
+          }
+        }
+      },
+      fail: function (e) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      },
+    });
+  }
 })

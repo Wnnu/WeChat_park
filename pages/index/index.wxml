@@ -58,18 +58,15 @@
       </view>
     </view>
    <!--历史记录&&快捷缴费  -->
-    <block wx:if="{{history.length>=1}}">
+    <block wx:if="{{history}}">
       <view class="pay-quick">
         <view class="vehicle_info" wx:for="{{history}}" bindtap='search_pay' data-text="{{item}}" >
           <!-- 车牌模拟 -->
-       
             <view class="moni2">
               <text class="moni3"></text>
               <text class="moni4"></text>
               <text>{{item}}</text> 
             </view>
-          <!-- <image class='bg-car' src='/images/car1.png'></image> -->
-    
         </view>
       </view>
     </block>
@@ -94,6 +91,6 @@
   <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
   <!--弹出框  -->
   <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" >
-      <view wx:for="{{search_result}}" class='search_result' data-text="{{item}}" bindtap='search_pay'>{{item}}</view>
+      <view wx:for="{{search_result}}" class='search_result' data-text="{{item.carnumber}}" bindtap='search_pay'>{{item.carnumber}}</view>
   </view>
  

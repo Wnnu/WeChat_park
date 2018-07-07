@@ -27,7 +27,7 @@ Page({
         name: "日照万象汇",
         desc: "停车满2小时可用",
         date: "2019.07.30-2018.09.30",
-      },],//未使用优惠券信息
+      }],//未使用优惠券信息
     use_coupon: [],//已使用优惠券信息
     overdue_coupon: [],//已使用优惠券信息
   },
@@ -83,6 +83,7 @@ Page({
   // 顶部tar切换
   tar1: function () {
     // 切换未使用，查询数据
+    var that=this;
     this.setData({
       tar: "1",
     })

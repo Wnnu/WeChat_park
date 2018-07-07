@@ -161,10 +161,16 @@ Page({
           })
           that.getCode();
         }else{
-          wx.showToast({
-            title: ''+res.data.msg,
-            icon: 'success',
-            duration:1500
+          wx.showModal({
+            title: "提示",
+            content: "" + res.data.msg,
+            confirmColor: "#4fafc9",
+            confirmText: "我知道了",
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+              }
+            }
           })
         }
       }
