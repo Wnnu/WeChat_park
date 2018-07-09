@@ -298,9 +298,7 @@ Page({
 
   },
   coupon:function(){
-    this.setData({
-      showModalStatus: true
-    })
+    this.showModal();
   },
   //显示对话框
   showModal: function () {
@@ -344,4 +342,14 @@ Page({
       })
     }.bind(this), 200)
   },
+  //关闭隐藏对话框
+  close_coupon:function(){
+    this.hideModal();
+  },
+  //缴费规则
+  tapRule:function(){
+    wx.navigateTo({
+      url: "/pages/w_index_rule/w_index_rule"
+    })  
+  }
 })

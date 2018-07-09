@@ -514,3 +514,23 @@ page{
   padding: 0 16rpx 0 10rpx;
 }
 
+
+/* 左右半圆 */
+.coupon-left{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #f2f4f6;
+  position: absolute;
+  top: -15rpx;
+  left:394rpx;
+}
+.coupon-right{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #f2f4f6;
+  position: absolute;
+  bottom: -15rpx;
+  left:394rpx;
+}

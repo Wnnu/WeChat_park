@@ -100,8 +100,8 @@ Page({
               }
               that.setData({
                 search_result: res.data.data.data,
-                showModalStatus: true,
               });
+              that.showModal()
               console.log(that.data.search_result)
             } else {
               wx.showModal({

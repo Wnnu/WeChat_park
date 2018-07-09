@@ -122,7 +122,7 @@
   <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" >
       <view class='coupon-title'>
         <text>优惠券</text>
-        <image src='/images/pay/x.png'></image>
+        <image src='/images/pay/x.png' bindtap='close_coupon'></image>
       </view>
 
       <view class='coupon-info-zong'>
