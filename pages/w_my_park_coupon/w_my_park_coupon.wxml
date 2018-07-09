@@ -59,18 +59,17 @@
       </view>
     </block>
     <block wx:else>
-      <view class='coupon-info' wx:for="{{use_coupon}}">
-        <view class='coupon-info-name'>
-          <text>{{item.name}}</text>
-          <text>{{item.time}}</text>
+       <view class='coupon-info no' wx:for="{{use_coupon}}">
+        <view class='coupon-info-desc no'>
+          <text class='coupon-info-desc-name no'>{{item.name}}</text>
+          <text class='coupon-info-desc-info no'>{{item.desc}}</text>
+          <text class='coupon-info-desc-date no'>{{item.date}}</text>
         </view>
-        <view class='coupon-info-date'>
-          <text>有效期至{{item.date}}</text>
+        <view class='coupon-info-money no'>
+          <view>¥<text>2</text>元</view>
         </view>
-        <view class='coupon-info-area'>
-          <text>仅限日照万象汇停车场使用</text>
-        </view>
-        <!--左右半圆  -->
+
+        <!--上下半圆  -->
         <view class='coupon-left'></view>
         <view class='coupon-right'></view>
       </view>
@@ -84,18 +83,17 @@
       </view>
     </block>
     <block wx:else>
-      <view class='coupon-info' wx:for="{{overdue_coupon}}">
-        <view class='coupon-info-name'>
-          <text>{{item.name}}</text>
-          <text>{{item.time}}</text>
+       <view class='coupon-info' wx:for="{{overdue_coupon}}">
+        <view class='coupon-info-desc'>
+          <text class='coupon-info-desc-name'>{{item.name}}</text>
+          <text class='coupon-info-desc-info'>{{item.desc}}</text>
+          <text class='coupon-info-desc-date'>{{item.date}}</text>
         </view>
-        <view class='coupon-info-date'>
-          <text>有效期至{{item.date}}</text>
+        <view class='coupon-info-money'>
+          <view>¥<text>2</text>元</view>
         </view>
-        <view class='coupon-info-area'>
-          <text>仅限日照万象汇停车场使用</text>
-        </view>
-        <!--左右半圆  -->
+
+        <!--上下半圆  -->
         <view class='coupon-left'></view>
         <view class='coupon-right'></view>
       </view>

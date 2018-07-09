@@ -38,7 +38,7 @@
       <!-- 停车初始费用 -->
       <view class='start-pay-info'>
         <text class='start-pay-info-desc'>停车费</text>
-        <text class='start-pay-info-number'>¥6.00</text>
+        <text class='start-pay-info-number'>¥{{pay_stop}}</text>
       </view>
 
       <block wx:if="{{first_pay}}">
@@ -47,7 +47,7 @@
           <view class='m-p-i'>
             <view class='member-pay-info'>
               <text class='member-pay-info-desc'>白银会员</text>
-              <text class='member-pay-info-number'>-¥2.00</text>
+              <text class='member-pay-info-number'>-¥{{pay_member}}</text>
             </view>
           </view>
         </block>
@@ -60,9 +60,8 @@
             </view>
         </block>
       
-
         <!-- 优惠券 -->
-        <view class='m-p-i'>
+        <view class='m-p-i' bindtap='coupon'>
           <view class='coupon-pay-info'>
             <text class='coupon-pay-info-desc'>优惠券</text>
             <view class="item2"> 
@@ -73,13 +72,13 @@
         </view>
       </block>
 
-      <!-- 会员积分 -->
-      
+      <!-- 会员积分 -->    
         <view class="memberjifen-pay-info {{showHeight?'m-height':''}}">
         <block block wx:if="{{member}}">
           <view class='memberjifen-pay-info-jian'>
             <text class='memberjifen-pay-info-desc'>会员积分</text>
-            <text class='memberjifen-pay-info-number'>-¥{{pay_memberjifen_money}}</text>
+            <text class='memberjifen-pay-info-number'>-¥{{pay_memberjifen_money}}
+            </text>
           </view>
           <view class='memberjifen-pay-info-fen'>
             <text class='memberjifen-pay-info-fen-desc'>1825分</text>
@@ -96,13 +95,11 @@
           </view>
         </view>
       
-     
-     
       <!-- 进行付款 -->
       <view class='pay-info'>
         <view class='pay-info-desc'>合计：
           <text class='pay-info-number-biao'>¥</text>
-          <text class='pay-info-number'>4.00</text>
+          <text class='pay-info-number'>{{pay_result}}</text>
           <button class='pay'>立即支付</button>
         </view >
      
@@ -118,3 +115,32 @@
     </view> 
 </view>
 
+<!-- 遮罩层搜索结果 -->
+<!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}" >
+      <view class='coupon-title'>
+        <text>优惠券</text>
+        <image src='/images/pay/x.png'></image>
+      </view>
+
+      <view class='coupon-info-zong'>
+        <view class='coupon-info' wx:for="{{ok_coupon}}">
+        <view class='coupon-info-desc'>
+          <text class='coupon-info-desc-name'>{{item.name}}</text>
+          <text class='coupon-info-desc-info'>{{item.desc}}</text>
+          <text class='coupon-info-desc-date'>{{item.date}}</text>
+        </view>
+        <view class='coupon-info-money'>
+          <view>¥<text>2</text>元</view>
+        </view>
+
+        <!--上下半圆  -->
+        <view class='coupon-left'></view>
+        <view class='coupon-right'></view>
+      </view>
+      </view>
+      
+  </view>
+ 

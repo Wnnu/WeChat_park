@@ -1,2 +1,7 @@
 <!--pages/index_fail/index_fail.wxml-->
-<text>登录失败，请重新扫描二维码进入</text>
+<view class='index-fail'>
+    <image class='index-fail-img' src='/images/index/index_fail.png'></image>
+    <text class='index-fail-desc'>因网络或其他相关原因，无法获取相关信息</text>
+    <text class='index-fail-desc'>请重新进入小程序尝试</text>
+</view>
+

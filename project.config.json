@@ -92,6 +92,12 @@
 					"name": "缴费提示",
 					"pathName": "pages/w_payment_prompt/w_payment_prompt",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "加载失败提示",
+					"pathName": "pages/index_fail/index_fail",
+					"query": ""
 				}
 			]
 		}

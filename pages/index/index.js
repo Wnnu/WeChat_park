@@ -21,7 +21,6 @@ Page({
     history: null,//历史记录值
     showModalStatus: false,//搜索面板显示，默认隐藏
     search_result: null,//搜索结果
-
     keyboardShow:null,//搜索车牌的值
   },
   onLoad: function (options) {
@@ -231,29 +230,17 @@ Page({
   //搜索结果跳支付
   search_pay: function (e) {
     var str = e.currentTarget.dataset.text.replace("·", "")
-    wx.request({
-      url: app.globalData.host + '/wxpay/getparkinginfo',//这里填写后台给你的搜索接口  
-      data: { carnumber: str },
-      header: {
-        'content-type': 'application/json',
-        'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
-      },
-      success: function (res) {
-        console.log(res)
-        if (res.data.code === 1200){
-          wx.showModal({
-            title: "提示",
-            content: "" + res.data.msg,
-            confirmColor: "#4fafc9",
-            confirmText: "我知道了",
-            showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
-              }
-            }
-          })
-        }else{
-          if (res.data.code === 1001) {
+    if (app.globalData.loginMess && app.globalData.loginMess!=""){
+      wx.request({
+        url: app.globalData.host + '/wxpay/getparkinginfo',//这里填写后台给你的搜索接口
+        data: { carnumber: str },
+        header: {
+          'content-type': 'application/json',
+          'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data.code === 1200) {
             wx.showModal({
               title: "提示",
               content: "" + res.data.msg,
@@ -266,19 +253,45 @@ Page({
               }
             })
           } else {
-            wx.navigateTo({
-              url: "/pages/w_payment/w_payment?title=" + str
-            })
+            if (res.data.code === 1001) {
+              wx.showModal({
+                title: "提示",
+                content: "" + res.data.msg,
+                confirmColor: "#4fafc9",
+                confirmText: "我知道了",
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                  }
+                }
+              })
+            } else {
+              wx.navigateTo({
+                url: "/pages/w_payment/w_payment?title=" + str
+              })
+            }
+          }
+        },
+        fail: function (e) {
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        },
+      });
+    }else{
+      wx.showModal({
+        title: "提示",
+        content: "当前网络延迟，未获取到相关信息，请重新尝试",
+        confirmColor: "#4fafc9",
+        confirmText: "我知道了",
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
           }
         }
-      },
-      fail: function (e) {
-        wx.showToast({
-          title: '网络异常！',
-          duration: 2000
-        });
-      },
-    });
+      })
+    }
    
   },
   //每次进入时数据渲染

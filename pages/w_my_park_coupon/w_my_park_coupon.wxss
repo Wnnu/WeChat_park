@@ -72,6 +72,9 @@ page{
   position: relative;
   overflow: hidden;
 }
+.coupon-info.no{
+  border-left: 6rpx solid #dadada;
+}
 
 .coupon-info-desc{
   width: 410rpx;
@@ -92,17 +95,25 @@ page{
   color: #555;
   font-size: 28rpx;
 }
+.coupon-info-desc-name.no{
+  color: #bbb;
+}
 .coupon-info-desc-info{
   color: #282828;
   font-size: 36rpx;
   display: block;
   margin: 15rpx 0;
 }
+.coupon-info-desc-info.no{
+  color: #bbb;
+}
 .coupon-info-desc-date{
   color: #555;
   font-size: 26rpx;
 }
-
+.coupon-info-desc-date.no{
+  color: #dadada;
+}
 .coupon-info-money{
   display: inline-block;
   float: right;
@@ -115,11 +126,17 @@ page{
   color: #ff0000;
   font-size: 36rpx;
 }
+.coupon-info-money.no view{
+  color: #bbb;
+}
 .coupon-info-money view text{
   color: #ff0000;
   font-size: 52rpx;
   font-weight: 600;
   padding: 0 16rpx 0 10rpx;
+}
+.coupon-info-money.no view text{
+  color: #bbb;
 }
 
 /* 左右半圆 */

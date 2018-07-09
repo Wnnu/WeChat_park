@@ -8,17 +8,39 @@ Page({
    */
   data: {
     title:'',//车牌
-    pay_memberjifen: 35,//付款时的支付的会员积分
-    pay_memberjifen_money: 0.35,//付款时会员积分所减的金额
     member: false,//是否是会员,默认false
     first_pay: true,//是否是首次登录,默认true
     showHeight: !1,//会员积分模块高度判断
     pay_stop: 0,//停车费，默认0
     pay_member: 0,//会员减免，默认0
     pay_coupon: 0,//优惠券减免，默认0
-    pay_jifen: 0,//会员积分减免，默认0
-
+    pay_memberjifen: 0,//付款时的支付的会员积分
+    pay_memberjifen_money: 0,//付款时会员积分所减的金额
     pay_result:0,//实际支付价格，默认0
+    first_jin: true,//是否是首次进入,默认是
+
+    showModalStatus: false,//优惠券面板显示，默认隐藏
+    // search_result: null,//优惠券结果
+    ok_coupon: [
+      {
+        name: "停车券",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
+      }, {
+        name: "日照万象汇",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
+      }, {
+        name: "日照万象汇",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
+      }, {
+        name: "日照万象汇",
+        desc: "停车满2小时可用",
+        date: "2019.07.30-2018.09.30",
+      }
+    ],//优惠券结果
+    keyboardShow: null,//优惠券的值
   },
 
   /**
@@ -26,15 +48,77 @@ Page({
    */
   onLoad: function (options) {
     // 判断是否会员和获取车牌信息\
+    // wx.showLoading({
+    //   title: '正在加载...',
+    //   mask: true,
+    // })
     var str2="";
     if (options.title && options.title != "" && options.title.indexOf("·") == -1){
       var str = options.title
       str2 = str.substring(0, 2) + "·" + str.substring(2);
     }
+    // var pay_result = this.data.pay_result.toFixed(2);
     this.setData({
       title: str2,
-      member: app.globalData.member
+      member: app.globalData.member,
     }) 
+    // 请求查询需要缴费多少
+    // wx.request({
+    //   url: app.globalData.host + '/wxinfo/listBindCar',
+    //   data:{
+    //     carnumber: options.title,
+    //   },
+    //   header: {
+    //     'content-type': 'application/json',
+    //     'Cookie': 'NWRZPARKINGID=' + app.globalData.loginMess
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //     if ((parseInt(res.statusCode) === 200) && res.data.code === 1001) {
+    //       that.setData({
+    //         cars_number: res.data.data.list,
+    //         first_jin: false,
+    //       })
+    //       wx.hideLoading()
+    //     } else {
+    //       wx.hideLoading()
+    //       wx.showModal({
+    //         title: "获取信息出错",
+    //         content: "" + res.data.msg,
+    //         confirmColor: "#4fafc9",
+    //         confirmText: "我知道了",
+    //         showCancel: false,
+    //         success: function (res) {
+    //           if (res.confirm) {
+    //             wx.reLaunch({
+    //               url: "/pages/index/index"
+    //             })
+    //           }
+    //         }
+    //       })
+    //     }
+    //   },
+    //   fail: function (res) {
+    //     wx.hideLoading()
+    //     console.log(res)
+    //     wx.showModal({
+    //       title: "获取信息出错",
+    //       content: "请求超时或出现了其它未知错误，请您重新尝试",
+    //       confirmColor: "#4fafc9",
+    //       confirmText: "我知道了",
+    //       showCancel: false,
+    //       success: function (res) {
+    //         if (res.confirm) {
+    //           wx.reLaunch({
+    //             url: "/pages/index/index"
+    //           })
+    //         }
+    //       }
+    //     })
+    //   }
+    // })
+
+
   },
 
   /**
@@ -211,6 +295,53 @@ Page({
   },
   //查看照片
   photo:function(){
-    
-  }
+
+  },
+  coupon:function(){
+    this.setData({
+      showModalStatus: true
+    })
+  },
+  //显示对话框
+  showModal: function () {
+    // 显示遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+      showModalStatus: true
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 200)
+  },
+  //隐藏对话框
+  hideModal: function () {
+    // 隐藏遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export(),
+        showModalStatus: false
+      })
+    }.bind(this), 200)
+  },
 })

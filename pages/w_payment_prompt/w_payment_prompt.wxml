@@ -3,23 +3,13 @@
 <view class='bind-info'>
 
   <!--  表单  -->
-  <!-- <form bindsubmit="formSubmit" bindreset="formReset"> -->
     <view class='bind-prompt'>
       <image class='bind-prompt-img' src='/images/success.png'></image>
       <text class='bind-prompt-desc'>缴费成功</text>
     </view>
     <view class='pay-warn'>
-      <text class='bind-prompt-desc'>请在半小时内离开停车场，超出时间段将可能产生新的费用</text>
+      <text class='bind-prompt-desc1'>请在半小时内离开停车场，超出时间段将可能产生新的费用</text>
     </view>
-   
-  <!-- </form> -->
-</view>
-<view class='bind-tishi'>
-  <view class="search-prompt" >
-      <text class="prompt-desc prompt-desc1">温馨提示</text>  
-      <text class="prompt-desc prompt-desc2">每位会员可绑定多个车牌，绑定后的车牌均可享受会员优惠，最多可绑定5个。
-      </text>
-  </view>
 </view>
 
 

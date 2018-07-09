@@ -1,1 +1,24 @@
 /* pages/index_fail/index_fail.wxss */
+page{
+  background: #f2f3f4; 
+  height:100%;
+}
+.index-fail{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding-top: 320rpx;
+}
+.index-fail-img{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+.index-fail-desc{
+  text-align: center;
+  font-size: 34rpx;
+  color: #282828;
+  margin: 10rpx 0;
+}

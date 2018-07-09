@@ -17,31 +17,16 @@
   margin-right: 40rpx;
 }
 
-
-/*温馨提示  */
-.bind-tishi{
+/* 半小时提示 */
+.pay-warn{
   width: 670rpx;
   margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 60rpx;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
 }
-.search-prompt{
-  width: 670rpx;
-  margin: 0 auto ;
-  text-align:center;
-}
-.prompt-desc{
-  color:#a0a0a0;
-  font-size: 24rpx;
+.bind-prompt-desc1{
   text-align: center;
-  display: block;
-}
-.prompt-desc1{
-  padding-bottom: 20rpx;
-}
-.prompt-desc2{
-  line-height: 42rpx;
+  font-size: 34rpx;
+  line-height: 60rpx;
 }

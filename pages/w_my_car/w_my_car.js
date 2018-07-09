@@ -16,7 +16,7 @@ Page({
   //   carnumber: "鲁B·123456",
   //   opdate: "2018-07-07 15:02:31"
   // },
-      first_jin: true,//是否是首次进入
+      first_jin: true,//是否是首次进入，默认是
   },
 
   /**
